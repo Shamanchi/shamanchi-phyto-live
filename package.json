@@ -1,0 +1,27 @@
+{
+  "name": "shamanchi-phyto-live",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PHYTOTAB — реальный магазин (фитосборы, грибы, витамины, наборы) на платформе Shamanchi. Next.js static export, GitHub Pages. Подготовлено как предложение для phytotab.ru.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "preview": "next start",
+    "test:acceptance": "node tests/acceptance.mjs"
+  },
+  "dependencies": {
+    "@tsparticles/engine": "4.4.0",
+    "@tsparticles/react": "4.4.0",
+    "@tsparticles/slim": "4.4.0",
+    "next": "15.5.25",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "lighthouse": "^13.4.1",
+    "playwright-core": "^1.52.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
+  }
+}

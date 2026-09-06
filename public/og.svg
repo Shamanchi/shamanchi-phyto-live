@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBF8F1"/>
+      <stop offset="1" stop-color="#E9DFC8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="180" r="180" fill="#C98A2C" opacity="0.14"/>
+  <path d="M120 520 C 90 430 150 340 260 300" stroke="#3E6B35" stroke-width="7" fill="none" stroke-linecap="round" opacity=".5"/>
+  <g transform="translate(180 470)">
+    <path d="M0 0 C -26 -40 -60 -58 -100 -58 C -100 -10 -70 16 -36 24 L0 0 Z" fill="#3E6B35"/>
+    <path d="M0 0 C -4 -48 14 -98 54 -140" stroke="#3E6B35" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="120" y="210" font-family="Georgia, serif" font-size="104" font-weight="700" fill="#22301F">PHYTO<span fill="#3E6B35">TAB</span></text>
+  <text x="122" y="290" font-family="Georgia, serif" font-size="42" font-style="italic" fill="#22301F">магазин товаров здоровья</text>
+  <text x="122" y="345" font-family="Georgia, serif" font-size="30" fill="#4a5640">врача-фитотерапевта Евгения Козлова</text>
+  <rect x="120" y="405" width="330" height="66" rx="33" fill="#C98A2C"/>
+  <text x="285" y="449" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#22301F">фитосборы · грибы · витамины</text>
+  <text x="120" y="560" font-family="monospace, sans-serif" font-size="24" letter-spacing="4" fill="#6F7559">PHYTOTAB.RU · ДОСТАВКА СДЭК ПО РОССИИ</text>
+</svg>
