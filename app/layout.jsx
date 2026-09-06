@@ -5,6 +5,7 @@ import { ShopProvider } from "../components/ShopContext";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import CartDrawer from "../components/CartDrawer";
+import SupportFab from "../components/support/SupportFab";
 import LivePollen from "../components/live/LivePollenMount";
 
 
@@ -18,7 +19,11 @@ export const metadata = {
   keywords: SEO.keywords,
   alternates: { canonical: "/" },
   icons: {
-    icon: SITE_PATH + "/favicon.svg",
+    icon: [
+      { url: SITE_PATH + "/favicon.png", sizes: "192x192", type: "image/png" },
+      { url: SITE_PATH + "/favicon.png", sizes: "180x180", type: "image/png" },
+    ],
+    apple: SITE_PATH + "/favicon.png",
   },
   openGraph: {
     type: "website",
@@ -74,6 +79,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
           <CartDrawer />
+          <SupportFab />
         </ShopProvider>
         <noscript>
           <style>{`.rv{opacity:1 !important;transform:none !important;}`}</style>

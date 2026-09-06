@@ -69,10 +69,12 @@ a, button, input, textarea, select, [tabindex] {
 /* --- Статичный фон «пыльца» для prefers-reduced-motion (без канваса) --- */
 .bg-pollen-static {
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(201, 138, 44, 0.4) 1px, transparent 1.7px),
-    radial-gradient(circle at 1px 1px, rgba(143, 169, 138, 0.34) 1px, transparent 1.7px);
-  background-size: 150px 150px, 200px 200px;
-  background-position: 0 0, 40px 60px;
+    radial-gradient(circle at 2px 2px, rgba(201, 138, 44, 0.55) 2px, transparent 3.4px),
+    radial-gradient(circle at 2px 2px, rgba(224, 184, 79, 0.42) 2px, transparent 3.4px),
+    radial-gradient(circle at 2px 2px, rgba(143, 169, 138, 0.36) 2px, transparent 3.4px),
+    radial-gradient(circle at 3px 3px, rgba(201, 138, 44, 0.4) 3px, transparent 5px);
+  background-size: 130px 130px, 190px 190px, 260px 260px, 420px 420px;
+  background-position: 0 0, 60px 90px, 20px 160px, 130px 60px;
 }
 
 /* --- Мягкое покачивание карточек-печатей --- */
@@ -255,4 +257,19 @@ a, button, input, textarea, select, [tabindex] {
     animation: none !important;
   }
   .wisp { opacity: 0 !important; }
+}
+/* Шапка с плашкой поддержки: на lg+ фиксированная шапка выше (плашка 38px + бар),
+   контент получает отступ, чтобы не прятаться под ней */
+@media (min-width: 1024px) {
+  body {
+    padding-top: 2.375rem;
+  }
+}
+
+/* Точки слайдера и панели: плавность по умолчанию */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
 }

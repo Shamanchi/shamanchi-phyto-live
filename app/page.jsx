@@ -1,4 +1,6 @@
 import Hero from "../components/Hero";
+import PromoSwiper from "../components/home/PromoSwiper";
+import QuizSection from "../components/home/QuizSection";
 import TrustBar from "../components/TrustBar";
 import HomeShelves from "../components/home/HomeShelves";
 import DeliveryStrip from "../components/home/DeliveryStrip";
@@ -27,8 +29,10 @@ export default function Page() {
     <>
       <main id="main">
         <Hero />
+        <PromoSwiper />
         <TrustBar />
         <HomeShelves />
+        <QuizSection />
         <DeliveryStrip />
         <AboutDoctor />
         <KnowledgeTeasers />

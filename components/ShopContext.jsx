@@ -6,6 +6,7 @@ import { cartLines, discountFor, isAvailable, makeOrderNumber, normalizePromo, p
 const ShopContext = createContext(null);
 const CART_KEY = "pt-cart-v1";
 const ORDERS_KEY = "pt-orders-v1";
+const FAV_KEY = "pt-fav-v1";
 const MAX_QTY = 99;
 
 function readJson(key) {
@@ -30,6 +31,7 @@ export function ShopProvider({ children }) {
   const [promoCode, setPromoCode] = useState("");
   const [cartOpen, setCartOpen] = useState(false);
   const [orders, setOrders] = useState([]);
+  const [favorites, setFavorites] = useState({});
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -37,6 +39,8 @@ export function ShopProvider({ children }) {
     if (savedCart && typeof savedCart === "object") setItems(savedCart);
     const savedOrders = readJson(ORDERS_KEY);
     if (Array.isArray(savedOrders)) setOrders(savedOrders);
+    const savedFav = readJson(FAV_KEY);
+    if (savedFav && typeof savedFav === "object") setFavorites(savedFav);
     setReady(true);
   }, []);
 
@@ -49,6 +53,11 @@ export function ShopProvider({ children }) {
     if (!ready) return;
     writeJson(ORDERS_KEY, orders);
   }, [orders, ready]);
+
+  useEffect(() => {
+    if (!ready) return;
+    writeJson(FAV_KEY, favorites);
+  }, [favorites, ready]);
 
   const add = useCallback((id, qty = 1) => {
     const product = productById(id);
@@ -144,6 +153,24 @@ export function ShopProvider({ children }) {
     [items, subtotal, discount, total, promo]
   );
 
+  // Избранное: сердце с бейджем в шапке, хранение в localStorage, вход из кабинета.
+  const toggleFavorite = useCallback((id) => {
+    setFavorites((prev) => {
+      const next = { ...prev };
+      if (next[id]) {
+        delete next[id];
+      } else {
+        next[id] = true;
+      }
+      return next;
+    });
+  }, []);
+
+  const hasFavorite = useCallback((id) => Boolean(favorites[id]), [favorites]);
+
+  const favoriteIds = useMemo(() => Object.keys(favorites), [favorites]);
+  const favoriteCount = favoriteIds.length;
+
   // Повтор заказа: добавляет позиции прошлого заказа в корзину (только доступные товары).
   const reorder = useCallback(
     (orderId) => {
@@ -186,6 +213,11 @@ export function ShopProvider({ children }) {
         ready,
         cartOpen,
         setCartOpen,
+        favorites,
+        favoriteIds,
+        favoriteCount,
+        toggleFavorite,
+        hasFavorite,
       }}
     >
       {children}

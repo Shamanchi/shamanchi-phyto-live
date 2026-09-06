@@ -1,20 +1,15 @@
-"use client";
-
 import Link from "next/link";
-import { asset } from "../lib/site";
 import products from "../data/products.json";
-import HeroLeaves from "./live/HeroLeaves";
-
-const FEATURED = products.filter((p) => (p.badges || []).includes("hit")).slice(0, 4);
-const ROTATIONS = ["-rotate-3", "rotate-2", "-rotate-1", "rotate-3"];
+import HeroLeavesMount from "./live/HeroLeavesMount";
+import DoctorCard from "./home/DoctorCard";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pb-12 pt-28 sm:pt-32 lg:pb-16">
+    <section id="top" className="relative overflow-hidden pb-10 pt-28 sm:pt-32 lg:pb-14">
       {/* слой 2 «листья»: tsParticles, только первый экран и десктоп */}
-      <HeroLeaves />
+      <HeroLeavesMount />
 
-      <div className="wrap relative grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8">
+      <div className="wrap relative grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8">
         <div className="relative z-10 max-w-2xl">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-sage/50 bg-cream/70 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-khaki">
             <span className="h-1.5 w-1.5 rounded-full bg-leaf" aria-hidden="true" />
@@ -48,10 +43,10 @@ export default function Hero() {
               </svg>
             </Link>
             <Link
-              href="/#shelves"
+              href="/#podbor"
               className="inline-flex items-center gap-2 rounded-full border-2 border-ink/15 bg-transparent px-7 py-3 text-lg font-bold text-ink transition hover:border-leaf hover:text-leaf"
             >
-              Подборки Евгения
+              Подобрать под задачу
             </Link>
           </div>
 
@@ -60,30 +55,9 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Коллаж из реальных товаров каталога */}
+        {/* Живое фото врача справа от заголовка */}
         <div className="relative z-10 mx-auto w-full max-w-[440px]">
-          <div className="relative grid grid-cols-2 gap-4">
-            {FEATURED.map((product, i) => (
-              <Link
-                key={product.id}
-                href={`/product/${product.id}/`}
-                className={`overflow-hidden rounded-3xl border border-line bg-cream shadow-lift transition hover:-translate-y-1 ${ROTATIONS[i % ROTATIONS.length]}`}
-                aria-label={product.name}
-              >
-                <img
-                  src={asset(product.img)}
-                  alt={product.name}
-                  width={440}
-                  height={440}
-                  fetchPriority={i < 2 ? "high" : "low"}
-                  className="aspect-square w-full object-cover"
-                />
-              </Link>
-            ))}
-            <span className="pointer-events-none absolute -right-3 -top-4 rounded-full bg-leaf px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-wider text-paper shadow-card">
-              {products.length} товара
-            </span>
-          </div>
+          <DoctorCard />
         </div>
       </div>
     </section>

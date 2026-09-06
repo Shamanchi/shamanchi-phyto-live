@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useShop } from "../ShopContext";
 import { formatPrice, SHOP, SHOP_TG_URL } from "../../lib/site";
 import { deliveryOption } from "../../lib/shop";
+import TgChannelCard from "../home/TgChannelCard";
 
 export default function OrderSuccessView({ id }) {
   const { orders, ready } = useShop();
@@ -89,6 +90,10 @@ export default function OrderSuccessView({ id }) {
                 В каталог
               </Link>
             </div>
+          </div>
+
+          <div className="mt-6">
+            <TgChannelCard dark />
           </div>
 
           <div className="mt-6 rounded-3xl border border-line bg-cream p-6 sm:p-8">

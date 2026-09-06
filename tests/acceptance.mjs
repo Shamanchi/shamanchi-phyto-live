@@ -249,6 +249,173 @@ try {
   const yandexCount = await rev.locator('a[href*="yandex"]').count();
   check(yandexCount > 0, "отзывы: ссылки на Яндекс");
 
+  // ===== Итерация 2: фавикон-лист, шапка с плашкой, фото врача ===== 
+  const { ctx: i2Ctx, pg: i2 } = await newPage();
+  await i2.goto(BASE_URL, { waitUntil: "domcontentloaded", timeout: 60000 });
+  await i2.waitForSelector("h1");
+  await i2.evaluate(() => document.fonts.ready);
+  const favResp = await i2.request.get(BASE_URL + "favicon.png");
+  check(favResp.status() === 200, "фавикон: /favicon.png отдаётся (200)", "status " + favResp.status());
+  const favBody = await favResp.body();
+  check(favBody.length > 5000, "фавикон: это не пустой файл и не дефолтная иконка Next", "bytes " + favBody.length);
+  const iconHref = await i2.locator('link[rel~="icon"]').first().getAttribute("href");
+  check(String(iconHref || "").endsWith("favicon.png"), "фавикон: в head ссылка на /favicon.png", iconHref || "");
+  const doctorImg = i2.locator('img[alt*="Евгений Козлов"]').first();
+  check((await doctorImg.count()) > 0 && (await doctorImg.isVisible()), "герой: фото врача справа от заголовка");
+  const heroAlt = await doctorImg.getAttribute("alt");
+  check(String(heroAlt).includes("врач-фитотерапевт"), "герой: alt фото — врач-фитотерапевт");
+  const topbar = i2.locator("[data-testid=nav-topbar]");
+  check(await topbar.isVisible(), "шапка: плашка поддержки видна (десктоп)");
+  const topbarText = lower(await topbar.innerText());
+  check(topbarText.includes("+7(909)984-05-06") && topbarText.includes("с 10 до 20 (мск)"), "шапка: телефон поддержки и часы работы");
+  check(topbarText.includes("пункт самовывоза"), "шапка: пункт самовывоза");
+  const mainNav = i2.locator('nav[aria-label="Основная навигация"]');
+  for (const label of ["Каталог", "О нас", "Оплата", "Доставка", "Вопросы", "Статьи", "Контакты"]) {
+    const link = mainNav.locator("a", { hasText: label }).first();
+    check((await link.count()) > 0 && (await link.isVisible()), "шапка: пункт меню «" + label + "»");
+  }
+  check((await mainNav.locator("a", { hasText: "Подбор по задаче" }).count()) > 0, "шапка: вход в подбор из меню");
+  check((await i2.getByRole("button", { name: "Открыть поиск" }).count()) === 1, "шапка: иконка поиска");
+  check((await i2.getByRole("link", { name: /Личный кабинет/ }).count()) === 1, "шапка: иконка кабинета");
+  check((await i2.getByRole("link", { name: /Избранное, товаров: 0/ }).count()) === 1, "шапка: иконка избранного с бейджем 0");
+  check((await i2.getByRole("button", { name: /Корзина, товаров:/ }).count()) === 1, "шапка: иконка корзины");
+  // Поиск из шапки ведёт в каталог с запросом
+  await i2.getByRole("button", { name: "Открыть поиск" }).click();
+  await i2.getByRole("searchbox", { name: "Поиск по каталогу" }).fill("грибы");
+  await i2.getByRole("button", { name: "Найти" }).click();
+  await i2.waitForURL(/\/catalog\/?\?q=/);
+  await i2.waitForSelector('p:has-text("Найдено:")');
+  const searchFound = norm(await i2.locator('p:has-text("Найдено:")').first().innerText());
+  check(/Найдено:\s*[1-9]/.test(searchFound), "поиск из шапки: есть результаты", searchFound);
+  // Каталог после поиска из шапки открывает фото врача на карточках? нет — возвращаемся на главную для слайдера
+  await i2.goto(BASE_URL, { waitUntil: "domcontentloaded" });
+  await i2.waitForSelector("h1");
+
+  // ===== Итерация 2: промо-слайдер ===== 
+  const swiper = i2.locator("[data-testid=promo-swiper]");
+  check((await swiper.count()) === 1, "слайдер: секция на главной");
+  const slideGroups = swiper.locator('[aria-roledescription="слайд"]');
+  const slideCount = await slideGroups.count();
+  check(slideCount === 4, "слайдер: 4 слайда", "count " + slideCount);
+  const dotCount = await swiper.locator('button[aria-label^="Перейти к слайду"]').count();
+  check(dotCount === 4, "слайдер: 4 точки переключения");
+  const slide1Text = lower(await slideGroups.nth(0).innerText());
+  check(slide1Text.includes("фитосборы врача евгения козлова"), "слайд 1: позиция врача без скидок");
+  const slide2Text = lower(await slideGroups.nth(1).innerText());
+  check(slide2Text.includes("бесплатная доставка от 7 900"), "слайд 2: реальное промо — доставка от 7 900 ₽");
+  const slide3Text = lower(await slideGroups.nth(2).innerText());
+  check(slide3Text.includes("клетчатка козлова") && slide3Text.includes("14%"), "слайд 3: реальное промо — клетчатка −14%");
+  const slide4Text = lower(await slideGroups.nth(3).innerText());
+  check(slide4Text.includes("новинки phytotab"), "слайд 4: новинки");
+  await i2.getByRole("button", { name: "Следующий слайд" }).click();
+  const trackTransform = await swiper.locator("[data-testid=swiper-track]").evaluate((el) => el.style.transform);
+  check(String(trackTransform).includes("-100%"), "слайдер: переключение двигает ленту", trackTransform);
+  await i2.screenshot({ path: join(artifacts, "i2-slider-1440.png") });
+
+  // ===== Итерация 2: квиз → товар → корзина с подсветкой ===== 
+  const { ctx: quizCtx, pg: quiz } = await newPage();
+  await quiz.goto(BASE_URL, { waitUntil: "domcontentloaded" });
+  await quiz.waitForSelector("h1");
+  await quiz.locator("[data-testid=quiz-section]").scrollIntoViewIfNeeded();
+  const quizCard = quiz.locator("[data-testid=quiz-section]");
+  await quizCard.getByRole("button", { name: /Иммунитет/ }).click();
+  await quizCard.getByRole("button", { name: /Фитосбор/ }).click();
+  await quizCard.getByRole("button", { name: "Показать подбор" }).click();
+  await quiz.waitForSelector("text=Крепкий иммунитет");
+  const quizResultText = lower(await bodyText(quiz));
+  check(quizResultText.includes("фитосбор №6. крепкий иммунитет"), "квиз: рекомендация из реального каталога");
+  await quiz.screenshot({ path: join(artifacts, "i2-quiz-result-1440.png") });
+  await quizCard.getByRole("button", { name: /В корзину/ }).click();
+  await quiz.waitForSelector("text=Добавлено");
+  await quiz.getByRole("link", { name: "Перейти в корзину" }).click();
+  await quiz.waitForURL(/\/cart\//);
+  await quiz.waitForSelector('li[data-quiz-recommended="true"]', { timeout: 15000 });
+  const quizCartText = lower(await bodyText(quiz));
+  check(quizCartText.includes("фитосбор №6") && quizCartText.includes("подобран в квизе"), "квиз: товар в корзине и подсвечен");
+  check((await quiz.locator("[data-quiz-recommended=true]").count()) === 1, "квиз: у строки товара признак подсветки");
+  await quiz.screenshot({ path: join(artifacts, "i2-quiz-cart-1440.png") });
+  await quizCtx.close();
+
+  // ===== Итерация 2: избранное ===== 
+  const { ctx: favCtx, pg: fav } = await newPage();
+  await fav.goto(BASE_URL + "catalog/", { waitUntil: "domcontentloaded" });
+  await fav.waitForSelector("h1");
+  const firstTileName = lower((await fav.locator("main article h3").first().innerText()).trim());
+  await fav.getByRole("button", { name: /^Добавить в избранное:/ }).first().click();
+  await fav.waitForSelector('a[aria-label="Избранное, товаров: 1"]');
+  await fav.getByRole("link", { name: /Избранное, товаров: 1/ }).click();
+  await fav.waitForURL(/\/favorites\//);
+  const favText = lower(await bodyText(fav));
+  check(favText.includes(firstTileName.slice(0, 24)), "избранное: сохранённый товар на странице");
+  check((await fav.getByRole("button", { name: /^Убрать из избранного:/ }).count()) > 0, "избранное: сердце активно (можно убрать)");
+  await fav.screenshot({ path: join(artifacts, "i2-favorites-1440.png") });
+  await fav.getByRole("button", { name: /^Убрать из избранного:/ }).first().click();
+  await fav.waitForSelector("text=Пока пусто");
+  check(lower(await bodyText(fav)).includes("пока пусто"), "избранное: удаление работает, список пуст");
+  await favCtx.close();
+
+  // ===== Итерация 2: кнопка «Помощь» ===== 
+  const { ctx: helpCtx, pg: help } = await newPage();
+  await help.goto(BASE_URL + "catalog/", { waitUntil: "domcontentloaded" });
+  await help.waitForSelector("h1");
+  await help.getByRole("button", { name: "Открыть окно поддержки — Помощь" }).click();
+  const helpDialog = help.getByRole("dialog", { name: "Помощь и поддержка PHYTOTAB" });
+  await helpDialog.waitFor({ state: "visible" });
+  const helpText = lower(await helpDialog.innerText());
+  check(helpText.includes("позвонить") && helpText.includes("+7 (909) 984-05-06"), "помощь: карточка с телефоном");
+  check((await helpDialog.locator('a[href*="max.ru"]').count()) === 1, "помощь: кнопка MAX");
+  check((await helpDialog.locator('a[href*="telegram.me/phytotab"]').count()) === 1, "помощь: кнопка Telegram PHYTOTAB");
+  await help.screenshot({ path: join(artifacts, "i2-help-1440.png") });
+  await help.keyboard.press("Escape");
+  check(!(await helpDialog.isVisible()), "помощь: закрывается по Esc");
+  await helpCtx.close();
+
+  // ===== Итерация 2: подписка на курс на карточке сбора ===== 
+  const { ctx: crCtx, pg: cr } = await newPage();
+  await cr.goto(BASE_URL + "product/fitosbor-krepkij-immunitet/", { waitUntil: "domcontentloaded" });
+  await cr.waitForSelector("h1");
+  const crBlock = cr.locator("[data-testid=course-reminder]");
+  check((await crBlock.count()) === 1 && (await crBlock.isVisible()), "курс: блок «принимать курсом?» на карточке сбора");
+  const crText = lower(await crBlock.innerText());
+  check(crText.includes("напомнить о следующем курсе"), "курс: форма напоминания");
+  await cr.getByRole("textbox", { name: "Телеграм или телефон для напоминания" }).fill("@test_doc");
+  await crBlock.getByRole("button", { name: "Напомнить" }).click();
+  await cr.waitForSelector("text=Заявка принята");
+  await cr.screenshot({ path: join(artifacts, "i2-course-1440.png") });
+  await crCtx.close();
+
+  // ===== Итерация 2: телеграм-канал врача (футер + после заказа) ===== 
+  await i2.goto(BASE_URL, { waitUntil: "domcontentloaded" });
+  await i2.waitForSelector("h1");
+  const tgCard = i2.locator("[data-testid=tg-channel-card]").first();
+  check((await tgCard.count()) > 0, "телеграм: карточка подписки в футере");
+  const tgCardText = lower(await tgCard.innerText());
+  check(tgCardText.includes("телеграм евгения козлова") && tgCardText.includes("подписаться"), "телеграм: заголовок канала и CTA");
+  const osPage = await i2Ctx.newPage();
+  await osPage.goto(BASE_URL + "order-success/", { waitUntil: "domcontentloaded" });
+  await osPage.waitForSelector("h1");
+  const osText = lower(await bodyText(osPage));
+  check(osText.includes("телеграм евгения козлова"), "телеграм: карточка канала после оформления заказа");
+  await osPage.close();
+  await i2Ctx.close();
+
+  // ===== Итерация 2: скриншоты первого экрана и ключевых блоков (1440/768/360) ===== 
+  for (const width of [1440, 768, 360]) {
+    const { ctx: scCtx, pg: sc } = await newPage();
+    await sc.setViewportSize({ width, height: 900 });
+    await sc.goto(BASE_URL, { waitUntil: "domcontentloaded" });
+    await sc.waitForSelector("h1");
+    await sc.evaluate(() => window.scrollTo(0, 0));
+    await sc.screenshot({ path: join(artifacts, "i2-home-top-" + width + ".png") });
+    await sc.locator("[data-testid=promo-swiper]").scrollIntoViewIfNeeded();
+    await sc.waitForTimeout(250);
+    await sc.locator("[data-testid=promo-swiper]").screenshot({ path: join(artifacts, "i2-slider-" + width + ".png") });
+    await sc.locator("[data-testid=quiz-section]").scrollIntoViewIfNeeded();
+    await sc.waitForTimeout(600);
+    await sc.locator("[data-testid=quiz-section]").screenshot({ path: join(artifacts, "i2-quiz-" + width + ".png") });
+    await scCtx.close();
+  }
+
   // ===== Адаптив: нет горизонтального скролла на 360/768 =====
   for (const width of [360, 768]) {
     const { ctx: mc, pg: mp } = await newPage();

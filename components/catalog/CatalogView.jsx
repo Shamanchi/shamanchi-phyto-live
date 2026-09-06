@@ -57,6 +57,8 @@ export default function CatalogView() {
     if (c) setCategory(c);
     const col = initialFromUrl("collection");
     if (col === "sale" || col === "hits" || col === "news") setCollection(col);
+    const q = initialFromUrl("q");
+    if (q) setQuery(q);
   }, []);
 
   const visible = useMemo(
@@ -116,6 +118,8 @@ export default function CatalogView() {
             доставка СДЭК по России · самовывоз в Москве
           </span>
         </div>
+
+        <h2 className="sr-only">Все товары каталога PHYTOTAB</h2>
 
         {/* Поиск + сортировка */}
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">

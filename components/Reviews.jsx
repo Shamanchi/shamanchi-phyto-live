@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 
 function Stars() {
   return (
-    <span className="flex gap-0.5 text-honeyDark" aria-label="Оценка 5 из 5">
+    <span role="img" className="flex gap-0.5 text-honeyDark" aria-label="Оценка 5 из 5">
       {[1, 2, 3, 4, 5].map((n) => (
         <svg key={n} viewBox="0 0 20 20" className="h-4 w-4" fill="currentColor" aria-hidden="true">
           <path d="M10 1.8l2.5 5 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6.9-5.6-4-3.9 5.6-.8 2.5-5Z" />

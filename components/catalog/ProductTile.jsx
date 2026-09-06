@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { asset, formatPrice, SHOP } from "../../lib/site";
 import { useShop } from "../ShopContext";
+import FavoriteButton from "./FavoriteButton";
 
 const BADGE_TEXT = {
   sale: "Скидка недели",
@@ -30,7 +31,6 @@ export default function ProductTile({ product }) {
       <Link
         href={`/product/${product.id}/`}
         className="relative block overflow-hidden border-b border-line/60"
-        aria-label={`${product.name}: страница товара`}
       >
         <img
           src={asset(product.img)}
@@ -55,6 +55,12 @@ export default function ProductTile({ product }) {
           </span>
         )}
       </Link>
+      <FavoriteButton
+        productId={product.id}
+        label={product.name}
+        className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-line bg-paper/95 text-leaf shadow-card transition hover:bg-leaf hover:text-paper"
+        classNameActive="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-leaf bg-leaf text-paper shadow-card"
+      />
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
@@ -70,7 +76,7 @@ export default function ProductTile({ product }) {
             <span className="block font-mono text-[9px] uppercase tracking-wider text-khaki">{SHOP.unitLabel}</span>
           </p>
         </div>
-        <p className="mt-2.5 line-clamp-2 text-[13.5px] leading-snug text-ink/65">{product.tagline}</p>
+        <p className="mt-2.5 line-clamp-2 text-[13.5px] leading-snug text-ink/80">{product.tagline}</p>
         <div className="mt-4 flex items-center gap-2 pt-1">
           <button
             type="button"

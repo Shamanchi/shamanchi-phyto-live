@@ -3,6 +3,8 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import ProductTile from "../catalog/ProductTile";
+import FavoriteButton from "../catalog/FavoriteButton";
+import CourseReminder from "../home/CourseReminder";
 import { useShop } from "../ShopContext";
 import { asset, formatPrice, SHOP } from "../../lib/site";
 import { formatLabel, isAvailable, similarProducts } from "../../lib/shop";
@@ -59,7 +61,7 @@ export default function ProductView({ product }) {
                 фото упаковки
               </span>
             </div>
-            <p className="mt-3 text-[12px] leading-relaxed text-ink/50">
+            <p className="mt-3 text-[12px] leading-relaxed text-ink/80">
               БАД. Не является лекарственным средством. Перед применением проконсультируйтесь со специалистом.
             </p>
           </div>
@@ -101,6 +103,12 @@ export default function ProductView({ product }) {
               </div>
 
               <div className="mt-5 flex flex-wrap items-center gap-3">
+                <FavoriteButton
+                  productId={product.id}
+                  label={product.name}
+                  className="grid h-12 w-12 place-items-center rounded-full border border-line bg-paper text-leaf transition hover:bg-sageSoft/50"
+                  classNameActive="grid h-12 w-12 place-items-center rounded-full border border-leaf bg-leaf text-paper"
+                />
                 <div className="flex items-center rounded-full border border-line bg-paper">
                   <button
                     type="button"
@@ -145,7 +153,7 @@ export default function ProductView({ product }) {
               )}
             </div>
 
-            <p className="mt-4 font-mono text-[10px] leading-relaxed text-ink/55">
+            <p className="mt-4 font-mono text-[10px] leading-relaxed text-ink/80">
               Доставка СДЭК по России и самовывоз в Москве · оплата после подтверждения заказа менеджером
             </p>
           </div>
@@ -168,12 +176,18 @@ export default function ProductView({ product }) {
                 Как принимать
               </h2>
               <p className="mt-4 whitespace-pre-line text-[15px] leading-relaxed text-ink/80">{product.how}</p>
-              <p className="mt-4 rounded-xl bg-paper/80 p-3.5 text-[13px] leading-relaxed text-ink/60">
+              <p className="mt-4 rounded-xl bg-paper/80 p-3.5 text-[13px] leading-relaxed text-ink/80">
                 БАД. Не является лекарственным средством. Перед применением проконсультируйтесь со специалистом.
               </p>
             </section>
           )}
         </div>
+
+        {product.formatKey === "сбор" && (
+          <div className="mt-8">
+            <CourseReminder productName={product.name} />
+          </div>
+        )}
 
         {/* Похожие */}
         {similar.length > 0 && (

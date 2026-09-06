@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useShop } from "../ShopContext";
 import { asset, formatPrice, SHOP } from "../../lib/site";
@@ -9,6 +9,18 @@ export default function CartView() {
   const { lines, setQty, remove, clear, count, subtotal, discount, total, promoCode, applyPromo } = useShop();
   const [promoInput, setPromoInput] = useState(promoCode || "");
   const [promoMsg, setPromoMsg] = useState("");
+  const [quizProductId, setQuizProductId] = useState(null);
+
+  // Подсветка товара, подобранного в квизе (сохраняется при переходе в корзину).
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("pt-quiz-v1");
+      if (raw) {
+        const saved = JSON.parse(raw);
+        if (saved && saved.productId) setQuizProductId(saved.productId);
+      }
+    } catch { /* нет доступа к localStorage — просто не подсвечиваем */ }
+  }, []);
 
   const handleApply = () => {
     const ok = applyPromo(promoInput);
@@ -66,11 +78,25 @@ export default function CartView() {
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.5fr_1fr]">
           {/* Строки */}
-          <ul className="space-y-4">
+          <ul className="relative space-y-4">
             {lines.map(({ product, qty }) => {
               const unit = product.format + (product.volume ? ` · ${product.volume}` : "");
+              const fromQuiz = quizProductId === product.id;
               return (
-                <li key={product.id} className="flex flex-wrap gap-4 rounded-3xl border border-line bg-cream p-4 sm:flex-nowrap">
+                <li
+                  key={product.id}
+                  data-quiz-recommended={fromQuiz ? "true" : undefined}
+                  className={`relative flex flex-wrap gap-4 rounded-3xl border p-4 sm:flex-nowrap ${
+                    fromQuiz
+                      ? "border-honey/70 bg-honey/10 ring-2 ring-honey/60"
+                      : "border-line bg-cream"
+                  }`}
+                >
+                  {fromQuiz && (
+                    <span className="absolute -top-2.5 left-4 rounded-full bg-honey px-2.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-ink shadow-card">
+                      подобран в квизе
+                    </span>
+                  )}
                   <Link href={`/product/${product.id}/`} className="shrink-0">
                     <img
                       src={asset(product.img)}

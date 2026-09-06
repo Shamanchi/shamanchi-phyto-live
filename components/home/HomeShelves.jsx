@@ -66,7 +66,7 @@ export default function HomeShelves() {
                     Минимальный заказ фитохитодезов — от 2 штук.
                   </p>
                 )}
-                <div className="mt-4 flex snap-x gap-5 overflow-x-auto pb-4" role="list" aria-label={title}>
+                <div className="mt-4 flex snap-x gap-5 overflow-x-auto pb-4" role="region" aria-label={title}>
                   {section.items.map((product) => (
                     <div key={product.id} className="w-[250px] shrink-0 snap-start sm:w-[270px]">
                       <ProductTile product={product} />
