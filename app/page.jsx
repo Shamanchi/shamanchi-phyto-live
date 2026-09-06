@@ -1,12 +1,13 @@
 import Hero from "../components/Hero";
 import PromoSwiper from "../components/home/PromoSwiper";
+import CategoryTiles from "../components/home/CategoryTiles";
 import QuizSection from "../components/home/QuizSection";
-import TrustBar from "../components/TrustBar";
 import HomeShelves from "../components/home/HomeShelves";
 import DeliveryStrip from "../components/home/DeliveryStrip";
 import AboutDoctor from "../components/home/AboutDoctor";
 import KnowledgeTeasers from "../components/home/KnowledgeTeasers";
 import Reviews from "../components/Reviews";
+import FinalCta from "../components/home/FinalCta";
 import { BRAND, SITE_URL } from "../lib/site";
 
 const ldJson = {
@@ -28,15 +29,17 @@ export default function Page() {
   return (
     <>
       <main id="main">
+        {/* Канонический порядок (правка 3, п. 1): hero → категории → витрина/подборки → квиз → преимущества → отзывы → CTA → подвал */}
         <Hero />
+        <CategoryTiles />
         <PromoSwiper />
-        <TrustBar />
         <HomeShelves />
         <QuizSection />
         <DeliveryStrip />
         <AboutDoctor />
         <KnowledgeTeasers />
         <Reviews />
+        <FinalCta />
       </main>
       <script
         type="application/ld+json"

@@ -35,7 +35,7 @@ const SLIDES = [
     text: "Любимая клетчатка врача со скидкой недели: поддержка пищеварения и мягкое очищение по системе Евгения Козлова.",
     cta: { href: "/product/kletchatka-kozlova-200-g/", label: "Смотреть товар" },
     cta2: { href: "/catalog/?collection=sale", label: "Все скидки" },
-    img: asset("/images/products/kletchatka-kozlova-200-g.jpg"),
+    img: asset("/images/products/product-51.jpg"),
     imgAlt: "Клетчатка Козлова, 200 г",
     accent: "bg-honeyDark",
   },
@@ -56,17 +56,28 @@ function SlideVisual({ slide }) {
   if (!slide.img) {
     return (
       <div className="hidden lg:flex items-center justify-center">
-        <span className={`grid h-44 w-44 place-items-center rounded-full ${slide.accent} text-paper shadow-lift`}>
-          <svg viewBox="0 0 24 24" className="h-16 w-16" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true">
-            {slide.id === "delivery" ? (
-              <path d="M4 8h11v8H4zM15 10h3.5L21 13v3h-6zM7.5 18.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4ZM17.5 18.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4Z" />
-            ) : slide.id === "kletchatka" ? (
-              <path d="M6 21 8 6l3 3 2.5-5 1.6 2.2L17 3l2.6 3.6M9 21l.7-8.6M13.6 20l1.3-6.2M17.6 18.4l1-4.2" />
-            ) : (
-              <path d="M12 21c-5-2.4-7.6-6.7-7.6-11C4.4 5.8 8.2 3.9 12 3c3.8.9 7.6 2.8 7.6 7 0 4.3-2.6 8.6-7.6 11ZM12 21c0-6.5 1.6-12 5.4-16.5M12 21c0-6.5-1.6-12-5.4-16.5" />
-            )}
-          </svg>
-        </span>
+        {slide.id === "news" ? (
+          <span className="grid h-44 w-44 place-items-center rounded-full bg-paper shadow-lift ring-1 ring-line/80">
+            <img
+              src={asset("/images/brand/logo-leaf.png")}
+              alt=""
+              width={120}
+              height={120}
+              loading="lazy"
+              className="h-28 w-28 object-contain"
+            />
+          </span>
+        ) : (
+          <span className={`grid h-44 w-44 place-items-center rounded-full ${slide.accent} text-paper shadow-lift`}>
+            <svg viewBox="0 0 24 24" className="h-16 w-16" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true">
+              {slide.id === "delivery" ? (
+                <path d="M4 8h11v8H4zM15 10h3.5L21 13v3h-6zM7.5 18.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4ZM17.5 18.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4Z" />
+              ) : (
+                <path d="M6 21 8 6l3 3 2.5-5 1.6 2.2L17 3l2.6 3.6M9 21l.7-8.6M13.6 20l1.3-6.2M17.6 18.4l1-4.2" />
+              )}
+            </svg>
+          </span>
+        )}
       </div>
     );
   }
@@ -147,14 +158,14 @@ export default function PromoSwiper() {
                     <h2 className="mt-4 max-w-xl font-display text-3xl font-semibold leading-[1.08] sm:text-4xl lg:text-[44px]">
                       {slide.title}
                     </h2>
-                    <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink/70 sm:text-[16px]">
+                    <p className="mt-3 max-w-xl text-[16px] leading-relaxed text-ink/90 sm:text-[17px]">
                       {slide.text}
                     </p>
                     <div className="mt-6 flex flex-wrap items-center gap-3">
                       <Link
                         href={slide.cta.href}
                         tabIndex={i === index ? 0 : -1}
-                        className="inline-flex items-center gap-2 rounded-full bg-honey px-6 py-3 text-[15px] font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+                        className="inline-flex items-center gap-2 rounded-full bg-honey px-6 py-3 text-[15px] font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-honeyDark"
                       >
                         {slide.cta.label}
                         <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -185,7 +196,7 @@ export default function PromoSwiper() {
             type="button"
             onClick={prev}
             aria-label="Предыдущий слайд"
-            className="absolute left-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-line bg-paper/90 text-ink/70 shadow-card transition hover:text-leaf"
+            className="absolute left-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-line bg-paper/90 text-ink/90 shadow-card transition hover:text-leaf"
           >
             <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <path d="M12 4l-6 6 6 6" />
@@ -195,7 +206,7 @@ export default function PromoSwiper() {
             type="button"
             onClick={next}
             aria-label="Следующий слайд"
-            className="absolute right-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-line bg-paper/90 text-ink/70 shadow-card transition hover:text-leaf"
+            className="absolute right-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-line bg-paper/90 text-ink/90 shadow-card transition hover:text-leaf"
           >
             <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <path d="M8 4l6 6-6 6" />

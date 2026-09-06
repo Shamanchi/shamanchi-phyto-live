@@ -36,7 +36,7 @@ export default function TrustBar() {
             </span>
             <span>
               <span className="block text-[15px] font-extrabold leading-snug">{item.title}</span>
-              <span className="mt-1 block text-[13px] leading-snug text-ink/60">{item.note}</span>
+              <span className="mt-1 block text-[13px] leading-snug text-secondary">{item.note}</span>
             </span>
           </Reveal>
         ))}

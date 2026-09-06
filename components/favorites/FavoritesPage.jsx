@@ -27,7 +27,7 @@ export default function FavoritesPage() {
           <h1 className="mt-2 font-display text-4xl font-semibold leading-tight sm:text-5xl">
             Избранное {favoriteProducts.length > 0 && <span className="text-leaf">({favoriteProducts.length})</span>}
           </h1>
-          <p className="mt-4 text-[15px] leading-relaxed text-ink/60">
+          <p className="mt-4 text-[15px] leading-relaxed text-secondary">
             Сохранённые товары живут в этом браузере. Сердце на карточке или странице товара
             добавляет позицию сюда, бейдж в шапке показывает количество.
           </p>
@@ -41,20 +41,20 @@ export default function FavoritesPage() {
               </svg>
             </span>
             <p className="mt-5 font-display text-2xl font-semibold">Пока пусто</p>
-            <p className="mx-auto mt-2 max-w-md text-[14px] leading-relaxed text-ink/60">
+            <p className="mx-auto mt-2 max-w-md text-[14px] leading-relaxed text-secondary">
               Нажмите на сердечко у понравившегося товара — он появится здесь и будет доступен
               из шапки сайта на любой странице.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Link
                 href="/catalog/"
-                className="rounded-full bg-honey px-6 py-3 text-[15px] font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+                className="rounded-full bg-honey px-6 py-3 text-[15px] font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-honeyDark"
               >
                 Открыть каталог
               </Link>
               <Link
                 href="/account/"
-                className="rounded-full border border-line bg-paper px-6 py-3 text-[15px] font-bold text-ink/70 transition hover:border-leaf hover:text-leaf"
+                className="rounded-full border border-line bg-paper px-6 py-3 text-[15px] font-bold text-ink/90 transition hover:border-leaf hover:text-leaf"
               >
                 Мои заказы
               </Link>

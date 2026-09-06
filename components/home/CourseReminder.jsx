@@ -30,11 +30,11 @@ export default function CourseReminder({ productName }) {
     >
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="max-w-md">
-          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-honeyDark">принимать курсом?</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-honeyDark">принимать курсом?</p>
           <h2 id="course-remind-title" className="mt-1.5 font-display text-2xl font-semibold leading-tight">
             Напомнить о следующем курсе
           </h2>
-          <p className="mt-2 text-[14px] leading-relaxed text-ink/70">
+          <p className="mt-2 text-[15px] leading-relaxed text-ink">
             Фитосборы чаще принимают курсом 30 дней. Оставьте телеграм или телефон — за несколько
             дней до окончания курса напомним и подскажем, нужен ли перерыв.
           </p>

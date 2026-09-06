@@ -1,5 +1,6 @@
 import Link from "next/link";
 import articles from "../../data/articles.json";
+import { asset } from "../../lib/site";
 
 export const metadata = {
   title: "Знания врача — статьи Евгения Козлова",
@@ -28,7 +29,7 @@ export default function KnowledgePage() {
             <h1 className="mt-2 font-display text-4xl font-semibold leading-tight sm:text-5xl">
               Знания <span className="text-leaf">врача</span>
             </h1>
-            <p className="mt-4 text-[15px] leading-relaxed text-ink/60">
+            <p className="mt-4 text-[16px] leading-relaxed text-ink/90">
               Статьи проекта PHYTOTAB — о травах, грибах и разумном отношении к здоровью.
             </p>
           </div>
@@ -36,24 +37,38 @@ export default function KnowledgePage() {
           <ul className="mt-10 grid gap-5 md:grid-cols-2">
             {sorted.map((article) => (
               <li key={article.slug}>
-                <article className="flex h-full flex-col rounded-3xl border border-line bg-cream p-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-lift">
-                  <p className="font-mono text-[11px] uppercase tracking-wider text-khaki">
-                    {formatDate(article.date)}
-                  </p>
-                  <h2 className="mt-3 font-display text-[24px] font-semibold leading-tight">
-                    <Link href={`/knowledge/${article.slug}/`} className="transition hover:text-leaf">
-                      {article.title}
+                <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-cream shadow-card transition hover:-translate-y-0.5 hover:shadow-lift">
+                  {article.cover && (
+                    <Link href={`/knowledge/${article.slug}/`} aria-hidden="true" tabIndex={-1} className="block">
+                      <img
+                        src={asset(article.cover)}
+                        alt=""
+                        width={1200}
+                        height={630}
+                        loading="lazy"
+                        className="h-44 w-full object-cover sm:h-52"
+                      />
                     </Link>
-                  </h2>
-                  <p className="mt-3 line-clamp-3 text-[14.5px] leading-relaxed text-ink/65">
-                    {String(article.text || "").replace(/\s+/g, " ").slice(0, 300)}…
-                  </p>
-                  <Link
-                    href={`/knowledge/${article.slug}/`}
-                    className="mt-5 inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-leaf transition hover:text-leafDark"
-                  >
-                    Читать →
-                  </Link>
+                  )}
+                  <div className="flex flex-1 flex-col p-6">
+                    <p className="font-mono text-[11px] uppercase tracking-wider text-khaki">
+                      {formatDate(article.date)}
+                    </p>
+                    <h2 className="mt-3 font-display text-[24px] font-semibold leading-tight">
+                      <Link href={`/knowledge/${article.slug}/`} className="transition hover:text-leaf">
+                        {article.title}
+                      </Link>
+                    </h2>
+                    <p className="mt-3 line-clamp-3 text-[14.5px] leading-relaxed text-secondary">
+                      {String(article.text || "").replace(/\s+/g, " ").slice(0, 300)}…
+                    </p>
+                    <Link
+                      href={`/knowledge/${article.slug}/`}
+                      className="mt-5 inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-leaf transition hover:text-leafDark"
+                    >
+                      Читать →
+                    </Link>
+                  </div>
                 </article>
               </li>
             ))}

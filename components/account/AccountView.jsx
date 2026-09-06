@@ -28,7 +28,7 @@ export default function AccountView() {
           <h1 className="mt-2 font-display text-4xl font-semibold sm:text-5xl">
             Мои <span className="text-leaf">заказы</span>
           </h1>
-          <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink/60">
+          <p className="mt-3 max-w-2xl text-[16px] leading-relaxed text-ink/90">
             История заказов этого браузера: номер, состав, статус и повтор заказа в один клик.
             Полная синхронизация с бэкендом подключается на этапе запуска.
           </p>
@@ -37,12 +37,12 @@ export default function AccountView() {
         {orders.length === 0 ? (
           <div className="mt-10 rounded-3xl border border-line bg-cream p-10 text-center">
             <p className="font-display text-2xl font-semibold">Пока нет ни одного заказа</p>
-            <p className="mx-auto mt-2 max-w-md text-[14px] leading-relaxed text-ink/60">
+            <p className="mx-auto mt-2 max-w-md text-[14px] leading-relaxed text-secondary">
               Оформите заказ из каталога — он появится здесь с номером, составом и кнопкой «повторить».
             </p>
             <Link
               href="/catalog/"
-              className="mt-6 inline-flex rounded-full bg-honey px-7 py-3.5 text-[16px] font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+              className="mt-6 inline-flex rounded-full bg-honey px-7 py-3.5 text-[16px] font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-honeyDark"
             >
               Открыть каталог
             </Link>
@@ -83,7 +83,7 @@ export default function AccountView() {
                     ))}
                   </ul>
                   <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
-                    <p className="text-[14px] text-ink/60">
+                    <p className="text-[14px] text-secondary">
                       {delivery ? delivery.label : "Доставка"} ·{" "}
                       <span className="font-extrabold text-ink">{formatPrice(order.total)}</span>
                       {order.discount > 0 && (
@@ -95,14 +95,14 @@ export default function AccountView() {
                     <div className="flex gap-2">
                       <Link
                         href={`/order-success?id=${encodeURIComponent(order.id)}`}
-                        className="rounded-full border border-line bg-paper px-5 py-2 text-[13.5px] font-bold text-ink/70 transition hover:border-leaf hover:text-leaf"
+                        className="rounded-full border border-line bg-paper px-5 py-2 text-[13.5px] font-bold text-ink/90 transition hover:border-leaf hover:text-leaf"
                       >
                         Подробнее
                       </Link>
                       <button
                         type="button"
                         onClick={() => repeat(order.id)}
-                        className="rounded-full bg-honey px-5 py-2 text-[13.5px] font-bold text-ink transition hover:bg-[#BB7B1E]"
+                        className="rounded-full bg-honey px-5 py-2 text-[13.5px] font-bold text-ink transition hover:bg-honeyDark"
                       >
                         Повторить заказ
                       </button>

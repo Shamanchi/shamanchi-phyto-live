@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { asset } from "../../lib/site";
+import { asset, SHOP_TG_URL, SHOP_YT_CHANNEL, SHOP_YT_SUBSCRIBERS, SHOP_YT_URL } from "../../lib/site";
 
 /**
  * Живое фото врача справа от заголовка (2.1): оригинальный портрет Евгения Козлова
- * с phytotab.ru, тёплая обработка под палитру, мягкое свечение и лёгкий параллакс.
+ * тёплая обработка под палитру, мягкое свечение и лёгкий параллакс.
+ * Под фото — строка с YouTube-каналом и Telegram (правка 3, п. 8), вне снимка.
  */
 export default function DoctorCard() {
   const wrapRef = useRef(null);
@@ -54,29 +55,62 @@ export default function DoctorCard() {
         {/* Тёплая обработка: янтарный тон + виньетка в палитру */}
         <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-honey/25 via-transparent to-leaf/10" aria-hidden="true" />
         <span className="pointer-events-none absolute inset-0 shadow-[inset_0_0_70px_rgba(34,48,31,0.22)]" aria-hidden="true" />
-        <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-leaf/90 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wider text-paper backdrop-blur">
-          <span className="h-1.5 w-1.5 rounded-full bg-honey" aria-hidden="true" />
-          живой человек за брендом
-        </span>
-        <span className="absolute bottom-4 right-4 rounded-full bg-paper/90 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-leafDark backdrop-blur">
-          фото: phytotab.ru
-        </span>
-        <div className="absolute inset-x-4 bottom-4 flex items-center gap-3 rounded-2xl bg-paper/95 px-4 py-3 shadow-card backdrop-blur sm:left-8 sm:right-auto sm:max-w-[260px]">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-leaf text-paper">
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-              <path d="M12 21c-4.5-2-7-5.6-7-9.6C5 6.7 8.5 4 12 3c3.5 1 7 3.7 7 8.4 0 4-2.5 7.6-7 9.6Z" />
-              <path d="M12 21c0-6 1.5-11 5-15" />
-              <path d="M12 21c0-6-1.5-11-5-15" />
-            </svg>
+        <div className="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-2xl bg-paper/95 px-3.5 py-3 shadow-card backdrop-blur sm:left-6 sm:right-auto sm:max-w-[300px]">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-cream ring-1 ring-line/70">
+            <img
+              src={asset("/images/brand/logo-leaf.png")}
+              alt=""
+              width={40}
+              height={40}
+              className="h-8 w-8 object-contain"
+            />
           </span>
-          <div className="min-w-0">
-            <p className="truncate text-[15px] font-extrabold leading-tight">Евгений Козлов</p>
-            <p className="truncate text-[12px] text-ink/60">врач-фитотерапевт · основатель PHYTOTAB</p>
-            <Link href="/info/doctor/" className="mt-0.5 inline-block font-mono text-[10px] font-bold uppercase tracking-wider text-leaf hover:text-leafDark">
+          <span className="min-w-0">
+            <p className="text-[15px] font-extrabold leading-tight text-ink">Евгений Козлов</p>
+            <p className="mt-0.5 text-[13px] font-semibold leading-snug text-secondary">
+              врач-фитотерапевт · основатель PHYTOTAB
+            </p>
+            <Link href="/info/doctor/" className="mt-1 inline-block font-mono text-[11px] font-bold uppercase tracking-wider text-leafDark hover:text-ink">
               Биография →
             </Link>
-          </div>
+          </span>
         </div>
+      </div>
+
+      {/* Креденшелы и соцконтакты под карточкой врача (не на фото) */}
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        <a
+          href={SHOP_YT_URL}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`YouTube-канал «${SHOP_YT_CHANNEL}» — ${SHOP_YT_SUBSCRIBERS} подписчиков`}
+          className="inline-flex min-w-0 items-center gap-2 rounded-full border border-line bg-paper/95 px-3.5 py-2 text-[13px] font-bold leading-tight text-ink shadow-card transition hover:-translate-y-0.5 hover:border-leaf/60 hover:text-leafDark"
+        >
+          <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-honey" fill="currentColor" aria-hidden="true">
+            <path d="M21.4 7.4a2.6 2.6 0 0 0-1.8-1.9C17.9 5.2 12 5.2 12 5.2s-5.9 0-7.6.3A2.6 2.6 0 0 0 2.6 7.4 27 27 0 0 0 2.3 12c0 1.6.1 3.1.3 4.6a2.6 2.6 0 0 0 1.8 1.9c1.7.3 7.6.3 7.6.3s5.9 0 7.6-.3a2.6 2.6 0 0 0 1.8-1.9c.2-1.5.3-3 .3-4.6s-.1-3.1-.3-4.6ZM10.2 15.3V8.7l5.6 3.3-5.6 3.3Z" />
+          </svg>
+          <span className="truncate">
+            Канал «{SHOP_YT_CHANNEL}» — {SHOP_YT_SUBSCRIBERS} подписчиков
+          </span>
+        </a>
+        <a
+          href={SHOP_TG_URL}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Telegram PHYTOTAB"
+          className="inline-flex items-center gap-2 rounded-full border border-line bg-paper/95 px-3.5 py-2 text-[13px] font-bold leading-tight text-ink shadow-card transition hover:-translate-y-0.5 hover:border-leaf/60 hover:text-leafDark"
+        >
+          <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-leaf" fill="none" aria-hidden="true">
+            <path
+              d="M20.9 4.6 3.2 11.3c-.9.4-.8 1.7.1 2l4.6 1.5 1.7 5.2c.2.8 1.2 1 1.8.3l2.3-2.7 4.6 3.3c.6.4 1.5.1 1.7-.7l3-14.5c.2-.9-.8-1.6-1.7-1.3l-.4.1Z"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinejoin="round"
+            />
+            <path d="M9 14.8 20.9 4.6M10.4 18.5l2.5-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+          Telegram PHYTOTAB
+        </a>
       </div>
     </div>
   );

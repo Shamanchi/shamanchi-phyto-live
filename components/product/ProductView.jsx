@@ -61,7 +61,7 @@ export default function ProductView({ product }) {
                 фото упаковки
               </span>
             </div>
-            <p className="mt-3 text-[12px] leading-relaxed text-ink/80">
+            <p className="mt-3 text-[12px] leading-relaxed text-ink">
               БАД. Не является лекарственным средством. Перед применением проконсультируйтесь со специалистом.
             </p>
           </div>
@@ -72,7 +72,7 @@ export default function ProductView({ product }) {
               {formatLabel(product.formatKey)} {product.volume ? `· ${product.volume}` : ""}
             </p>
             <h1 className="mt-2 font-display text-4xl font-semibold leading-tight sm:text-5xl">{product.name}</h1>
-            <p className="mt-3 max-w-xl text-[16px] leading-relaxed text-ink/70">{product.tagline}</p>
+            <p className="mt-3 max-w-xl text-[16px] leading-relaxed text-ink/90">{product.tagline}</p>
 
             <div className="mt-4 flex flex-wrap gap-2">
               {(product.categories || []).slice(0, 4).map((cat) => (
@@ -114,7 +114,7 @@ export default function ProductView({ product }) {
                     type="button"
                     onClick={() => setQty((q) => Math.max(1, q - 1))}
                     aria-label="Уменьшить количество"
-                    className="grid h-12 w-12 place-items-center rounded-full text-ink/70 transition hover:text-leaf"
+                    className="grid h-12 w-12 place-items-center rounded-full text-ink/90 transition hover:text-leaf"
                   >
                     −
                   </button>
@@ -123,7 +123,7 @@ export default function ProductView({ product }) {
                     type="button"
                     onClick={() => setQty((q) => Math.min(99, q + 1))}
                     aria-label="Увеличить количество"
-                    className="grid h-12 w-12 place-items-center rounded-full text-ink/70 transition hover:text-leaf"
+                    className="grid h-12 w-12 place-items-center rounded-full text-ink/90 transition hover:text-leaf"
                   >
                     +
                   </button>
@@ -134,10 +134,10 @@ export default function ProductView({ product }) {
                   disabled={!inStock}
                   className={`inline-flex flex-1 items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[16px] font-bold transition sm:flex-none ${
                     !inStock
-                      ? "cursor-not-allowed border border-line bg-cream text-ink/45"
+                      ? "cursor-not-allowed border border-line bg-cream text-secondary"
                       : added
                         ? "bg-leaf text-paper"
-                        : "bg-honey text-ink hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+                        : "bg-honey text-ink hover:-translate-y-0.5 hover:bg-honeyDark"
                   }`}
                 >
                   {!inStock ? SHOP.outLabel : added ? "Добавлено ✓" : `В корзину · ${formatPrice(product.price * qty)}`}
@@ -153,7 +153,7 @@ export default function ProductView({ product }) {
               )}
             </div>
 
-            <p className="mt-4 font-mono text-[10px] leading-relaxed text-ink/80">
+            <p className="mt-4 font-mono text-[10px] leading-relaxed text-ink">
               Доставка СДЭК по России и самовывоз в Москве · оплата после подтверждения заказа менеджером
             </p>
           </div>
@@ -166,7 +166,7 @@ export default function ProductView({ product }) {
               <h2 id="composition-title" className="font-mono text-[11px] uppercase tracking-[0.16em] text-khaki">
                 Состав
               </h2>
-              <p className="mt-4 whitespace-pre-line text-[15px] leading-relaxed text-ink/80">{product.composition}</p>
+              <p className="mt-4 whitespace-pre-line text-[16px] leading-relaxed text-ink">{product.composition}</p>
               
             </section>
           )}
@@ -175,8 +175,8 @@ export default function ProductView({ product }) {
               <h2 id="how-title" className="font-mono text-[11px] uppercase tracking-[0.16em] text-khaki">
                 Как принимать
               </h2>
-              <p className="mt-4 whitespace-pre-line text-[15px] leading-relaxed text-ink/80">{product.how}</p>
-              <p className="mt-4 rounded-xl bg-paper/80 p-3.5 text-[13px] leading-relaxed text-ink/80">
+              <p className="mt-4 whitespace-pre-line text-[16px] leading-relaxed text-ink">{product.how}</p>
+              <p className="mt-4 rounded-xl bg-paper/80 p-3.5 text-[13px] leading-relaxed text-ink">
                 БАД. Не является лекарственным средством. Перед применением проконсультируйтесь со специалистом.
               </p>
             </section>
@@ -198,7 +198,7 @@ export default function ProductView({ product }) {
               </h2>
               <Link
                 href="/catalog/"
-                className="rounded-full border border-line bg-cream px-5 py-2.5 text-[14px] font-bold text-ink/70 transition hover:border-leaf hover:text-leaf"
+                className="rounded-full border border-line bg-cream px-5 py-2.5 text-[14px] font-bold text-ink/90 transition hover:border-leaf hover:text-leaf"
               >
                 Весь каталог →
               </Link>

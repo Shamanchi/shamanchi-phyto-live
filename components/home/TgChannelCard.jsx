@@ -25,8 +25,8 @@ export default function TgChannelCard({ compact = false, dark = false }) {
             «Твоё здоровье» — телеграм Евгения Козлова
           </p>
           {!compact && (
-            <p className={`mt-1.5 max-w-md text-[13.5px] leading-relaxed ${
-              dark ? "text-paper/80" : "text-ink/80"
+            <p className={`mt-1.5 max-w-md text-[14.5px] leading-relaxed ${
+              dark ? "text-paper/80" : "text-ink"
             }`}>
               Принципы здоровья, разборы сборов и ответы на вопросы подписчиков — без рекламы и лишнего шума.
             </p>
@@ -39,7 +39,7 @@ export default function TgChannelCard({ compact = false, dark = false }) {
         rel="noreferrer"
         className={`shrink-0 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-extrabold transition hover:-translate-y-0.5 ${
           dark
-            ? "bg-honey text-ink shadow-card hover:bg-[#BB7B1E]"
+            ? "bg-honey text-ink shadow-card hover:bg-honeyDark"
             : "bg-leaf text-paper shadow-card hover:bg-leafDark"
         }`}
       >

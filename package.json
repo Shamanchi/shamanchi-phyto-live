@@ -2,7 +2,7 @@
   "name": "shamanchi-phyto-live",
   "version": "1.0.0",
   "private": true,
-  "description": "PHYTOTAB — реальный магазин (фитосборы, грибы, витамины, наборы) на платформе Shamanchi. Next.js static export, GitHub Pages. Подготовлено как предложение для phytotab.ru.",
+  "description": "PHYTOTAB — магазин натуральных товаров для здоровья (фитосборы, грибы, витамины, наборы) врача Евгения Козлова на платформе Shamanchi. Next.js static export, GitHub Pages.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

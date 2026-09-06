@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import ProductTile from "./ProductTile";
+import CategoryBanner from "./CategoryBanner";
 import { filterProducts, products } from "../../lib/shop";
 import { FORMATS, PRICE_BANDS, SORTS } from "../../lib/site";
 import catalogData from "../../data/catalog.json";
@@ -25,7 +26,7 @@ function Chip({ active, onClick, children }) {
       className={`shrink-0 rounded-full border px-3.5 py-1.5 text-[13px] font-bold transition ${
         active
           ? "border-leaf bg-leaf text-paper"
-          : "border-line bg-cream text-ink/70 hover:border-leaf/60 hover:text-leaf"
+          : "border-line bg-cream text-ink/90 hover:border-leaf/60 hover:text-leaf"
       }`}
     >
       {children}
@@ -109,7 +110,7 @@ export default function CatalogView() {
             <h1 className="mt-2 font-display text-4xl font-semibold leading-tight sm:text-5xl">
               Каталог <span className="text-leaf">PHYTOTAB</span>
             </h1>
-            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink/60">
+            <p className="mt-3 max-w-2xl text-[16px] leading-relaxed text-ink/90">
               Фитосборы, грибы, витамины и наборы по системе Евгения Козлова. Фильтры по разделу,
               формату и цене, поиск по названию и составу, подборки «Хиты», «Новинки» и «Скидки недели».
             </p>
@@ -192,7 +193,7 @@ export default function CatalogView() {
         {/* Формат */}
         <div className="mt-4">
           <fieldset>
-            <legend className="font-mono text-[10px] uppercase tracking-[0.16em] text-khaki">Формат</legend>
+            <legend className="font-mono text-[11px] uppercase tracking-[0.16em] text-secondary">Формат</legend>
             <div className="mt-2 flex flex-wrap gap-2">
               {FORMATS.map((f) => (
                 <Chip
@@ -207,8 +208,10 @@ export default function CatalogView() {
           </fieldset>
         </div>
 
+        {category && activeCatName ? <CategoryBanner slug={category} name={activeCatName} /> : null}
+
         <div className="mt-6 flex items-center justify-between gap-3 border-b border-line pb-4">
-          <p className="text-[14px] font-semibold text-ink/70">
+          <p className="text-[14px] font-semibold text-ink/90">
             Найдено: <span className="font-extrabold text-ink">{visible.length}</span>{" "}
             {visible.length === 1 ? "товар" : visible.length >= 2 && visible.length <= 4 ? "товара" : "товаров"}
             {activeCatName ? (
@@ -221,7 +224,7 @@ export default function CatalogView() {
             <button
               type="button"
               onClick={reset}
-              className="rounded-full border border-line bg-cream px-4 py-1.5 text-[13px] font-bold text-ink/60 transition hover:border-honey hover:text-honeyDark"
+              className="rounded-full border border-line bg-cream px-4 py-1.5 text-[13px] font-bold text-secondary transition hover:border-honey hover:text-honeyDark"
             >
               Сбросить фильтры
             </button>
@@ -231,7 +234,7 @@ export default function CatalogView() {
         {visible.length === 0 ? (
           <div className="mt-10 rounded-3xl border border-line bg-cream p-10 text-center">
             <p className="font-display text-2xl font-semibold">По вашему запросу ничего нет</p>
-            <p className="mt-2 text-[14px] text-ink/60">Попробуйте сбросить фильтры или изменить запрос.</p>
+            <p className="mt-2 text-[14px] text-secondary">Попробуйте сбросить фильтры или изменить запрос.</p>
             <button
               type="button"
               onClick={reset}

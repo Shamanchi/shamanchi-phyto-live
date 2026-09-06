@@ -18,7 +18,7 @@ const LEAF_OPTIONS = {
   background: { color: "transparent" },
   particles: {
     number: { value: 10, density: { enable: false } },
-    color: { value: ["#3E6B35", "#5E7A43", "#7D9B6A", "#6E8B4E"] },
+    color: { value: ["#8FA98A", "#78AA36", "#207D44", "#6E8B4E"] },
     opacity: { value: { min: 0.5, max: 0.7 } },
     size: { value: { min: 13, max: 24 } },
     rotate: {

@@ -56,7 +56,7 @@ export default function CartDrawer() {
             type="button"
             onClick={() => setCartOpen(false)}
             aria-label="Закрыть"
-            className="grid h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink/70 transition hover:border-honey hover:text-honeyDark"
+            className="grid h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink/90 transition hover:border-honey hover:text-honeyDark"
           >
             <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
               <path d="M5 5l10 10M15 5 5 15" />
@@ -75,7 +75,7 @@ export default function CartDrawer() {
               </span>
               <div>
                 <p className="font-display text-xl font-semibold">Пока пусто</p>
-                <p className="mt-1 text-sm text-ink/60">Загляните в каталог — там сборы, грибы и витамины под вашу задачу.</p>
+                <p className="mt-1 text-sm text-secondary">Загляните в каталог — там сборы, грибы и витамины под вашу задачу.</p>
               </div>
               <Link
                 href="/catalog/"
@@ -109,7 +109,7 @@ export default function CartDrawer() {
                             type="button"
                             onClick={() => setQty(product.id, qty - 1)}
                             aria-label={`Убрать один ${product.name}`}
-                            className="grid h-8 w-8 place-items-center rounded-full text-ink/70 transition hover:text-leaf"
+                            className="grid h-8 w-8 place-items-center rounded-full text-ink/90 transition hover:text-leaf"
                           >
                             −
                           </button>
@@ -118,7 +118,7 @@ export default function CartDrawer() {
                             type="button"
                             onClick={() => setQty(product.id, qty + 1)}
                             aria-label={`Добавить один ${product.name}`}
-                            className="grid h-8 w-8 place-items-center rounded-full text-ink/70 transition hover:text-leaf"
+                            className="grid h-8 w-8 place-items-center rounded-full text-ink/90 transition hover:text-leaf"
                           >
                             +
                           </button>
@@ -129,7 +129,7 @@ export default function CartDrawer() {
                   </li>
                 );
               })}
-              <li className="flex justify-between text-[13px] font-semibold text-ink/70">
+              <li className="flex justify-between text-[13px] font-semibold text-ink/90">
                 <span>Скидка по промокоду</span>
                 <span className="text-leaf">−{formatPrice(discount)}</span>
               </li>
@@ -147,19 +147,19 @@ export default function CartDrawer() {
               <button
                 type="button"
                 onClick={clear}
-                className="rounded-full border border-line bg-cream px-4 py-2.5 text-[13px] font-bold text-ink/60 transition hover:border-honey hover:text-honeyDark"
+                className="rounded-full border border-line bg-cream px-4 py-2.5 text-[13px] font-bold text-secondary transition hover:border-honey hover:text-honeyDark"
               >
                 Очистить
               </button>
               <Link
                 href="/checkout/"
                 onClick={() => setCartOpen(false)}
-                className="flex-1 rounded-full bg-honey px-5 py-2.5 text-center text-[15px] font-extrabold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+                className="flex-1 rounded-full bg-honey px-5 py-2.5 text-center text-[15px] font-extrabold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-honeyDark"
               >
                 Оформить заказ
               </Link>
             </div>
-            <p className="mt-3 font-mono text-[10px] leading-relaxed text-ink/55">
+            <p className="mt-3 font-mono text-[10px] leading-relaxed text-secondary">
               Доставка СДЭК по России · самовывоз в Москве · оплата после подтверждения менеджером
             </p>
           </div>

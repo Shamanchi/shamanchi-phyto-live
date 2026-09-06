@@ -1,4 +1,4 @@
-// Приёмочный сценарий Сборки Б (shamanchi-phyto-live — реальный магазин PHYTOTAB).
+// Приёмочный сценарий магазина PHYTOTAB (shamanchi-phyto-live).
 // Покрытие: каталог 52 товара, разделы/фильтры/поиск, карточка (цена/состав/наличие),
 // корзина (промокод), оформление (доставка/оплата) -> заказ принят, «Мои заказы» + повтор,
 // Знания врача, отзывы с Яндекс.Карт, инфо-страницы, отсутствие «концепт/демо»-меток,
@@ -71,7 +71,7 @@ try {
   check(knowledgeDirs.length === 7, `статический экспорт: 7 статей «Знания врача» (найдено ${knowledgeDirs.length})`);
   const infoDirs = readdirSync(join(outDir, "info"), { withFileTypes: true })
     .filter((d) => d.isDirectory() && existsSync(join(outDir, "info", d.name, "index.html")));
-  check(infoDirs.length === 8, `статический экспорт: 8 инфо-страниц (найдено ${infoDirs.length})`);
+  check(infoDirs.length === 15, `статический экспорт: 15 инфо-страниц (найдено ${infoDirs.length})`);
 
   // ===== Главная: бренд, врач, витрины, отзывы, подвал =====
   const { ctx: homeCtx, pg: home } = await newPage();
@@ -99,7 +99,11 @@ try {
   check(homeText.includes("подборки магазина"), "секция «Подборки магазина»");
   check(homeText.includes("евгений козлов — врач за проектом"), "секция «О враче»");
   check(homeText.includes("отзывы с яндекс.карт"), "блок отзывов с Яндекс.Карт");
-  check(homeText.includes("вадим"), "отзыв: автор Вадим на главной");
+  check(homeText.includes("людмила крупнова"), "отзывы: вкладка «О результатах» по умолчанию");
+  check(homeText.includes("начните курс с первого сбора"), "главная: финальный CTA после отзывов");
+  check(homeText.includes("что вас беспокоит?"), "главная: категории по задаче клиента");
+  const heroTopText = lower(await home.locator("#top").innerText());
+  check(!heroTopText.includes("живой человек за брендом") && !heroTopText.includes("фото: phytotab.ru"), "герой: на фото врача нет бейджей и подписей");
   check(homeText.includes("доставка сдэк по россии"), "доставка СДЭК в тексте главной");
   check(homeText.includes("разработка: shamanchi") && homeText.includes("shamanchi_dev"), "подвал: «Разработка: Shamanchi · shamanchi_dev»");
   check(homeText.includes("ип козлов е.а."), "подвал: публичные реквизиты ИП Козлов Е.А.");
@@ -109,6 +113,21 @@ try {
 
   const tgLinks = await home.locator(`a[href*="telegram.me/phytotab"]`).count();
   check(tgLinks > 0, "есть ссылки на telegram.me/phytotab", `найдено ${tgLinks}`);
+
+  // Итерация 4: категории с иллюстрациями, вкладки отзывов, финальный CTA, порядок секций
+  const catTiles = home.locator('[data-testid="category-tiles"] a[href*="/catalog/?category="]');
+  check((await catTiles.count()) === 6, "главная: 6 категорий ведут в каталог с фильтром", "tiles " + (await catTiles.count()));
+  const tabCount = await home.locator('[data-testid="reviews-tabs"] [role="tab"]').count();
+  check(tabCount === 3, "отзывы: три вкладки по темам", "tabs " + tabCount);
+  check((await home.locator("[data-testid=final-cta]").count()) === 1, "главная: финальный CTA-блок");
+  const orderOk = await home.evaluate(() => {
+    const y = (sel) => { const r = document.querySelector(sel)?.getBoundingClientRect(); return r ? r.top + window.scrollY : null; };
+    const reviews = y("#reviews");
+    const cta = y("#final-cta");
+    const footer = y("footer");
+    return reviews !== null && cta !== null && footer !== null && reviews < cta && cta < footer;
+  });
+  check(orderOk, "порядок секций: отзывы → финальный CTA → подвал");
 
   // канвас живого фона
   await home.waitForSelector('[data-live-pollen="canvas"]', { timeout: 15000 }).catch(() => check(false, "живой фон: канвас пыльцы"));
@@ -135,6 +154,11 @@ try {
   const foundCats = norm(await cat.locator('p:has-text("Найдено:")').first().innerText());
   check(/Найдено:\s*8/.test(foundCats), "раздел «Фитосборы»: 8 товаров", foundCats);
   check(foundCats.includes("в разделе"), "в выдаче указан раздел");
+  await cat.waitForSelector('[data-testid="category-banner"]', { timeout: 10000 });
+  const banner = cat.locator('[data-testid="category-banner"]');
+  check((await banner.locator('img[alt*="Евгений Козлов"]').count()) === 1, "категория: баннер с фото врача");
+  const bannerText = lower(await banner.innerText());
+  check(bannerText.includes("фитосборы") && bannerText.includes("phytotab"), "категория: баннер с названием и брендом");
   await cat.screenshot({ path: join(artifacts, "2-catalog-filter-1440.png") });
 
   // ===== Карточка товара: цена, состав, наличие =====
@@ -193,7 +217,11 @@ try {
   // Шаг 3 — оплата
   const payText = lower(await bodyText(flow));
   check(payText.includes("банковской картой") && payText.includes("сбп"), "оформление: способы оплаты (карта/СБП)");
-  await flow.getByRole("button", { name: "Оформить заказ" }).click();
+  check(payText.includes("договора-оферты") && payText.includes("персональных данных"), "оформление: согласие с офертой и политикой ПД");
+  const orderBtn = flow.getByRole("button", { name: "Оформить заказ" });
+  check(await orderBtn.isDisabled(), "оформление: «Оформить заказ» неактивна без чекбокса");
+  await flow.getByRole("checkbox", { name: /Согласен с договором-офертой/ }).check();
+  await orderBtn.click();
   await flow.waitForURL(/\/order-success\/?\?id=/);
   await flow.waitForSelector("h1");
   const successText = lower(await bodyText(flow));
@@ -229,7 +257,7 @@ try {
   await know.screenshot({ path: join(artifacts, "6-article-1440.png") });
 
   // ===== Инфо-страницы =====
-  const infoUrls = ["delivery", "payment", "return", "faq", "certificates", "doctor", "brand", "contacts"];
+  const infoUrls = ["delivery", "payment", "return", "faq", "certificates", "doctor", "brand", "contacts", "stock", "partners", "privacy-policy", "offer", "pd-agree", "cookies", "newsletter-consent"];
   for (const slug of infoUrls) {
     const { ctx: ic, pg: ipg } = await newPage();
     const resp = await ipg.goto(`${BASE_URL}info/${slug}/`, { waitUntil: "domcontentloaded" });
@@ -237,14 +265,58 @@ try {
     check(ok, `инфо-страница /info/${slug}/ открывается`);
     await ic.close();
   }
-  const { ctx: delCtx, pg: del } = await newPage();
+  // ===== Правка 3: юрдокументы в подвале, «О компании», обложки статей =====
+  const { ctx: legalCtx, pg: legal } = await newPage();
+  await legal.goto(BASE_URL, { waitUntil: "domcontentloaded" });
+  await legal.waitForSelector("footer");
+  const legalLinks = await legal.evaluate(() =>
+    [...document.querySelectorAll("footer a[href*='/info/']")].map((a) => a.getAttribute("href"))
+  );
+  for (const slug of ["privacy-policy", "offer", "return", "pd-agree", "cookies", "newsletter-consent"]) {
+    check(legalLinks.some((h) => h.includes("/info/" + slug + "/")), "подвал: юрдокумент /info/" + slug + "/ доступен");
+  }
+  check(legalLinks.some((h) => h.includes("/info/stock/")), "подвал: ссылка на акции и скидки");
+  check(legalLinks.some((h) => h.includes("/info/partners/")), "подвал: ссылка на страницу «Партнёрам»");
+  await legalCtx.close();
+
+  const { ctx: brandCtx, pg: brand } = await newPage();
+  await brand.goto(BASE_URL + "info/brand/", { waitUntil: "domcontentloaded" });
+  const brandText = lower(await bodyText(brand));
+  check(brandText.includes("jiva nature") && brandText.includes("12 лет"), "о компании: Jiva Nature и 12+ лет практики");
+  check(brandText.includes("youtube") && brandText.includes("5 000+"), "о компании: видео-канал и статистика 5 000+ покупателей");
+  const brandImgs = await brand.locator("main img").count();
+  check(brandImgs >= 2, "о компании: фото из раздела «О магазине» на странице");
+  await brandCtx.close();
+
+  const { ctx: artCtx, pg: art } = await newPage();
+  await art.goto(BASE_URL + "knowledge/", { waitUntil: "domcontentloaded" });
+  await art.waitForSelector("main article img");
+  const coverImgs = await art.locator("main article img").count();
+  check(coverImgs === 7, "статьи: у всех 7 карточек есть обложки-изображения");
+  await art.goto(BASE_URL + "knowledge/rejshi-dar-zdorovya/", { waitUntil: "domcontentloaded" });
+  await art.waitForSelector("article img");
+  const reishiImgs = await art.locator("article img").count();
+  check(reishiImgs >= 3, "статья: обложка и фото внутри текста на месте");
+  await art.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await art.waitForTimeout(900);
+  const loaded = await art.evaluate(() => [...document.querySelectorAll("article img")].every((im) => im.complete && im.naturalWidth > 0));
+  check(loaded, "статья: изображения реально загружаются");
+  await artCtx.close();
+
+    const { ctx: delCtx, pg: del } = await newPage();
   await del.goto(`${BASE_URL}info/delivery/`, { waitUntil: "domcontentloaded" });
   const delText = lower(await bodyText(del));
   check(delText.includes("сдэк") && delText.includes("7 900"), "доставка: СДЭК и порог 7 900 ₽");
   const { ctx: revCtx, pg: rev } = await newPage();
   await rev.goto(`${BASE_URL}reviews/`, { waitUntil: "domcontentloaded" });
   const revText = lower(await bodyText(rev));
-  check(revText.includes("людмила крупнова") && revText.includes("ксения весеняя"), "отзывы: все 6 авторов на странице");
+  check(revText.includes("людмила крупнова"), "отзывы: вкладка «О результатах» по умолчанию");
+  await rev.getByRole("tab", { name: /о продукции/i }).click();
+  await rev.waitForSelector("text=Ксения Весеняя");
+  check(lower(await bodyText(rev)).includes("ксения весеняя"), "отзывы: вкладка «О продукции» показывает отзывы");
+  await rev.getByRole("tab", { name: /о магазине/i }).click();
+  await rev.waitForSelector("text=Вадим");
+  check(lower(await bodyText(rev)).includes("вадим"), "отзывы: вкладка «О магазине» показывает отзывы");
   check(revText.includes("яндекс.карты"), "отзывы: источник Яндекс.Карты");
   const yandexCount = await rev.locator('a[href*="yandex"]').count();
   check(yandexCount > 0, "отзывы: ссылки на Яндекс");
@@ -264,6 +336,9 @@ try {
   check((await doctorImg.count()) > 0 && (await doctorImg.isVisible()), "герой: фото врача справа от заголовка");
   const heroAlt = await doctorImg.getAttribute("alt");
   check(String(heroAlt).includes("врач-фитотерапевт"), "герой: alt фото — врач-фитотерапевт");
+  check((await i2.locator('header img[src*="/images/brand/logo-word.png"]').count()) === 1, "шапка: фирменный вордмарк PHYTOTAB");
+  check((await i2.locator('header img[src*="/images/brand/logo-leaf.png"]').count()) === 1, "шапка: знак-лист PHYTOTAB");
+  check((await i2.locator('footer img[src*="/images/brand/logo-word.png"]').count()) === 1, "подвал: фирменный вордмарк PHYTOTAB");
   const topbar = i2.locator("[data-testid=nav-topbar]");
   check(await topbar.isVisible(), "шапка: плашка поддержки видна (десктоп)");
   const topbarText = lower(await topbar.innerText());

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import articles from "../../../data/articles.json";
+import { asset } from "../../../lib/site";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -22,11 +23,40 @@ function formatDate(iso) {
   return y && m && d ? `${d}.${m}.${y}` : iso;
 }
 
+function FigureRow({ figures }) {
+  const single = figures.length === 1;
+  return (
+    <div className={single ? "mt-5 max-w-xl" : "mt-5 grid gap-5 sm:grid-cols-2"}>
+      {figures.map((figure, i) => (
+        <figure key={i} className="overflow-hidden rounded-3xl border border-line bg-cream shadow-card">
+          <img
+            src={asset(figure.src)}
+            alt={figure.alt || ""}
+            width={single ? 900 : 700}
+            height={single ? 600 : 470}
+            loading="lazy"
+            className="w-full object-cover"
+          />
+          {figure.caption && (
+            <figcaption className="px-5 py-4 text-[14px] leading-relaxed text-secondary">
+              {figure.caption}
+            </figcaption>
+          )}
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 export default async function ArticlePage({ params }) {
   const { slug } = await params;
   const article = articles.find((a) => a.slug === slug);
   if (!article) notFound();
   const others = articles.filter((a) => a.slug !== slug).slice(0, 3);
+  const paragraphs = String(article.text || "")
+    .split(/\n+/)
+    .filter(Boolean);
+  const figures = Array.isArray(article.figures) ? article.figures : [];
 
   return (
     <main id="main">
@@ -47,19 +77,29 @@ export default async function ArticlePage({ params }) {
               <h1 className="mt-3 font-display text-4xl font-semibold leading-tight sm:text-5xl">
                 {article.title}
               </h1>
-              <div className="mt-6 space-y-4 text-[16.5px] leading-[1.75] text-ink/85">
-                {String(article.text || "")
-                  .split(/\n+/)
-                  .filter(Boolean)
-                  .map((paragraph, i) => (
-                    <p key={i}>{paragraph}</p>
-                  ))}
-              </div>
-              {article.safetyNote && (
-                <p className="mt-8 rounded-2xl border border-line bg-cream p-4 text-[13px] leading-relaxed text-ink/60">
-                  {article.safetyNote}
-                </p>
+
+              {article.cover && (
+                <img
+                  src={asset(article.cover)}
+                  alt=""
+                  width={1200}
+                  height={630}
+                  className="mt-7 w-full rounded-3xl border border-line object-cover shadow-card"
+                />
               )}
+
+              <div className="mt-7 space-y-4 text-[16.5px] leading-[1.75] text-ink">
+                {paragraphs.map((paragraph, i) => {
+                  const rowFigures = figures.filter((f) => f.afterParagraph === i);
+                  return (
+                    <div key={i}>
+                      <p>{paragraph}</p>
+                      {rowFigures.length > 0 && <FigureRow figures={rowFigures} />}
+                    </div>
+                  );
+                })}
+              </div>
+
               <p className="mt-8 rounded-2xl bg-sageSoft/40 p-4 text-[13px] leading-relaxed text-leafDark">
                 БАД. Не является лекарственным средством. Перед применением проконсультируйтесь со специалистом.
               </p>
@@ -70,7 +110,7 @@ export default async function ArticlePage({ params }) {
               <ul className="mt-4 space-y-3">
                 {others.map((a) => (
                   <li key={a.slug}>
-                    <Link href={`/knowledge/${a.slug}/`} className="text-[14.5px] font-semibold leading-snug text-ink/75 transition hover:text-leaf">
+                    <Link href={`/knowledge/${a.slug}/`} className="text-[14.5px] font-semibold leading-snug text-ink transition hover:text-leaf">
                       {a.title} →
                     </Link>
                   </li>
@@ -78,7 +118,7 @@ export default async function ArticlePage({ params }) {
               </ul>
               <Link
                 href="/catalog/"
-                className="mt-5 block rounded-full bg-honey px-5 py-3 text-center text-[14px] font-extrabold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+                className="mt-5 block rounded-full bg-honey px-5 py-3 text-center text-[14px] font-extrabold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-honeyDark"
               >
                 Перейти в каталог
               </Link>

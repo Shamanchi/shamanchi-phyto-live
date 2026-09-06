@@ -41,9 +41,9 @@ export default function DeliveryStrip() {
                 </span>
                 <span>
                   <span className="block text-lg font-extrabold">{item.label}</span>
-                  <span className="mt-1 block text-[13.5px] leading-relaxed text-ink/60">{item.text}</span>
+                  <span className="mt-1 block text-[14.5px] leading-relaxed text-ink/90">{item.text}</span>
                 </span>
-                <span className="mt-auto font-mono text-[10px] font-bold uppercase tracking-wider text-leaf">
+                <span className="mt-auto font-mono text-[11px] font-bold uppercase tracking-wider text-leafDark">
                   Подробнее →
                 </span>
               </Link>
@@ -51,7 +51,7 @@ export default function DeliveryStrip() {
           ))}
         </div>
         <Reveal delay={120}>
-          <p className="mt-6 rounded-2xl border border-sage/40 bg-sageSoft/30 px-5 py-4 text-center text-[14px] leading-relaxed text-ink/70">
+          <p className="mt-6 rounded-2xl border border-sage/40 bg-sageSoft/30 px-5 py-4 text-center text-[15px] leading-relaxed text-ink">
             Самовывоз в Москве: {PICKUP_ADDRESS}, ежедневно 11:00–19:00 · Поддержка: {SHOP_PHONE} ·
             <a href={SHOP_TG_URL} target="_blank" rel="noreferrer" className="font-bold text-leaf hover:text-leafDark"> Telegram PHYTOTAB</a>
           </p>

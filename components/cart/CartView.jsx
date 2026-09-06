@@ -38,13 +38,13 @@ export default function CartView() {
             </svg>
           </span>
           <h1 className="mt-6 font-display text-4xl font-semibold">Корзина пока пуста</h1>
-          <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-ink/60">
+          <p className="mx-auto mt-3 max-w-md text-[16px] leading-relaxed text-ink/90">
             Добавьте товары из каталога — корзина умеет считать количество, промокод и итог,
             как в настоящем магазине.
           </p>
           <Link
             href="/catalog/"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-honey px-7 py-3.5 text-lg font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-honey px-7 py-3.5 text-lg font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-honeyDark"
           >
             Открыть каталог
           </Link>
@@ -70,7 +70,7 @@ export default function CartView() {
           <button
             type="button"
             onClick={clear}
-            className="rounded-full border border-line bg-cream px-4 py-2 text-[13px] font-bold text-ink/60 transition hover:border-honey hover:text-honeyDark"
+            className="rounded-full border border-line bg-cream px-4 py-2 text-[13px] font-bold text-secondary transition hover:border-honey hover:text-honeyDark"
           >
             Очистить корзину
           </button>
@@ -126,7 +126,7 @@ export default function CartView() {
                           type="button"
                           onClick={() => setQty(product.id, qty - 1)}
                           aria-label={`Убрать один ${product.name}`}
-                          className="grid h-10 w-10 place-items-center rounded-full text-ink/70 transition hover:text-leaf"
+                          className="grid h-10 w-10 place-items-center rounded-full text-ink/90 transition hover:text-leaf"
                         >
                           −
                         </button>
@@ -135,7 +135,7 @@ export default function CartView() {
                           type="button"
                           onClick={() => setQty(product.id, qty + 1)}
                           aria-label={`Добавить один ${product.name}`}
-                          className="grid h-10 w-10 place-items-center rounded-full text-ink/70 transition hover:text-leaf"
+                          className="grid h-10 w-10 place-items-center rounded-full text-ink/90 transition hover:text-leaf"
                         >
                           +
                         </button>
@@ -143,7 +143,7 @@ export default function CartView() {
                       <button
                         type="button"
                         onClick={() => remove(product.id)}
-                        className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-ink/50 transition hover:text-honeyDark"
+                        className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-secondary transition hover:text-honeyDark"
                       >
                         <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
                           <path d="M3 4h10M6 4V2.5h4V4M4.5 4l.6 9h5.8l.6-9" />
@@ -158,7 +158,7 @@ export default function CartView() {
             <li>
               <Link
                 href="/catalog/"
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-cream px-5 py-2.5 text-[14px] font-bold text-ink/70 transition hover:border-leaf hover:text-leaf"
+                className="inline-flex items-center gap-2 rounded-full border border-line bg-cream px-5 py-2.5 text-[14px] font-bold text-ink/90 transition hover:border-leaf hover:text-leaf"
               >
                 ← Продолжить покупки
               </Link>
@@ -170,7 +170,7 @@ export default function CartView() {
             <h2 className="font-display text-2xl font-semibold">Итого</h2>
             <dl className="mt-5 space-y-2.5 text-[15px]">
               <div className="flex justify-between">
-                <dt className="text-ink/60">Товары ({count})</dt>
+                <dt className="text-secondary">Товары ({count})</dt>
                 <dd className="font-bold">{formatPrice(subtotal)}</dd>
               </div>
               {discount > 0 && (
@@ -184,7 +184,7 @@ export default function CartView() {
                 <dd className="text-xl font-extrabold text-ink">{formatPrice(total)}</dd>
               </div>
             </dl>
-            <p className="mt-3 rounded-xl bg-sageSoft/40 p-3 text-[12.5px] leading-relaxed text-leafDark">
+            <p className="mt-3 rounded-xl bg-sageSoft/40 p-3 text-[14px] leading-relaxed text-leafDark">
               Доставка рассчитывается на следующем шаге. СДЭК — бесплатно при заказе от 7 900 ₽
               (для большей части регионов России).
             </p>
@@ -215,12 +215,12 @@ export default function CartView() {
                 </button>
               </div>
               <p className="mt-2 min-h-4 text-[12.5px] font-semibold text-leaf">{promoMsg}</p>
-              <p className="text-[12px] leading-relaxed text-ink/55">{SHOP.promoHint}</p>
+              <p className="text-[12px] leading-relaxed text-secondary">{SHOP.promoHint}</p>
             </div>
 
             <Link
               href="/checkout/"
-              className="mt-5 block rounded-full bg-honey px-6 py-3.5 text-center text-[17px] font-extrabold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+              className="mt-5 block rounded-full bg-honey px-6 py-3.5 text-center text-[17px] font-extrabold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-honeyDark"
             >
               Перейти к оформлению
             </Link>

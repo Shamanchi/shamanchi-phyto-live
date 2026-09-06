@@ -50,7 +50,7 @@ export default function ProductTile({ product }) {
           </span>
         )}
         {!inStock && (
-          <span className="absolute bottom-3 right-3 rounded-full bg-paper/90 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-ink/60 backdrop-blur">
+          <span className="absolute bottom-3 right-3 rounded-full bg-paper/90 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-secondary backdrop-blur">
             {SHOP.outLabel}
           </span>
         )}
@@ -69,14 +69,25 @@ export default function ProductTile({ product }) {
                 {product.name}
               </Link>
             </h3>
-            <p className="mt-1 text-[12px] font-semibold text-khaki">{unit}</p>
+            <p className="mt-1 text-[13px] font-semibold text-secondary">{unit}</p>
+
           </div>
           <p className="shrink-0 text-right">
             <span className="block text-[18px] font-extrabold text-honeyDark">{formatPrice(product.price)}</span>
             <span className="block font-mono text-[9px] uppercase tracking-wider text-khaki">{SHOP.unitLabel}</span>
           </p>
         </div>
-        <p className="mt-2.5 line-clamp-2 text-[13.5px] leading-snug text-ink/80">{product.tagline}</p>
+        <p className="mt-2 flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+          <span className="flex gap-0.5 text-honeyDark" aria-hidden="true">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <svg key={n} viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="currentColor">
+                <path d="M10 1.8l2.5 5 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6.9-5.6-4-3.9 5.6-.8 2.5-5Z" />
+              </svg>
+            ))}
+          </span>
+          <span className="text-[13px] font-bold text-secondary">5,0 на Яндекс.Картах</span>
+        </p>
+        <p className="mt-2 line-clamp-2 text-[14px] leading-snug text-ink/90">{product.tagline}</p>
         <div className="mt-4 flex items-center gap-2 pt-1">
           <button
             type="button"
@@ -84,17 +95,17 @@ export default function ProductTile({ product }) {
             disabled={!inStock}
             className={`inline-flex flex-1 items-center justify-center gap-1.5 rounded-full px-4 py-2.5 text-[14px] font-bold transition ${
               !inStock
-                ? "cursor-not-allowed border border-line bg-cream text-ink/45"
+                ? "cursor-not-allowed border border-line bg-cream text-secondary"
                 : added
                   ? "bg-leaf text-paper"
-                  : "bg-honey text-ink hover:bg-[#BB7B1E]"
+                  : "bg-honey text-ink hover:bg-honeyDark"
             }`}
           >
             {!inStock ? SHOP.outLabel : added ? "Добавлено ✓" : "В корзину"}
           </button>
           <Link
             href={`/product/${product.id}/`}
-            className="inline-flex items-center justify-center rounded-full border border-line bg-paper px-3.5 py-2.5 text-[13px] font-bold text-ink/70 transition hover:border-leaf hover:text-leaf"
+            className="inline-flex items-center justify-center rounded-full border border-line bg-paper px-3.5 py-2.5 text-[13px] font-bold text-ink/90 transition hover:border-leaf hover:text-leaf"
             aria-label={`Подробнее: ${product.name}`}
           >
             Подробнее

@@ -35,7 +35,7 @@ function makeOptions(count) {
     particles: {
       number: { value: count, density: { enable: false } },
       // Янтарь и мёд читаются на кремовом #F7F3EA; шалфей — спокойная примесь.
-      color: { value: ["#C98A2C", "#D9A03C", "#E0B84F", "#8FA98A", "#A9C47A"] },
+      color: { value: ["#E8963A", "#D9A03C", "#E0B84F", "#8FA98A", "#A9C47A"] },
       shape: {
         type: "image",
         options: {

@@ -47,7 +47,7 @@ a, button, input, textarea, select, [tabindex] {
   outline-offset: 3px;
 }
 :focus-visible {
-  outline: 2px solid #3e6b35;
+  outline: 2px solid #207d44;
 }
 
 /* --- Появление секций: IntersectionObserver добавляет .is-in --- */
@@ -213,7 +213,7 @@ a, button, input, textarea, select, [tabindex] {
   inset: -6% -4% -10%;
   z-index: 0;
   border-radius: 9999px 9999px 32px 32px;
-  background: radial-gradient(60% 55% at 50% 42%, rgba(62, 107, 53, 0.22), rgba(201, 138, 44, 0.1) 55%, transparent 75%);
+  background: radial-gradient(60% 55% at 50% 42%, rgba(32, 125, 68, 0.26), rgba(201, 138, 44, 0.1) 55%, transparent 75%);
   filter: blur(6px);
 }
 
@@ -239,8 +239,8 @@ a, button, input, textarea, select, [tabindex] {
 }
 .field:focus {
   outline: none;
-  border-color: #3e6b35;
-  box-shadow: 0 0 0 3px rgba(62, 107, 53, 0.16);
+  border-color: #207d44;
+  box-shadow: 0 0 0 3px rgba(32, 125, 68, 0.18);
 }
 
 /* --- Кастомный скроллбар --- */

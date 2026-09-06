@@ -36,7 +36,7 @@ function OptionButton({ active, onClick, children, hint, name }) {
           )}
         </span>
       </span>
-      {hint && <span className="mt-1 block text-[13px] text-ink/55">{hint}</span>}
+      {hint && <span className="mt-1 block text-[13px] text-secondary">{hint}</span>}
     </button>
   );
 }
@@ -128,7 +128,7 @@ export default function QuizSection() {
             <h2 id="quiz-title" className="mt-3 font-display text-4xl font-semibold leading-tight sm:text-5xl">
               Какой товар <span className="text-leaf">подойдёт вам?</span>
             </h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink/60">
+            <p className="mt-3 text-[15px] leading-relaxed text-secondary">
               Три коротких вопроса — рекомендация из реального каталога PHYTOTAB, с кнопкой
               «в корзину» и планом приёма.
             </p>
@@ -141,7 +141,7 @@ export default function QuizSection() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-khaki">
                   {done ? "готово" : `шаг ${step + 1} из 3`}
                 </p>
-                <span className="text-[12px] font-bold text-ink/55">
+                <span className="text-[12px] font-bold text-secondary">
                   {step === 0 ? "задача" : step === 1 ? "формат приёма" : done ? "результат" : "противопоказания"}
                 </span>
               </div>
@@ -184,7 +184,7 @@ export default function QuizSection() {
                       onChange={(e) => setMeds(e.target.checked)}
                       className="mt-0.5 h-5 w-5 accent-leaf"
                     />
-                    <span className="text-[14.5px] leading-relaxed text-ink/75">
+                    <span className="text-[14.5px] leading-relaxed text-ink">
                       Принимаю лекарства, беременна или кормлю, есть хронические заболевания
                       или аллергия на травы
                     </span>
@@ -205,7 +205,7 @@ export default function QuizSection() {
                     <button
                       type="button"
                       onClick={() => setStep((s) => s - 1)}
-                      className="rounded-full border border-line bg-cream px-5 py-2.5 text-[14px] font-bold text-ink/60 transition hover:border-leaf hover:text-leaf"
+                      className="rounded-full border border-line bg-cream px-5 py-2.5 text-[14px] font-bold text-secondary transition hover:border-leaf hover:text-leaf"
                     >
                       ← Назад
                     </button>
@@ -213,12 +213,12 @@ export default function QuizSection() {
                     <span />
                   )}
                   {step < 2 ? (
-                    <span className="text-[13px] text-ink/50">выберите вариант, чтобы продолжить</span>
+                    <span className="text-[13px] text-secondary">выберите вариант, чтобы продолжить</span>
                   ) : (
                     <button
                       type="button"
                       onClick={finish}
-                      className="rounded-full bg-honey px-7 py-3 text-[15px] font-extrabold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+                      className="rounded-full bg-honey px-7 py-3 text-[15px] font-extrabold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-honeyDark"
                     >
                       Показать подбор
                     </button>
@@ -249,7 +249,7 @@ export default function QuizSection() {
                           {recommended.name}
                         </Link>
                       </h3>
-                      <p className="mt-1.5 text-[14px] leading-relaxed text-ink/65">{recommended.tagline}</p>
+                      <p className="mt-1.5 text-[14px] leading-relaxed text-secondary">{recommended.tagline}</p>
                       <p className="mt-3 text-2xl font-extrabold text-honeyDark">{formatPrice(recommended.price)}</p>
                       {formatFallback && (
                         <p className="mt-2 text-[13px] text-khaki">
@@ -261,7 +261,7 @@ export default function QuizSection() {
                           type="button"
                           onClick={handleAdd}
                           className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[15px] font-bold transition ${
-                            added ? "bg-leaf text-paper" : "bg-honey text-ink hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+                            added ? "bg-leaf text-paper" : "bg-honey text-ink hover:-translate-y-0.5 hover:bg-honeyDark"
                           }`}
                         >
                           {added ? (
@@ -295,7 +295,7 @@ export default function QuizSection() {
                           <label htmlFor="quiz-lead" className="text-[14px] font-extrabold">
                             Прислать подбор с расчётом курса на месяц?
                           </label>
-                          <p className="mt-0.5 text-[13px] text-ink/55">
+                          <p className="mt-0.5 text-[13px] text-secondary">
                             Оставьте телеграм или телефон — пришлём схему приёма и напомним о курсе.
                           </p>
                           <input
@@ -324,7 +324,7 @@ export default function QuizSection() {
                         </span>
                         <span className="text-[14.5px] font-semibold leading-snug">
                           Заявка принята — пришлём подбор с расчётом курса.
-                          <span className="mt-1 block text-[13px] font-normal text-ink/55">
+                          <span className="mt-1 block text-[13px] font-normal text-secondary">
                             Подбор уже сохранён в корзине: нужный товар там подсвечен.
                           </span>
                         </span>

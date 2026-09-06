@@ -5,8 +5,9 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { asset, BRAND, SHOP_PHONE_HREF, SUPPORT_HOURS, SUPPORT_PHONE_RAW } from "../lib/site";
 import { useShop } from "./ShopContext";
+import Logo from "./Logo";
 
-// Полное меню как на phytotab.ru: Каталог, О нас, Оплата, Доставка, Вопросы, Статьи, Контакты.
+// Полное меню: Каталог, О нас, Оплата, Доставка, Вопросы, Статьи, Контакты.
 const MENU_LINKS = [
   { href: "/catalog/", label: "Каталог" },
   { href: "/info/brand/", label: "О нас" },
@@ -70,7 +71,7 @@ export default function Nav() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-[60] transition-all duration-300 ${headerClass}`}>
-      {/* Верхняя плашка: поддержка + самовывоз (как на оригинале) */}
+      {/* Верхняя плашка: поддержка + самовывоз */}
       <div
         data-testid="nav-topbar"
         className="hidden bg-leafDark text-[#EDF3E4] lg:block"
@@ -101,13 +102,12 @@ export default function Nav() {
       </div>
 
       <div className="wrap flex h-16 items-center justify-between gap-2 sm:h-[72px] sm:gap-4">
-        <Link href="/" className="flex min-w-0 items-center gap-2.5" aria-label={`${BRAND.wordmarkA} ${BRAND.wordmarkB} — на главную`}>
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-leaf text-paper shadow-card">
-            <img src={asset("/favicon.png")} alt="" width={36} height={36} className="h-8 w-8 rounded-full object-cover" />
-          </span>
-          <span className="truncate font-display text-[19px] font-semibold leading-none tracking-tight sm:text-[22px]">
-            {BRAND.wordmarkA} <span className="text-leaf">{BRAND.wordmarkB}</span>
-          </span>
+        <Link
+          href="/"
+          aria-label={`${BRAND.wordmarkA} ${BRAND.wordmarkB} — на главную`}
+          className="flex min-w-0 items-center rounded-full bg-paper/85 py-1 pl-1.5 pr-3 ring-1 ring-line/80 transition hover:bg-paper sm:pr-3.5"
+        >
+          <Logo height={22} wordClassName="hidden sm:block" />
         </Link>
 
         <nav aria-label="Основная навигация" className="hidden items-center gap-0.5 xl:flex">
@@ -115,7 +115,7 @@ export default function Nav() {
             <Link
               key={link.href + link.label}
               href={link.href}
-              className="rounded-full px-3 py-2 text-[13.5px] font-semibold text-ink/80 transition hover:bg-sageSoft/60 hover:text-ink"
+              className="rounded-full px-3 py-2 text-[14px] font-semibold text-ink/90 transition hover:bg-sageSoft/60 hover:text-ink"
             >
               {link.label}
             </Link>
@@ -246,7 +246,7 @@ export default function Nav() {
                 key={link.href + link.label}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="block rounded-xl px-3 py-2.5 text-[16px] font-semibold text-ink/85 hover:bg-sageSoft/50"
+                className="block rounded-xl px-3 py-2.5 text-[16px] font-semibold text-ink hover:bg-sageSoft/50"
               >
                 {link.label}
               </Link>
@@ -257,7 +257,7 @@ export default function Nav() {
                 key={link.href + link.label}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-[15.5px] font-bold text-leaf hover:bg-sageSoft/50"
+                className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-[15.5px] font-bold text-leafDark hover:bg-sageSoft/50"
               >
                 {link.href.startsWith("/favorites") && link.label === "Избранное" && favoriteCount > 0 && (
                   <span className="grid h-5 min-w-5 place-items-center rounded-full bg-leaf px-1 text-[11px] font-extrabold text-paper">
@@ -267,7 +267,7 @@ export default function Nav() {
                 {link.label}
               </Link>
             ))}
-            <div className="mt-3 rounded-2xl border border-line bg-cream px-4 py-3 text-[13px] leading-relaxed text-ink/65">
+            <div className="mt-3 rounded-2xl border border-line bg-cream px-4 py-3 text-[14px] leading-relaxed text-secondary">
               Служба поддержки{" "}
               <a href={SHOP_PHONE_HREF} className="font-extrabold text-leaf">
                 {SUPPORT_PHONE_RAW}

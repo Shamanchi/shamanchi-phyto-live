@@ -32,18 +32,19 @@ export default function CheckoutView() {
   const [address, setAddress] = useState("");
   const [paymentKey, setPaymentKey] = useState("card");
   const [error, setError] = useState("");
+  const [agree, setAgree] = useState(false);
 
   if (lines.length === 0) {
     return (
       <div className="pt-16 sm:pt-[72px]">
         <div className="wrap py-16 text-center sm:py-24">
           <h1 className="font-display text-4xl font-semibold">Оформлять пока нечего</h1>
-          <p className="mx-auto mt-3 max-w-md text-[15px] text-ink/60">
+          <p className="mx-auto mt-3 max-w-md text-[16px] leading-relaxed text-ink/90">
             В корзине нет товаров. Загляните в каталог и добавьте позиции — оформление занимает пару минут.
           </p>
           <Link
             href="/catalog/"
-            className="mt-8 inline-flex rounded-full bg-honey px-7 py-3.5 text-lg font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+            className="mt-8 inline-flex rounded-full bg-honey px-7 py-3.5 text-lg font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-honeyDark"
           >
             Открыть каталог
           </Link>
@@ -72,6 +73,10 @@ export default function CheckoutView() {
   };
 
   const submit = () => {
+    if (!agree) {
+      setError("Подтвердите согласие с договором-офертой и политикой обработки персональных данных — без этого мы не можем оформить заказ.");
+      return;
+    }
     const order = placeOrder({
       name: contact.name.trim(),
       phone: contact.phone.trim(),
@@ -119,7 +124,7 @@ export default function CheckoutView() {
                       ? "border-leaf bg-leaf text-paper"
                       : step > n
                         ? "border-sage/60 bg-sageSoft/50 text-leafDark"
-                        : "border-line bg-cream text-ink/55"
+                        : "border-line bg-cream text-secondary"
                   }`}
                 >
                   <span aria-hidden="true">{n}</span> {label}
@@ -134,7 +139,7 @@ export default function CheckoutView() {
             {step === 1 && (
               <section aria-label="Контактные данные" className="rounded-3xl border border-line bg-cream p-6">
                 <h2 className="font-display text-2xl font-semibold">Контактные данные</h2>
-                <p className="mt-1 text-[13.5px] text-ink/60">
+                <p className="mt-1 text-[13.5px] text-secondary">
                   Нужны, чтобы подтвердить заказ и отправить ссылку на оплату.
                 </p>
                 <div className="mt-5 grid gap-4">
@@ -147,7 +152,7 @@ export default function CheckoutView() {
                     <input id="co-phone" type="tel" value={contact.phone} onChange={set("phone")} placeholder="+7 900 000-00-00" className="field mt-2" autoComplete="tel" />
                   </div>
                   <div>
-                    <label htmlFor="co-email" className="text-[14px] font-extrabold">Почта <span className="font-normal text-ink/45">(необязательно)</span></label>
+                    <label htmlFor="co-email" className="text-[14px] font-extrabold">Почта <span className="font-normal text-secondary">(необязательно)</span></label>
                     <input id="co-email" type="email" value={contact.email} onChange={set("email")} placeholder="для чека и статуса заказа" className="field mt-2" autoComplete="email" />
                   </div>
                 </div>
@@ -157,7 +162,7 @@ export default function CheckoutView() {
             {step === 2 && (
               <section aria-label="Способ доставки" className="rounded-3xl border border-line bg-cream p-6">
                 <h2 className="font-display text-2xl font-semibold">Доставка</h2>
-                <p className="mt-1 text-[13.5px] text-ink/60">
+                <p className="mt-1 text-[13.5px] text-secondary">
                   Отправляем СДЭК в течение 1–2 рабочих дней после оплаты и присылаем трек-номер.
                   Стоимость — ориентировочная, точная рассчитывается при отправке.
                 </p>
@@ -167,7 +172,7 @@ export default function CheckoutView() {
                     return (
                       <OptionCard key={d.key} active={deliveryKey === d.key} onClick={() => setDeliveryKey(d.key)}>
                         <span className="block text-[15px] font-extrabold">{d.label}</span>
-                        <span className="mt-1 block text-[13px] text-ink/60">{d.note}</span>
+                        <span className="mt-1 block text-[13px] text-secondary">{d.note}</span>
                         <span className="mt-2 block text-[17px] font-extrabold text-honeyDark">
                           {cost === 0 ? "Бесплатно" : formatPrice(cost)}
                         </span>
@@ -176,7 +181,7 @@ export default function CheckoutView() {
                   })}
                 </div>
                 {deliveryKey === "pickup" && (
-                  <p className="mt-4 rounded-xl bg-paper/80 p-3.5 text-[13.5px] leading-relaxed text-ink/70">
+                  <p className="mt-4 rounded-xl bg-paper/80 p-3.5 text-[13.5px] leading-relaxed text-ink/90">
                     Самовывоз: {PICKUP_ADDRESS} ({PICKUP_HOURS}). Заказ будет готов после подтверждения менеджером.
                   </p>
                 )}
@@ -196,7 +201,7 @@ export default function CheckoutView() {
                     />
                   </div>
                 )}
-                <p className="mt-4 rounded-xl bg-paper/80 p-3 font-mono text-[11px] leading-relaxed text-ink/55">
+                <p className="mt-4 rounded-xl bg-paper/80 p-3 font-mono text-[11px] leading-relaxed text-secondary">
                   Порог бесплатной доставки СДЭК: от 7 900 ₽ — Центральный, Северо-Западный, Приволжский
                   и Южный ФО; от 10 900 ₽ — Сибирский и Уральский ФО; от 12 900 ₽ — Дальневосточный ФО.
                 </p>
@@ -206,24 +211,39 @@ export default function CheckoutView() {
             {step === 3 && (
               <section aria-label="Оплата" className="rounded-3xl border border-line bg-cream p-6">
                 <h2 className="font-display text-2xl font-semibold">Оплата</h2>
-                <p className="mt-1 text-[13.5px] text-ink/60">
+                <p className="mt-1 text-[13.5px] text-secondary">
                   После оформления менеджер подтвердит заказ и пришлёт ссылку на безопасную оплату.
                 </p>
                 <div className="mt-5 grid gap-3 sm:grid-cols-2">
                   {SHOP.payment.map((p) => (
                     <OptionCard key={p.key} active={paymentKey === p.key} onClick={() => setPaymentKey(p.key)}>
                       <span className="block text-[15px] font-extrabold">{p.label}</span>
-                      <span className="mt-1 block text-[12.5px] text-ink/60">{p.note}</span>
+                      <span className="mt-1 block text-[12.5px] text-secondary">{p.note}</span>
                     </OptionCard>
                   ))}
                 </div>
                 <div className="mt-6 rounded-2xl border border-honey/40 bg-honey/10 p-4">
                   <p className="text-[14px] font-extrabold text-honeyDark">Как проходит оплата</p>
-                  <p className="mt-1 text-[13px] leading-relaxed text-ink/70">
+                  <p className="mt-1 text-[14px] leading-relaxed text-ink/90">
                     Заказ получает номер и сохраняется в «Моих заказах». Менеджер подтверждает наличие
                     и присылает ссылку на оплату картой или СБП — без предоплаты до подтверждения.
                   </p>
                 </div>
+                <label className="mt-4 flex items-start gap-3 rounded-2xl border border-line bg-paper p-4">
+                  <input
+                    type="checkbox"
+                    checked={agree}
+                    onChange={(e) => setAgree(e.target.checked)}
+                    className="mt-0.5 h-5 w-5 shrink-0 accent-leaf"
+                    aria-label="Согласен с договором-офертой и политикой обработки персональных данных"
+                  />
+                  <span className="text-[13.5px] leading-relaxed text-ink">
+                    Я принимаю условия <Link href="/info/offer/" className="font-bold text-leaf underline decoration-leaf/40 underline-offset-2 hover:text-leafDark">договора-оферты</Link>{" "}
+                    и даю согласие на обработку персональных данных —{" "}
+                    <Link href="/info/privacy-policy/" className="font-bold text-leaf underline decoration-leaf/40 underline-offset-2 hover:text-leafDark">политика</Link>{" "}
+                    и <Link href="/info/pd-agree/" className="font-bold text-leaf underline decoration-leaf/40 underline-offset-2 hover:text-leafDark">согласие</Link>.
+                  </span>
+                </label>
               </section>
             )}
 
@@ -238,7 +258,7 @@ export default function CheckoutView() {
                 <button
                   type="button"
                   onClick={() => setStep((s) => Math.max(1, s - 1))}
-                  className="rounded-full border border-line bg-cream px-6 py-3 text-[15px] font-bold text-ink/70 transition hover:border-leaf hover:text-leaf"
+                  className="rounded-full border border-line bg-cream px-6 py-3 text-[15px] font-bold text-ink/90 transition hover:border-leaf hover:text-leaf"
                 >
                   ← Назад
                 </button>
@@ -257,7 +277,8 @@ export default function CheckoutView() {
                 <button
                   type="button"
                   onClick={submit}
-                  className="rounded-full bg-honey px-8 py-3.5 text-[16px] font-extrabold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-[#BB7B1E]"
+                  disabled={!agree}
+                  className={`rounded-full bg-honey px-8 py-3.5 text-[16px] font-extrabold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-honeyDark ${!agree ? "cursor-not-allowed opacity-50" : ""}`}
                 >
                   Оформить заказ
                 </button>
@@ -281,7 +302,7 @@ export default function CheckoutView() {
             </ul>
             <dl className="mt-5 space-y-2 border-t border-line pt-4 text-[14.5px]">
               <div className="flex justify-between">
-                <dt className="text-ink/60">Товары ({count})</dt>
+                <dt className="text-secondary">Товары ({count})</dt>
                 <dd className="font-bold">{formatPrice(subtotal)}</dd>
               </div>
               {discount > 0 && (
@@ -291,7 +312,7 @@ export default function CheckoutView() {
                 </div>
               )}
               <div className="flex justify-between">
-                <dt className="text-ink/60">{delivery ? delivery.label : "Доставка"}</dt>
+                <dt className="text-secondary">{delivery ? delivery.label : "Доставка"}</dt>
                 <dd className="font-bold">{shipCost === 0 ? "Бесплатно" : formatPrice(shipCost)}</dd>
               </div>
               <div className="flex justify-between border-t border-line pt-3 text-[16px]">
@@ -300,10 +321,10 @@ export default function CheckoutView() {
               </div>
             </dl>
             <a
-              href={`${SHOP_TG_URL}?text=${encodeURIComponent("Здравствуйте! Вопрос по заказу на phytotab.ru.")}`}
+              href={`${SHOP_TG_URL}?text=${encodeURIComponent("Здравствуйте! Вопрос по заказу.")}`}
               target="_blank"
               rel="noreferrer"
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-line bg-paper px-5 py-3 text-[14px] font-bold text-ink/70 transition hover:border-leaf hover:text-leaf"
+              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-line bg-paper px-5 py-3 text-[14px] font-bold text-ink/90 transition hover:border-leaf hover:text-leaf"
             >
               Написать в Telegram PHYTOTAB
             </a>

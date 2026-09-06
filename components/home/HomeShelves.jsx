@@ -33,13 +33,13 @@ export default function HomeShelves() {
             </h2>
             <Link
               href="/catalog/"
-              className="rounded-full border border-line bg-cream px-5 py-2.5 text-[14px] font-bold text-ink/70 transition hover:border-leaf hover:text-leaf"
+              className="rounded-full border border-line bg-cream px-5 py-2.5 text-[14px] font-bold text-ink/90 transition hover:border-leaf hover:text-leaf"
             >
               Весь каталог →
             </Link>
           </div>
-          <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink/60">
-            Те же витрины, что на phytotab.ru: скидки недели, популярное, наборы по системе
+          <p className="mt-3 max-w-2xl text-[16px] leading-relaxed text-ink/90">
+            Витрины магазина: скидки недели, популярное, наборы по системе
             Евгения Козлова, грибы, витамины, фитосборы и фитохитодезы.
           </p>
         </Reveal>
@@ -62,7 +62,7 @@ export default function HomeShelves() {
                   </Link>
                 </div>
                 {section.title.includes("минимальный заказ") && (
-                  <p className="mt-1 text-[13px] text-ink/60">
+                  <p className="mt-1 text-[14px] text-secondary">
                     Минимальный заказ фитохитодезов — от 2 штук.
                   </p>
                 )}

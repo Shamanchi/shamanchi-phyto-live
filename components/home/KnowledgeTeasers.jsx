@@ -17,14 +17,14 @@ export default function KnowledgeTeasers() {
     <section id="knowledge" className="py-14 sm:py-16" aria-labelledby="knowledge-title">
       <div className="wrap">
         <Reveal>
-          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-khaki">02 · знания врача</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-khaki">03 · знания врача</p>
           <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
             <h2 id="knowledge-title" className="font-display text-4xl font-semibold leading-tight sm:text-5xl">
               Статьи <span className="text-leaf">Евгения Козлова</span>
             </h2>
             <Link
               href="/knowledge/"
-              className="rounded-full border border-line bg-cream px-5 py-2.5 text-[14px] font-bold text-ink/70 transition hover:border-leaf hover:text-leaf"
+              className="rounded-full border border-line bg-cream px-5 py-2.5 text-[14px] font-bold text-ink/90 transition hover:border-leaf hover:text-leaf"
             >
               Все статьи →
             </Link>
@@ -43,7 +43,7 @@ export default function KnowledgeTeasers() {
                     {article.title}
                   </Link>
                 </h3>
-                <p className="mt-3 line-clamp-4 text-[14px] leading-relaxed text-ink/65">
+                <p className="mt-3 line-clamp-4 text-[15px] leading-relaxed text-ink/90">
                   {String(article.text || "").replace(/\s+/g, " ").slice(0, 260)}…
                 </p>
                 <Link
