@@ -68,11 +68,11 @@ function AdvantageIcon({ name }) {
         <circle cx="48" cy="15" r="6.5" fill={G3} />
         <path d="M48 4V7M48 23V26M37 15H40M56 15H59M40.2 7.2L42.3 9.3M55.8 22.8L53.7 20.7M55.8 7.2L53.7 9.3" stroke={G3} strokeWidth="2.4" strokeLinecap="round" />
         <path d="M10 32C10 20 34 20 34 32Z" fill={G1} />
-        <rect x="18" y="32" width="8" height="15" rx="4" fill={PAPER_CARVE} />
+        <rect x="18" y="32" width="8" height="15" rx="4" fill={PAPER_CARVE} stroke={G1} strokeWidth="2" />
         <circle cx="17" cy="27" r="2.2" fill={PAPER_CARVE} />
         <circle cx="26" cy="25" r="1.8" fill={PAPER_CARVE} />
         <path d="M36 40C36 32 52 32 52 40Z" fill={G2} />
-        <rect x="41" y="40" width="6" height="10" rx="3" fill={PAPER_CARVE} />
+        <rect x="41" y="40" width="6" height="10" rx="3" fill={PAPER_CARVE} stroke={G1} strokeWidth="2" />
         <circle cx="42" cy="37" r="1.6" fill={PAPER_CARVE} />
       </svg>
     );
