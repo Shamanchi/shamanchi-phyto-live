@@ -46,14 +46,16 @@ function PaymentIcon() {
 function ReturnIcon() {
   return (
     <svg {...ICON}>
-      <path d="M32 12a19 19 0 0 0 0 38" stroke={G1} strokeWidth="4.6" strokeLinecap="round" fill="none" />
-      <path d="m25 44 7 6 7-6" stroke={G3} strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d="M21 20.5c2.6-2.6 6-3.9 9.6-3.5l1-5.4 6.4 2.6-3.4 4.6-6-1.3c-1.9.2-3.7 1-5 2.6l-2.6.4Z" fill={G2} />
-      <path d="M25 33h14v12H25z" fill={G2} />
-      <rect x="21" y="28" width="22" height="6" rx="2.4" fill={G1} />
-      <path d="M32 28v17" stroke={PAPER} strokeWidth="1.8" />
-      <circle cx="52" cy="19" r="2.3" fill={G3} />
-      <path d="M50.6 17.4a3.6 3.6 0 0 1 5.1 4.3" stroke={G3} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+      {/* Кольцо возврата: стрелка-«разворот» вокруг коробки */}
+      <path d="M27.6 54.5A21 21 0 1 1 36.4 54.5" stroke={G3} strokeWidth="5.4" strokeLinecap="round" fill="none" />
+      <path d="m37.8 51.3-7.2 3.7 7.2 3.7" stroke={G3} strokeWidth="5.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      {/* Коробка с крышкой и лентой */}
+      <rect x="23" y="24.5" width="18" height="5.5" rx="2.75" fill={G2} />
+      <rect x="25" y="28.5" width="14" height="13" rx="2.5" fill={G1} />
+      <path d="M32 24.5v17" stroke={PAPER} strokeWidth="2" strokeLinecap="round" />
+      <path d="M28.5 34.2h7M25.6 37.6h12.8" stroke={PAPER} strokeWidth="1.3" strokeLinecap="round" opacity="0.75" />
+      <circle cx="50" cy="13" r="2.6" fill={G2} />
+      <path d="M49 11.3a3.4 3.4 0 0 1 4.6 4.6" stroke={G2} strokeWidth="1.8" strokeLinecap="round" fill="none" />
     </svg>
   );
 }

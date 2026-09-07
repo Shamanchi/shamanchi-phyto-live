@@ -161,14 +161,14 @@ export default function Nav() {
             <Link
               key={link.href + link.label}
               href={link.href}
-              className="rounded-full px-3 py-2 text-[14px] font-semibold text-ink/90 transition hover:bg-sageSoft/60 hover:text-ink"
+              className="whitespace-nowrap rounded-full px-3 py-2 text-[14px] font-semibold text-ink/90 transition hover:bg-sageSoft/60 hover:text-ink"
             >
               {link.label}
             </Link>
           ))}
           <Link
             href="/#podbor"
-            className="ml-1 rounded-full bg-leaf px-3.5 py-2 text-[13px] font-bold text-paper transition hover:bg-leafDark"
+            className="ml-1 whitespace-nowrap rounded-full bg-leaf px-3.5 py-2 text-[13px] font-bold text-paper transition hover:bg-leafDark"
           >
             Подбор по задаче
           </Link>
