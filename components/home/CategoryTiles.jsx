@@ -88,11 +88,13 @@ function Illustration({ slug }) {
   if (slug === "gastrointestinal") {
     return (
       <svg {...common}>
-        <path d="M29 10 C38 10 46 17 46 27 C46 33.5 43 37 40.5 41 C38.8 44 39.5 47.5 35.5 50.5 C30 54.5 21.5 51.5 21.5 43.5 C21.5 38.5 24.5 36 25.5 31 C26.5 25.5 24.5 21 25.5 16 C26.2 12.5 26.8 10 29 10 Z" fill={G1} />
-        <path d="M40 20 C42.5 26 41.5 32 37.5 37" stroke={G2} strokeWidth="2.6" strokeLinecap="round" fill="none" />
-        <circle cx="31" cy="24" r="2.5" fill={G3} />
-        <circle cx="33" cy="44" r="2.5" fill={G3} />
-        <path d="M28.5 15 Q31 14 33.5 15.5" stroke={CARVE} strokeWidth="2" strokeLinecap="round" fill="none" />
+        <path d="M31 7 V14" stroke={G1} strokeWidth="3.2" strokeLinecap="round" fill="none" />
+        <path d="M31 14 C37 13.5 43 17 43.5 23 C44 28.5 39.5 31.5 34.5 32.5 C30.5 33.3 28.5 35.5 29 39.5" stroke={G1} strokeWidth="3.2" strokeLinecap="round" fill="none" />
+        <path d="M29 39.5 C29.5 43 33.5 44 37 42.5" stroke={G1} strokeWidth="3.2" strokeLinecap="round" fill="none" />
+        <path d="M19 46 Q15 46 15 50 Q15 54 20 54 Q25 54 25 49 Q25 44 31 44 Q37 44 37 49 Q37 54 42 54 Q47 54 47 50 Q47 46 43 46" stroke={G1} strokeWidth="3.2" strokeLinecap="round" fill="none" />
+        <path d="M35 20 Q38 21 38.5 24" stroke={G2} strokeWidth="2.4" strokeLinecap="round" fill="none" />
+        <circle cx="33.5" cy="26.5" r="2.4" fill={G3} />
+        <path d="M21 49.5 Q22 48 24 48.3 M39 49.5 Q40 48 42 48.3" stroke={G2} strokeWidth="2" strokeLinecap="round" fill="none" />
       </svg>
     );
   }
