@@ -28,6 +28,24 @@ export default function InfoPageView({ page }) {
             </h1>
             <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-ink/90">{page.intro}</p>
 
+            {page.photo && (
+              <figure className="mt-8 max-w-[420px] overflow-hidden rounded-3xl border border-line bg-cream shadow-card">
+                <img
+                  src={asset(page.photo.src)}
+                  alt={page.photo.alt || ""}
+                  width={1000}
+                  height={1400}
+                  loading="lazy"
+                  className="w-full"
+                />
+                {page.photo.caption && (
+                  <figcaption className="px-5 py-4 text-[14px] leading-relaxed text-secondary">
+                    {page.photo.caption}
+                  </figcaption>
+                )}
+              </figure>
+            )}
+
             {(page.gallery || []).length > 0 && (
               <div className="mt-8 grid gap-5 sm:grid-cols-2">
                 {(page.gallery || []).map((photo, i) => (
@@ -58,6 +76,23 @@ export default function InfoPageView({ page }) {
                   aria-label={section.h}
                 >
                   <h2 className="font-display text-2xl font-semibold">{section.h}</h2>
+                  {section.photo && (
+                    <figure className="mt-5 overflow-hidden rounded-2xl border border-line bg-paper">
+                      <img
+                        src={asset(section.photo.src)}
+                        alt={section.photo.alt || ""}
+                        width={1200}
+                        height={800}
+                        loading="lazy"
+                        className="w-full"
+                      />
+                      {section.photo.caption && (
+                        <figcaption className="border-t border-line/60 px-5 py-3 text-[13.5px] leading-relaxed text-secondary">
+                          {section.photo.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  )}
                   {(section.paragraphs || []).map((text, j) => (
                     <p key={j} className="mt-3 text-[16px] leading-relaxed text-ink">
                       {text}

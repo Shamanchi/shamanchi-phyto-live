@@ -34,7 +34,7 @@ export default function Footer() {
             <nav aria-label="О проекте" className="mt-4 space-y-2">
               {[
                 ["/info/brand/", "О компании"],
-                ["/info/doctor/", "О враче"],
+                ["/info/doctor/", "О создателе проекта"],
                 ["/info/certificates/", "Сертификаты"],
                 ["/info/faq/", "Вопросы и ответы"],
               ].map(([href, label]) => (

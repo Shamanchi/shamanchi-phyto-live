@@ -20,7 +20,7 @@ const MENU_LINKS = [
 
 const MOBILE_EXTRA = [
   { href: "/#podbor", label: "Подбор по задаче" },
-  { href: "/info/doctor/", label: "О враче" },
+  { href: "/info/doctor/", label: "О создателе проекта" },
   { href: "/favorites/", label: "Избранное" },
   { href: "/account/", label: "Мои заказы" },
 ];

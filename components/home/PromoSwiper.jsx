@@ -11,7 +11,7 @@ const SLIDES = [
     kicker: "врач за проектом",
     title: "Фитосборы врача Евгения Козлова",
     text: "Практикующий врач-фитотерапевт проверяет каждую рецептуру. Живой человек за брендом: консультации, канал врача и продукция, которой он доверяет сам.",
-    cta: { href: "/info/doctor/", label: "О враче" },
+    cta: { href: "/info/doctor/", label: "О создателе проекта" },
     cta2: { href: "/catalog/?category=fitosbory", label: "Каталог сборов" },
     img: asset("/images/brand/doctor-about.jpg"),
     imgAlt: "Евгений Козлов — врач-фитотерапевт, создатель PHYTOTAB",

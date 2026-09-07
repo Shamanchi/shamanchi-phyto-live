@@ -287,6 +287,35 @@ try {
   const brandImgs = await brand.locator("main img").count();
   check(brandImgs >= 2, "о компании: фото из раздела «О магазине» на странице");
   await brandCtx.close();
+  await brandCtx.close();
+
+  const { ctx: docCtx, pg: doc } = await newPage();
+  await doc.goto(BASE_URL + "info/doctor/", { waitUntil: "domcontentloaded" });
+  const docText = lower(await bodyText(doc));
+  check(docText.includes("о создателе проекта"), "о враче: страница переименована в «О создателе проекта»");
+  check(docText.includes("как появилась идея создания проекта phytotab"), "о враче: секция «Как появилась идея…» на месте");
+  check(docText.includes("висцеральная терапия") && docText.includes("аюрведа"), "о враче: методики из эталона на месте");
+  const docImgs = await doc.locator("main img").count();
+  check(docImgs >= 2, "о враче: портрет и фото в разделе опыта на месте");
+  await doc.evaluate(async () => {
+    for (let y = 0; y <= document.body.scrollHeight; y += 600) {
+      window.scrollTo(0, y);
+      await new Promise((r) => setTimeout(r, 90));
+    }
+    window.scrollTo(0, 0);
+  });
+  await doc.evaluate(() => {
+    [...document.querySelectorAll("main img")].forEach((im) => {
+      if (!im.complete || im.naturalWidth === 0) {
+        im.loading = "eager";
+        im.src = im.getAttribute("src");
+      }
+    });
+  });
+  await doc.waitForFunction(() => [...document.querySelectorAll("main img")].every((im) => im.complete && im.naturalWidth > 0), null, { timeout: 10000 });
+  check(true, "о враче: фото реально загружаются");
+  await doc.screenshot({ path: join(artifacts, "info-doctor-1440.png"), fullPage: true });
+  await docCtx.close();
 
   const { ctx: artCtx, pg: art } = await newPage();
   await art.goto(BASE_URL + "knowledge/", { waitUntil: "domcontentloaded" });
