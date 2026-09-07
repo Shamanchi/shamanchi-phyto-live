@@ -65,93 +65,68 @@ function AdvantageIcon({ name }) {
   if (name === "farm") {
     return (
       <svg {...common}>
-        <rect x="6" y="46" width="52" height="10" rx="5" fill={G1} />
-        <rect x="6" y="46" width="52" height="3.6" rx="1.8" fill={G2} />
-        <path d="M11.5 37.5a10.5 10.5 0 0 1 21 0Z" fill={G2} />
-        <path d="M15.5 33.4c.7.5 1.1 1.2 1.3 2M20.5 31.8c.5.7.7 1.5.8 2.3M18 35.6c-.8-.2-1.4-.1-2 .1" stroke={PAPER_CARVE} strokeWidth="1.4" strokeLinecap="round" fill="none" />
-        <rect x="18" y="37.5" width="8" height="8.5" rx="3" fill={PAPER_CARVE} />
-        <path d="M46 37.5a9.5 9.5 0 0 1 19 0Z" fill={G1} />
-        <path d="M50 33.3c.6.5 1 1.1 1.2 1.9M54.5 31.9c.4.6.6 1.3.7 2" stroke={PAPER_CARVE} strokeWidth="1.4" strokeLinecap="round" fill="none" />
-        <rect x="52.5" y="37.5" width="7.5" height="8.5" rx="3" fill={PAPER_CARVE} />
-        <path d="M31 42.5 34.5 39c3.2 3 5.5 6 7 9.4H31v-5.9Z" fill={G3} />
-        <circle cx="51" cy="13" r="3" fill={G3} />
-        <circle cx="49.9" cy="11.9" r="0.9" fill={PAPER_CARVE} />
-        <path d="M6 56.5h52" stroke={G2} strokeWidth="3" strokeLinecap="round" />
+        <path d="M6 58c0-7.6 4.9-12 11.5-12h29C52.9 46 58 50.4 58 58Z" fill={G1} />
+        <path d="M16.5 47c0-13 5.6-19.7 10.5-19.7S37.5 34 37.5 47Z" fill={G2} />
+        <circle cx="25" cy="38.6" r="1.9" fill={PAPER_CARVE} />
+        <circle cx="29.6" cy="34" r="1.5" fill={PAPER_CARVE} />
+        <circle cx="31.2" cy="42.2" r="1.4" fill={PAPER_CARVE} />
+        <path d="M37.5 47c0-5.4 2.7-8.8 4-8.8s4 3.4 4 8.8Z" fill={G1} />
+        <circle cx="41.8" cy="42.6" r="1.3" fill={PAPER_CARVE} />
+        <circle cx="13.5" cy="15" r="4.2" fill={G3} />
+        <path d="M12.2 12.9a3.9 3.9 0 0 1 5.6 5.6" stroke={PAPER_CARVE} strokeWidth="1.5" strokeLinecap="round" fill="none" />
       </svg>
     );
   }
   if (name === "dose") {
     return (
       <svg {...common}>
-        <rect x="25" y="8" width="15" height="38" rx="7.5" fill={G2} />
-        <path d="M25 23h15v-7.5a7.5 7.5 0 0 0-15 0V23Z" fill={G1} />
-        <path d="M25 22.2h15" stroke={PAPER_CARVE} strokeWidth="1.5" />
-        <path d="M28.5 15.6h4.2" stroke={PAPER_CARVE} strokeWidth="1.5" strokeLinecap="round" opacity="0.85" />
-        <path d="M32.5 27.5c2.6 1.3 4.1 3.6 4.1 6.5 0 2.9-1.5 5.2-4.1 6.5-2.6-1.3-4.1-3.6-4.1-6.5 0-2.9 1.5-5.2 4.1-6.5Z" fill={G3} />
-        <path d="M32.5 28.8v9.8" stroke={PAPER_CARVE} strokeWidth="1.4" strokeLinecap="round" />
-        <path d="M13.5 43.5c1-5 3.8-8.4 8-9.8 1.4 5.2-.8 9.4-8 9.8Z" fill={G2} />
-        <path d="M56 13.5v6M53 16.5h6" stroke={G3} strokeWidth="2.6" strokeLinecap="round" />
-        <path d="M50 47c-.6-4.2 1.4-7.8 5.6-9.4 1.2 4.6-.8 8.4-5.6 9.4Z" fill={G2} />
+        <rect x="28.4" y="12" width="7.2" height="8.4" rx="2.4" fill={G2} />
+        <rect x="24.5" y="19" width="15" height="30" rx="7.5" fill={G1} />
+        <path d="M28 26v21" stroke={PAPER_CARVE} strokeWidth="1.8" strokeLinecap="round" opacity="0.85" />
+        <path d="M32 29.5c3.6 3.5 5.6 6.5 5.6 9.3a5.6 5.6 0 1 1-11.2 0c0-2.8 2-6.2 5.6-9.3Z" fill={G3} />
+        <path d="M32 31.6v5.6" stroke={PAPER_CARVE} strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     );
   }
   if (name === "cert") {
     return (
       <svg {...common}>
-        <path d="M32 4.5 48.5 10v11.4c0 11-6.6 19.9-16.5 25-9.9-5.1-16.5-14-16.5-25V10L32 4.5Z" fill={G1} />
-        <path d="M32 10.5 44.8 14.6v6.9c0 8.3-5.3 15.2-12.8 19.3-7.5-4.1-12.8-11-12.8-19.3v-6.9L32 10.5Z" fill="none" stroke={G2} strokeWidth="2" />
-        <path d="m25.2 31.4 5 5 9.4-10.2" stroke={PAPER_CARVE} strokeWidth="5.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <circle cx="49" cy="14.5" r="7.4" fill={G3} />
-        <circle cx="49" cy="14.5" r="2.7" fill={PAPER_CARVE} />
-        <path d="M20.5 52c-1.8-3.4-1.6-6.4.8-9.2 2.2 2.9 2.6 5.9 1 9.2h-1.8Z" fill={G2} />
-        <path d="M43.5 52c1.8-3.4 1.6-6.4-.8-9.2-2.2 2.9-2.6 5.9-1 9.2h1.8Z" fill={G2} />
-        <path d="M32 56.5v3.4" stroke={G3} strokeWidth="2.4" strokeLinecap="round" />
+        <path d="M32 5 50 10.8V24c0 11.6-7 20.6-18 25.8C21 44.6 14 35.6 14 24V10.8L32 5Z" fill={G1} />
+        <path d="M32 11.5 45.5 16v8c0 8.8-5.4 15.9-13.5 20-8.1-4.1-13.5-11.2-13.5-20v-8L32 11.5Z" fill="none" stroke={G2} strokeWidth="2" />
+        <path d="m24.6 31.4 5.2 5.2 10-10.8" stroke={PAPER_CARVE} strokeWidth="5.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <circle cx="50.5" cy="15" r="2.6" fill={G3} />
+        <path d="M48.8 12.7a3.1 3.1 0 0 1 4.3 4.3" stroke={G3} strokeWidth="1.5" strokeLinecap="round" fill="none" />
       </svg>
     );
   }
   if (name === "dev") {
     return (
       <svg {...common}>
-        <circle cx="33" cy="48" r="15.5" fill={G1} />
-        <rect x="27" y="8" width="12" height="34" rx="2" fill={G1} />
-        <rect x="25" y="5.5" width="16" height="5" rx="2.5" fill={G2} />
-        <circle cx="33" cy="51.5" r="9.2" fill={G2} />
-        <path d="M24.6 48.4c2.4-1.7 4.6-1.7 6.6 0 1.8 1.6 4 1.6 6.3 0 1.5-1.1 2.9-1.4 4.3-1" stroke={PAPER_CARVE} strokeWidth="1.7" strokeLinecap="round" fill="none" />
-        <circle cx="29.6" cy="55.6" r="2.1" fill={PAPER_CARVE} />
-        <circle cx="35.6" cy="52.4" r="1.6" fill={PAPER_CARVE} />
-        <circle cx="32" cy="57.4" r="1.2" fill={PAPER_CARVE} />
-        <path d="M23.5 34.5c1.6-4.6 3.6-7.6 6-9.4 1.2 5-1 8.8-6 9.4Z" fill={G2} />
-        <path d="M46.5 30v6M43.5 33h6" stroke={G3} strokeWidth="2.6" strokeLinecap="round" />
+        <rect x="28.4" y="5" width="7.2" height="5" rx="2" fill={G1} />
+        <rect x="27" y="10.5" width="10" height="20" rx="3.5" fill={G2} />
+        <circle cx="32" cy="43" r="13.5" fill={G2} />
+        <path d="M19.1 47h25.8a12.9 12.9 0 0 1-25.8 0Z" fill={G1} />
+        <circle cx="27.5" cy="50.5" r="1.5" fill={PAPER_CARVE} />
+        <circle cx="33.5" cy="49.3" r="1.2" fill={PAPER_CARVE} />
+        <circle cx="30.5" cy="53.5" r="1.1" fill={PAPER_CARVE} />
+        <circle cx="52.5" cy="15.5" r="2.8" fill={G3} />
+        <path d="M50.6 13.4a4 4 0 0 1 5.6 5.6" stroke={G3} strokeWidth="1.6" strokeLinecap="round" fill="none" />
       </svg>
     );
   }
   if (name === "eco") {
     return (
       <svg {...common}>
-        <path d="M0 52 16.5 12l17.5 40H0Z" fill={G1} />
-        <path d="M17 52 35.5 26 63 52H17Z" fill={G2} />
-        <path d="M11.6 24.8 16.5 12l4.9 12.8-9.8 0Z" fill={PAPER_CARVE} />
-        <path d="M46 11.5c2.5 3.2 4 5.8 4 8.4a4 4 0 1 1-8 0c0-2.6 1.5-5.2 4-8.4Z" fill={G3} />
-        <path d="M45.1 15.2c.8 1 .8 1.9 0 2.9" stroke={PAPER_CARVE} strokeWidth="1.5" strokeLinecap="round" fill="none" />
-        <path d="M51 32.5 60 52H42l9-19.5Z" fill={G1} />
-        <path d="M51 41 57.6 52H44.4L51 41Z" fill={G2} />
-        <path d="M49.5 52c0-5.6 1.8-9.6 5-12-1.8 5.6-.6 9.4 3.4 12h-8.4Z" fill={G3} />
-        <path d="M7 40c2.2 3 3.4 5.2 3.4 7.6a3.4 3.4 0 1 1-6.8 0C3.6 45.2 4.8 43 7 40Z" fill={G3} />
-        <path d="M6.2 44.2c.7.9.7 1.8 0 2.7" stroke={PAPER_CARVE} strokeWidth="1.4" strokeLinecap="round" fill="none" />
+        <circle cx="15.5" cy="16" r="5" fill={G3} />
+        <path d="M14.1 13.6a4.3 4.3 0 0 1 6.1 6.1" stroke={PAPER_CARVE} strokeWidth="1.6" strokeLinecap="round" fill="none" />
+        <path d="M14 58 40 9l21 30v19Z" fill={G2} />
+        <path d="M40 9l-5.6 10.6h11.2L40 9Z" fill={PAPER_CARVE} />
+        <path d="M0 58 25 28l11 12v18Z" fill={G1} />
+        <path d="M30 40l-3.2 15h6.4L30 40Z" fill={G2} />
       </svg>
     );
   }
-  return (
-    <svg {...common}>
-      <circle cx="32" cy="32" r="25.5" fill={G2} />
-      <circle cx="32" cy="32" r="25.5" fill="none" stroke={G1} strokeWidth="3" />
-      <path d="M32 15c6.4 2.6 10 6.9 10 12.4 0 6.8-4.4 12.4-10 15.6-5.6-3.2-10-8.8-10-15.6 0-5.5 3.6-9.8 10-12.4Z" fill={PAPER_CARVE} />
-      <path d="M32 18.5v22M32 29c-2.8-.6-5.1-1.9-6.9-4M32 29c2.8-.6 5.1-1.9 6.9-4" stroke={G2} strokeWidth="2" strokeLinecap="round" fill="none" />
-      <circle cx="49.5" cy="15.5" r="3.6" fill={G3} />
-    </svg>
-  );
 }
-
 export default function AboutDoctor() {
   return (
     <section
