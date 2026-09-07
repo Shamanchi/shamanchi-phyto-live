@@ -29,10 +29,9 @@ const MOBILE_EXTRA = [
   function PhoneGlyph({ className, accent = "#E8963A" }) {
     return (
       <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
-        <path d="M6.8 3.8 C8.1 3.8 9.4 4.5 10.1 5.7 L11.2 7.7 C11.7 8.6 11.4 9.7 10.7 10.4 L9.7 11.3 C10.9 13.4 12.6 15.1 14.7 16.3 L15.6 15.3 C16.3 14.6 17.4 14.3 18.3 14.8 L20.4 15.9 C21.6 16.6 22.3 17.9 22.3 19.2 C22.3 20.3 21.4 21.2 20.3 21.2 C11.7 21.2 4.8 14.3 4.8 5.7 C4.8 4.6 5.7 3.8 6.8 3.8 Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-        <path d="M16.6 3 A4.8 4.8 0 0 1 20.6 6.8" stroke={accent} strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M13.4 2.2 A7.8 7.8 0 0 1 21.4 9.6" stroke={accent} strokeWidth="1.4" strokeLinecap="round" opacity="0.55" />
-        <circle cx="21.6" cy="3.4" r="1.5" fill={accent} />
+        <path d="M6.8 3.6 C8.2 3.6 9.5 4.3 10.2 5.5 L11.3 7.5 C11.8 8.5 11.5 9.6 10.8 10.3 L9.8 11.2 C11 13.3 12.7 15 14.8 16.2 L15.7 15.2 C16.4 14.5 17.5 14.2 18.4 14.7 L20.5 15.8 C21.7 16.5 22.4 17.8 22.4 19.1 C22.4 20.2 21.5 21.1 20.4 21.1 C11.8 21.1 4.9 14.2 4.9 5.6 C4.9 4.5 5.7 3.6 6.8 3.6 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+        <path d="M16.4 2.6 A4.9 4.9 0 0 1 20.8 6.9" stroke={accent} strokeWidth="2" strokeLinecap="round" />
+        <circle cx="21.9" cy="3" r="1.6" fill={accent} />
       </svg>
     );
   }
@@ -40,9 +39,9 @@ const MOBILE_EXTRA = [
   function PinGlyph({ className, accent = "#E8963A" }) {
     return (
       <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
-        <path d="M12 21.6 C12 21.6 4.6 14.7 4.6 9.4 A7.4 7.4 0 1 1 19.4 9.4 C19.4 14.7 12 21.6 12 21.6 Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-        <circle cx="12" cy="9.4" r="3.6" stroke="currentColor" strokeWidth="1.6" />
-        <circle cx="12" cy="9.4" r="1.8" fill={accent} />
+        <path d="M12 21.8 C12 21.8 4.4 14.8 4.4 9.3 A7.6 7.6 0 1 1 19.6 9.3 C19.6 14.8 12 21.8 12 21.8 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+        <circle cx="12" cy="9.3" r="3.3" stroke="currentColor" strokeWidth="1.8" />
+        <circle cx="12" cy="9.3" r="1.7" fill={accent} />
       </svg>
     );
   }
@@ -50,10 +49,10 @@ const MOBILE_EXTRA = [
   function SearchGlyph({ className }) {
     return (
       <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
-        <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M15.9 15.9 L20.8 20.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M8.4 9.2 Q9.3 7.2 11.7 7" stroke="#78AA36" strokeWidth="1.6" strokeLinecap="round" />
-        <path d="M13.6 11 C14.4 12.1 15 13 15 14 A1.7 1.7 0 1 1 11.6 14 C11.6 13 12.2 12.1 13.6 11 Z" fill="#E8963A" />
+        <circle cx="10.8" cy="10.8" r="6.9" stroke="currentColor" strokeWidth="2" />
+        <path d="M16 16 L21 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M8.2 9.1 Q9.2 7 11.8 6.8" stroke="#78AA36" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M13.8 11 C14.6 12.1 15.2 13 15.2 14 A1.8 1.8 0 1 1 11.6 14 C11.6 13 12.2 12.1 13.8 11 Z" fill="#E8963A" />
       </svg>
     );
   }
@@ -61,9 +60,9 @@ const MOBILE_EXTRA = [
   function UserGlyph({ className }) {
     return (
       <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
-        <circle cx="12" cy="8.2" r="3.8" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M5.2 20.2 C5.2 16.2 8.3 14.2 12 14.2 C15.7 14.2 18.8 16.2 18.8 20.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <circle cx="16.9" cy="5.2" r="1.5" fill="#E8963A" />
+        <circle cx="12" cy="8.1" r="3.9" stroke="currentColor" strokeWidth="2" />
+        <path d="M5 20.4 C5 16.2 8.2 14.1 12 14.1 C15.8 14.1 19 16.2 19 20.4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="17.1" cy="4.9" r="1.6" fill="#E8963A" />
       </svg>
     );
   }
@@ -71,8 +70,8 @@ const MOBILE_EXTRA = [
   function HeartGlyph({ className }) {
     return (
       <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
-        <path d="M12 19.9 C12 19.9 4.5 15.3 4.5 9.5 C4.5 6.5 6.9 4.4 9.4 4.4 C10.7 4.4 11.6 5 12 5.9 C12.4 5 13.3 4.4 14.6 4.4 C17.1 4.4 19.5 6.5 19.5 9.5 C19.5 15.3 12 19.9 12 19.9 Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-        <path d="M12 10.4 C13 11.8 13.7 12.7 13.7 13.8 A1.8 1.8 0 1 1 10.3 13.8 C10.3 12.7 11 11.8 12 10.4 Z" fill="#E8963A" />
+        <path d="M12 20 C12 20 4.3 15.3 4.3 9.4 C4.3 6.3 6.8 4.2 9.3 4.2 C10.6 4.2 11.6 4.9 12 5.8 C12.4 4.9 13.4 4.2 14.7 4.2 C17.2 4.2 19.7 6.3 19.7 9.4 C19.7 15.3 12 20 12 20 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+        <path d="M12 10.3 C13 11.7 13.8 12.7 13.8 13.9 A1.9 1.9 0 1 1 10.2 13.9 C10.2 12.7 11 11.7 12 10.3 Z" fill="#E8963A" />
       </svg>
     );
   }
@@ -80,10 +79,10 @@ const MOBILE_EXTRA = [
   function BagGlyph({ className }) {
     return (
       <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
-        <path d="M8.4 8.2 V6.9 A3.6 3.6 0 0 1 15.6 6.9 V8.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M5.6 8.2 H18.4 L19.4 18.7 A2.1 2.1 0 0 1 17.3 21 H6.7 A2.1 2.1 0 0 1 4.6 18.7 Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-        <path d="M8 13.6 Q12 15.4 16 13.6" stroke="#78AA36" strokeWidth="1.5" strokeLinecap="round" />
-        <circle cx="12" cy="17" r="1.7" fill="#E8963A" />
+        <path d="M8.3 8.1 V6.7 A3.7 3.7 0 0 1 15.7 6.7 V8.1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M5.4 8.1 H18.6 L19.6 18.8 A2.2 2.2 0 0 1 17.4 21 H6.6 A2.2 2.2 0 0 1 4.4 18.8 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+        <path d="M7.8 13.5 Q12 15.4 16.2 13.5" stroke="#78AA36" strokeWidth="1.7" strokeLinecap="round" />
+        <circle cx="12" cy="17.1" r="1.8" fill="#E8963A" />
       </svg>
     );
   }
@@ -141,12 +140,12 @@ const MOBILE_EXTRA = [
       >
         <div className="wrap flex h-[38px] items-center justify-between gap-4 text-[13px]">
           <a href={SHOP_PHONE_HREF} className="flex items-center gap-2 font-semibold transition hover:text-white">
-            <PhoneGlyph className="h-3.5 w-3.5" accent="#EDF3E4" />
+            <PhoneGlyph className="h-3.5 w-3.5" />
             Служба поддержки {SUPPORT_PHONE_RAW}, с 10 до 20 (МСК)
           </a>
           <div className="flex items-center gap-6">
             <Link href="/info/contacts/" className="flex items-center gap-1.5 font-semibold transition hover:text-white">
-              <PinGlyph className="h-3.5 w-3.5" accent="#EDF3E4" />
+              <PinGlyph className="h-3.5 w-3.5" />
               Пункт самовывоза
             </Link>
           </div>
