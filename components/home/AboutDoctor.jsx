@@ -168,8 +168,7 @@ export default function AboutDoctor() {
                   Проект Евгения Козлова
                 </p>
                 <p className="mt-2 text-[15px] leading-relaxed text-ink">
-                  фитотерапевт, клинический фармаколог, доктор китайской медицины, вице-президент
-                  китайского фармакологического общества, нутрициолог, автор YouTube-канала
+                  фитотерапевт, клинический фармаколог, доктор китайской медицины, нутрициолог, автор YouTube-канала
                   «{SHOP_YT_CHANNEL}»
                 </p>
                 <blockquote className="mt-4 rounded-2xl border-l-4 border-honey bg-cream px-4 py-3">

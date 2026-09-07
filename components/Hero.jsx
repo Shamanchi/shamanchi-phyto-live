@@ -25,7 +25,7 @@ export default function Hero() {
           {/* Креденшелы под заголовком (правка 3, п. 8) — одна строка, без дублирования полного блока */}
           <p className="mt-4 flex flex-wrap items-center gap-x-2 text-[15px] font-bold leading-snug text-leafDark sm:text-base">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-honey" aria-hidden="true" />
-            Врач-фитотерапевт, клинический фармаколог, вице-президент китайского фармакологического общества
+            Врач-фитотерапевт, клинический фармаколог
           </p>
 
           <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-ink sm:text-xl">
