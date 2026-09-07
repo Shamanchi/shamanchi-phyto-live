@@ -11,84 +11,83 @@ import Reveal from "../Reveal";
 const QG1 = "#207D44";
 const QG2 = "#78AA36";
 const QG3 = "#E8963A";
-const QPAPER = "#FBF8F1";
+const QPAPER = "#F7F3EA";
 const QINK = "#22301F";
 const QICON = { viewBox: "0 0 40 40", className: "h-8 w-8", "aria-hidden": true };
 const TASK_ICONS = {
   immunity: (
     <svg {...QICON}>
-      <path d="M20 5.5 32.5 10v9.2c0 8.8-5.2 15.6-12.5 19.3-7.3-3.7-12.5-10.5-12.5-19.3V10L20 5.5Z" fill={QG1} />
-      <path d="M20 12v15" stroke={QPAPER} strokeWidth="2.6" strokeLinecap="round" />
-      <path d="M20 20c-3.2-.8-5.6-2.4-7.3-4.9M20 20c3.2-.8 5.6-2.4 7.3-4.9" stroke={QPAPER} strokeWidth="2.1" strokeLinecap="round" />
-      <circle cx="30.5" cy="7.5" r="2" fill={QG3} />
+      <path d="M20 4L33 9V19C33 27 28 32 20 35C12 32 7 27 7 19V9Z" fill={QG1} />
+      <rect x="17.6" y="12" width="4.8" height="15" rx="1.8" fill={QPAPER} />
+      <rect x="12.5" y="17.2" width="15" height="4.8" rx="1.8" fill={QPAPER} />
+      <circle cx="29.5" cy="7.5" r="2.6" fill={QG3} />
     </svg>
   ),
   gut: (
     <svg {...QICON}>
-      <path d="M9.5 22.5C9.5 13.6 14.6 8.5 20.5 8.5s11 5.1 11 14c0 5-1.7 8.9-4.8 11.3a1.7 1.7 0 0 1-2.3-.3c-1.1-1.2-1.4-2.8-1-4.3h-5.8c.4 1.5.1 3.1-1 4.3a1.7 1.7 0 0 1-2.3.3C11.2 31.4 9.5 27.5 9.5 22.5Z" fill={QG1} />
-      <path d="M14.3 22.6c1.8-2.9 3.8-4.4 6.2-4.4s4.4 1.5 6.2 4.4" stroke={QPAPER} strokeWidth="2.3" strokeLinecap="round" />
-      <path d="M29.5 5.9l1 2.1 2.3.5-1.7 1.6.4 2.3-2-1.1-2 1.1.4-2.3-1.7-1.6 2.3-.5 1-2.1Z" fill={QG3} />
+      <path d="M8 11H27C31.5 11 31.5 18 27 18H14C9.5 18 9.5 25 14 25H26C30.5 25 30.5 32 26 32H10" stroke={QG1} strokeWidth="3.6" strokeLinecap="round" fill="none" />
+      <circle cx="33" cy="9" r="2.6" fill={QG3} />
+      <circle cx="34" cy="30" r="2" fill={QG2} />
     </svg>
   ),
   sleep: (
     <svg {...QICON}>
-      <path d="M21 6.5a11.6 11.6 0 1 0 12.6 14.6 9.2 9.2 0 0 1-12.6-14.6Z" fill={QG1} />
-      <path d="M26.5 30.5l1 2 2.2.5-1.6 1.5.4 2.2-2-1.1-2 1.1.4-2.2-1.6-1.5 2.2-.5 1-2Z" fill={QG3} />
-      <path d="M12.5 15.2c.5 1 1.3 1.6 2.4 1.8" stroke={QPAPER} strokeWidth="2.1" strokeLinecap="round" fill="none" />
+      <path d="M24.5 5A15.5 15.5 0 1 0 34.5 28.5A12.5 12.5 0 0 1 24.5 5Z" fill={QG1} />
+      <path d="M29 8L30.2 10.8L33 12L30.2 13.2L29 16L27.8 13.2L25 12L27.8 10.8Z" fill={QG3} />
+      <circle cx="12" cy="10" r="1.8" fill={QG2} />
     </svg>
   ),
   skin: (
     <svg {...QICON}>
-      <path d="M20 6c3.3 4.5 5.4 8 5.4 11.3a5.4 5.4 0 1 1-10.8 0C14.6 14 16.7 10.5 20 6Z" fill={QG1} />
-      <path d="M16.9 17.6c.4-.8 1.1-1.3 1.9-1.4" stroke={QPAPER} strokeWidth="2" strokeLinecap="round" />
-      <path d="M29.5 21.5v3M28 23h3" stroke={QG3} strokeWidth="1.7" strokeLinecap="round" />
-      <path d="M10.5 24.5v2.4M9.3 25.7h2.4" stroke={QG3} strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M20 5C25.5 12.5 28.5 16.5 28.5 21.5A8.5 8.5 0 1 1 11.5 21.5C11.5 16.5 14.5 12.5 20 5Z" fill={QG1} />
+      <path d="M15.5 23Q15.5 27 19.5 27.5" stroke={QPAPER} strokeWidth="2.2" strokeLinecap="round" fill="none" />
+      <rect x="26" y="26" width="9" height="3" rx="1.5" fill={QG3} />
+      <rect x="29" y="23" width="3" height="9" rx="1.5" fill={QG3} />
     </svg>
   ),
-};
+}
 const FORMAT_ICONS = {
   "сбор": (
     <svg {...QICON}>
-      <path d="M11 12h17v7.4c0 6.2-4.8 10.1-8.5 10.1s-8.5-3.9-8.5-10.1V12Z" fill={QG2} />
-      <path d="M11 12h17v2.7c0 1.8-1.1 2.9-3.7 2.9H14.7c-2.6 0-3.7-1.1-3.7-2.9V12Z" fill={QG3} />
-      <path d="M20 17.6c1.9.9 3 2.6 3 4.5 0 2-1.1 3.6-3 4.5-1.9-.9-3-2.5-3-4.5 0-1.9 1.1-3.6 3-4.5Z" fill={QPAPER} />
-      <path d="M20 18.5v7.7" stroke={QG2} strokeWidth="1.4" strokeLinecap="round" />
-      <path d="M28.5 15.5h1.4a3.1 3.1 0 0 1 0 6.2H28.5" stroke={QG2} strokeWidth="2.4" fill="none" />
-      <path d="M14.5 8.5c-1.3-1.3-1.3-2.6 0-4M20 8.5c-1.3-1.3-1.3-2.6 0-4" stroke={QG3} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+      <rect x="7" y="10" width="26" height="5" rx="2.2" fill={QG3} />
+      <rect x="9" y="15" width="22" height="20" rx="3" fill={QG1} />
+      <rect x="9" y="21" width="22" height="6" fill={QPAPER} />
+      <path d="M13 24H17M21 24H25M28 24H29" stroke={QG2} strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M15 7Q14 4.5 16 3M23 7Q22 4.5 24 3" stroke={QG2} strokeWidth="1.8" strokeLinecap="round" fill="none" />
     </svg>
   ),
   "капсулы": (
     <svg {...QICON}>
-      <rect x="7" y="15.5" width="17" height="9" rx="4.5" fill={QG2} />
-      <rect x="16.6" y="15.5" width="7.4" height="9" rx="3.7" fill={QG1} />
-      <path d="M24 15.5v9" stroke={QPAPER} strokeWidth="1.4" opacity="0.7" />
-      <g transform="rotate(26 27 30.5)">
-        <rect x="18.5" y="26" width="17" height="9" rx="4.5" fill={QG1} />
-        <rect x="28.2" y="26" width="7.3" height="9" rx="3.65" fill={QG3} />
-        <path d="M28.2 26v9" stroke={QPAPER} strokeWidth="1.4" opacity="0.7" />
+      <g transform="rotate(-28 13 15)">
+        <rect x="4" y="10" width="19" height="9" rx="4.5" fill={QG1} />
+        <path d="M13.5 10V19" stroke={QPAPER} strokeWidth="1.8" />
       </g>
-      <path d="M12.5 17.5h2" stroke={QPAPER} strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
+      <g transform="rotate(24 27 24)">
+        <rect x="18" y="20" width="19" height="9" rx="4.5" fill={QG3} />
+        <path d="M27.5 20V29" stroke={QPAPER} strokeWidth="1.8" />
+      </g>
+      <circle cx="33" cy="9" r="2.4" fill={QG2} />
     </svg>
   ),
   "порошок": (
     <svg {...QICON}>
-      <rect x="9.5" y="19.5" width="21" height="14" rx="7" fill={QG2} />
-      <rect x="9.5" y="19.5" width="21" height="5.6" rx="2.8" fill={QG1} />
-      <path d="M20 22c1.6.8 2.5 2.2 2.5 3.8 0 1.7-.9 3.1-2.5 3.9-1.6-.8-2.5-2.2-2.5-3.9 0-1.6.9-3 2.5-3.8Z" fill={QPAPER} />
-      <path d="M9 10.5l1.6 3.2 3.5.7-2.5 2.4.6 3.5-3.2-1.7-3.2 1.7.6-3.5-2.5-2.4 3.5-.7L9 10.5Z" fill={QG3} />
-      <path d="M31.5 8v2.6M30.2 9.3h2.6" stroke={QG3} strokeWidth="1.5" strokeLinecap="round" />
+      <rect x="10" y="8" width="20" height="5" rx="2.2" fill={QG3} />
+      <rect x="12" y="13" width="16" height="22" rx="3" fill={QG1} />
+      <path d="M20 18L21.2 20.8L24 22L21.2 23.2L20 26L18.8 23.2L16 22L18.8 20.8Z" fill={QPAPER} />
+      <rect x="27" y="27" width="8" height="2.6" rx="1.3" fill={QG2} />
+      <rect x="29.7" y="24.3" width="2.6" height="8" rx="1.3" fill={QG2} />
     </svg>
   ),
   "набор": (
     <svg {...QICON}>
-      <rect x="9.5" y="20" width="21" height="16" rx="3" fill={QG2} />
-      <rect x="6.5" y="13.5" width="27" height="8" rx="2.8" fill={QG1} />
-      <path d="M20 13.5v22.5" stroke={QPAPER} strokeWidth="2.7" />
-      <path d="M6.5 17.4h27" stroke={QPAPER} strokeWidth="2.7" />
-      <path d="M27 6.5l1.2 2.4 2.7.6-1.9 1.8.5 2.6-2.5-1.3-2.5 1.3.5-2.6-1.9-1.8 2.7-.6 1.2-2.4Z" fill={QG3} />
+      <rect x="7" y="17" width="26" height="18" rx="2.5" fill={QG1} />
+      <rect x="5" y="12" width="30" height="6.5" rx="2.2" fill={QG2} />
+      <rect x="18" y="12" width="4.5" height="23" fill={QPAPER} />
+      <path d="M20.2 12C15 12 14 5.5 18 5.5C21 5.5 20.5 9 20.2 12Z" fill={QG3} />
+      <path d="M20.2 12C25.5 12 26.5 5.5 22.5 5.5C19.5 5.5 20 9 20.2 12Z" fill={QG3} />
     </svg>
   ),
-};
+}
 
 const QUIZ_KEY = "pt-quiz-v1";
 
@@ -123,8 +122,8 @@ function OptionButton({ active, onClick, children, hint, name, icon }) {
           aria-hidden="true"
         >
           {active && (
-            <svg viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2.4">
-              <path d="M3 8.5 6.5 12 13 4.5" />
+            <svg viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 8.4 6.4 11.8 13 4.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           )}
         </span>
@@ -358,8 +357,8 @@ export default function QuizSection() {
                         >
                           {added ? (
                             <>
-                              <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
-                                <path d="M3 8.5 6.5 12 13 4.5" />
+                              <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                                <path d="M3 8.4 6.4 11.8 13 4.2" strokeLinecap="round" strokeLinejoin="round" />
                               </svg>
                               Добавлено
                             </>
@@ -410,8 +409,8 @@ export default function QuizSection() {
                     ) : (
                       <p className="rise-in flex items-start gap-3">
                         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-leaf text-paper">
-                          <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
-                            <path d="M3 8.5 6.5 12 13 4.5" />
+                          <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                            <path d="M3 8.4 6.4 11.8 13 4.2" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </span>
                         <span className="text-[14.5px] font-semibold leading-snug">
@@ -429,8 +428,9 @@ export default function QuizSection() {
                     onClick={restart}
                     className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-khaki transition hover:text-ink"
                   >
-                    <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                      <path d="M13 8a5 5 0 1 1-1.5-3.5M13 2v3.5H9.5" />
+                    <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                      <path d="M2.5 8A5.5 5.5 0 1 0 8 2.5a5.8 5.8 0 0 0-4.4 1.7L2.5 5.3" strokeLinecap="round" />
+                      <path d="M2.4 2.2v3.2h3.2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     Пройти подбор заново
                   </button>

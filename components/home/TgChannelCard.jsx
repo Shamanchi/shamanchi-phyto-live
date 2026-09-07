@@ -13,8 +13,9 @@ export default function TgChannelCard({ compact = false, dark = false }) {
         <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-full ${
           dark ? "bg-paper/15 text-paper" : "bg-leaf text-paper"
         }`}>
-          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-            <path d="M21.5 4.5 2.8 11.7c-.8.3-.8 1.5.1 1.7l4.6 1.4 1.8 5.4c.2.7 1.1.9 1.6.3l2.4-2.7 4.7 3.5c.6.4 1.4.1 1.6-.7l3.2-15c.2-1-.7-1.8-1.7-1.5l-.6.1Zm-3.5 3-9 6.2-.1 3-1.1-3.4 10.2-5.8Z" />
+          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
+        <path d="M21.9 4.6L3.4 11.7C2.7 12 2.7 13 3.5 13.3L8 14.7L9.7 20C10 20.8 11 21 11.6 20.4L14 18L18.6 21.5C19.3 22 20.3 21.7 20.5 20.8L23.4 6C23.6 5 22.8 4.3 21.9 4.6Z" />
+      <path d="M7.5 13.8L20.5 6.6M10.5 17.5L12.6 15.4" stroke="#FBF8F1" strokeWidth="1.3" strokeLinecap="round" />
           </svg>
         </span>
         <div>
@@ -44,8 +45,8 @@ export default function TgChannelCard({ compact = false, dark = false }) {
         }`}
       >
         Подписаться
-        <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-          <path d="M4 10h12m0 0-5-5m5 5-5 5" />
+        <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+          <path d="M3 10h13M11 5l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </a>
     </div>

@@ -12,7 +12,7 @@ import { asset, SHOP_TG_URL, SHOP_YT_CHANNEL, SHOP_YT_SUBSCRIBERS, SHOP_YT_URL }
 const G1 = "#207D44";
 const G2 = "#78AA36";
 const G3 = "#E8963A";
-const PAPER_CARVE = "#FBF8F1";
+const PAPER_CARVE = "#F7F3EA";
 
 const CARDS = [
   {
@@ -48,85 +48,78 @@ const CARDS = [
 ];
 
 function AdvantageIcon({ name }) {
+  // Арт дизайнера, блоки 11–13 (ICON-33..38): преимущества в едином стиле
+  // категорий — фирменный зелёный + светло-зелёный + янтарная деталь.
   const common = { viewBox: "0 0 64 64", className: "h-12 w-12 sm:h-14 sm:w-14", "aria-hidden": true };
   if (name === "leaf") {
     return (
       <svg {...common}>
-        <path d="M36.5 4c11.8 1.8 19.2 9.8 19.2 21.2 0 12.2-8.4 21.8-19.2 26.7-10.8-4.9-19.2-14.5-19.2-26.7C17.3 13.8 24.7 5.8 36.5 4Z" fill={G1} />
-        <path d="M36.5 13v27" stroke={G2} strokeWidth="2.6" strokeLinecap="round" />
-        <path d="M36.5 25.2c-4.3-1-7.9-3-10.7-6.3M36.5 25.2c4.3-1 7.9-3 10.7-6.3M36.5 33.8c-3.1.6-5.9 2.1-8.4 4.5M36.5 33.8c3.1.6 5.9 2.1 8.4 4.5" stroke={G2} strokeWidth="2.1" strokeLinecap="round" fill="none" />
-        <path d="M11.5 43.5c.4-6.6 3.8-11.4 9.2-13.4.6 6.4-2.2 11.2-9.2 13.4Z" fill={G2} />
-        <path d="M18.5 57.5c-.8-4.8 1.5-8.9 5.6-10.6.8 4.4-1.1 8-5.6 10.6Z" fill={G2} />
-        <circle cx="54.5" cy="46.5" r="5.8" fill={G3} />
-        <circle cx="52.9" cy="44.6" r="1.7" fill={PAPER_CARVE} />
+        <path d="M13 48C11 30 21 15 35 12C36 32 28 47 13 48Z" fill={G1} />
+        <path d="M16 45C22 34 28 25 33 16" stroke={PAPER_CARVE} strokeWidth="2.6" strokeLinecap="round" fill="none" />
+        <path d="M21 38Q26 37 29 33M25 30Q29 28 31 24" stroke={G2} strokeWidth="2.2" strokeLinecap="round" fill="none" />
+        <circle cx="47" cy="20" r="7" fill={G3} />
+        <path d="M47 8V11M47 29V32M35 20H38M56 20H59M38.5 11.5L40.5 13.5M55.5 28.5L53.5 26.5M55.5 11.5L53.5 13.5" stroke={G3} strokeWidth="2.4" strokeLinecap="round" />
       </svg>
     );
   }
   if (name === "farm") {
     return (
       <svg {...common}>
-        <path d="M6 58c0-7.6 4.9-12 11.5-12h29C52.9 46 58 50.4 58 58Z" fill={G1} />
-        <path d="M16.5 47c0-13 5.6-19.7 10.5-19.7S37.5 34 37.5 47Z" fill={G2} />
-        <circle cx="25" cy="38.6" r="1.9" fill={PAPER_CARVE} />
-        <circle cx="29.6" cy="34" r="1.5" fill={PAPER_CARVE} />
-        <circle cx="31.2" cy="42.2" r="1.4" fill={PAPER_CARVE} />
-        <path d="M37.5 47c0-5.4 2.7-8.8 4-8.8s4 3.4 4 8.8Z" fill={G1} />
-        <circle cx="41.8" cy="42.6" r="1.3" fill={PAPER_CARVE} />
-        <circle cx="13.5" cy="15" r="4.2" fill={G3} />
-        <path d="M12.2 12.9a3.9 3.9 0 0 1 5.6 5.6" stroke={PAPER_CARVE} strokeWidth="1.5" strokeLinecap="round" fill="none" />
+        <circle cx="48" cy="15" r="6.5" fill={G3} />
+        <path d="M48 4V7M48 23V26M37 15H40M56 15H59M40.2 7.2L42.3 9.3M55.8 22.8L53.7 20.7M55.8 7.2L53.7 9.3" stroke={G3} strokeWidth="2.4" strokeLinecap="round" />
+        <path d="M10 32C10 20 34 20 34 32Z" fill={G1} />
+        <rect x="18" y="32" width="8" height="15" rx="4" fill={PAPER_CARVE} />
+        <circle cx="17" cy="27" r="2.2" fill={PAPER_CARVE} />
+        <circle cx="26" cy="25" r="1.8" fill={PAPER_CARVE} />
+        <path d="M36 40C36 32 52 32 52 40Z" fill={G2} />
+        <rect x="41" y="40" width="6" height="10" rx="3" fill={PAPER_CARVE} />
+        <circle cx="42" cy="37" r="1.6" fill={PAPER_CARVE} />
       </svg>
     );
   }
   if (name === "dose") {
     return (
       <svg {...common}>
-        <rect x="28.4" y="12" width="7.2" height="8.4" rx="2.4" fill={G2} />
-        <rect x="24.5" y="19" width="15" height="30" rx="7.5" fill={G1} />
-        <path d="M28 26v21" stroke={PAPER_CARVE} strokeWidth="1.8" strokeLinecap="round" opacity="0.85" />
-        <path d="M32 29.5c3.6 3.5 5.6 6.5 5.6 9.3a5.6 5.6 0 1 1-11.2 0c0-2.8 2-6.2 5.6-9.3Z" fill={G3} />
-        <path d="M32 31.6v5.6" stroke={PAPER_CARVE} strokeWidth="1.5" strokeLinecap="round" />
+        <rect x="26" y="8" width="12" height="7" rx="2" fill={G3} />
+        <rect x="23" y="15" width="18" height="36" rx="5" fill={G1} />
+        <rect x="27" y="26" width="10" height="14" rx="2" fill={PAPER_CARVE} />
+        <path d="M29 41V31M33 41V31" stroke={G2} strokeWidth="2.2" strokeLinecap="round" />
+        <path d="M47 24C49.5 28 51 30.5 51 33.5A6.5 6.5 0 1 1 38 33.5C38 30.5 44.5 28 47 24Z" fill={G2} />
+        <path d="M44.5 35.5Q44.5 38 47 38" stroke={PAPER_CARVE} strokeWidth="2" strokeLinecap="round" fill="none" />
       </svg>
     );
   }
   if (name === "cert") {
     return (
       <svg {...common}>
-        <path d="M32 5 50 10.8V24c0 11.6-7 20.6-18 25.8C21 44.6 14 35.6 14 24V10.8L32 5Z" fill={G1} />
-        <path d="M32 11.5 45.5 16v8c0 8.8-5.4 15.9-13.5 20-8.1-4.1-13.5-11.2-13.5-20v-8L32 11.5Z" fill="none" stroke={G2} strokeWidth="2" />
-        <path d="m24.6 31.4 5.2 5.2 10-10.8" stroke={PAPER_CARVE} strokeWidth="5.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <circle cx="50.5" cy="15" r="2.6" fill={G3} />
-        <path d="M48.8 12.7a3.1 3.1 0 0 1 4.3 4.3" stroke={G3} strokeWidth="1.5" strokeLinecap="round" fill="none" />
+        <path d="M32 7L52 15V31C52 44 44 52 32 56C20 52 12 44 12 31V15Z" fill={G1} />
+        <path d="M23 32L29 38.5L42 25" stroke={PAPER_CARVE} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M49 5L50.5 8.5L54 10L50.5 11.5L49 15L47.5 11.5L44 10L47.5 8.5Z" fill={G3} />
       </svg>
     );
   }
   if (name === "dev") {
     return (
       <svg {...common}>
-        <rect x="28.4" y="5" width="7.2" height="5" rx="2" fill={G1} />
-        <rect x="27" y="10.5" width="10" height="20" rx="3.5" fill={G2} />
-        <circle cx="32" cy="43" r="13.5" fill={G2} />
-        <path d="M19.1 47h25.8a12.9 12.9 0 0 1-25.8 0Z" fill={G1} />
-        <circle cx="27.5" cy="50.5" r="1.5" fill={PAPER_CARVE} />
-        <circle cx="33.5" cy="49.3" r="1.2" fill={PAPER_CARVE} />
-        <circle cx="30.5" cy="53.5" r="1.1" fill={PAPER_CARVE} />
-        <circle cx="52.5" cy="15.5" r="2.8" fill={G3} />
-        <path d="M50.6 13.4a4 4 0 0 1 5.6 5.6" stroke={G3} strokeWidth="1.6" strokeLinecap="round" fill="none" />
+        <path d="M25 9H39M27 9V24L17.5 45C16 49 19 52 23 52H41C45 52 48 49 46.5 45L37 24V9" stroke={G1} strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M23.5 36H40.5L44 45.5C44.7 47.8 43.2 49 41 49H23C20.8 49 19.3 47.8 20 45.5Z" fill={G2} />
+        <circle cx="30" cy="43" r="2.2" fill={PAPER_CARVE} />
+        <circle cx="36" cy="46" r="1.6" fill={PAPER_CARVE} />
+        <path d="M32 4C33 6 34.5 7.2 34.5 9A2.5 2.5 0 1 1 29.5 9C29.5 7.2 31 6 32 4Z" fill={G3} />
       </svg>
     );
   }
-  if (name === "eco") {
-    return (
-      <svg {...common}>
-        <circle cx="15.5" cy="16" r="5" fill={G3} />
-        <path d="M14.1 13.6a4.3 4.3 0 0 1 6.1 6.1" stroke={PAPER_CARVE} strokeWidth="1.6" strokeLinecap="round" fill="none" />
-        <path d="M14 58 40 9l21 30v19Z" fill={G2} />
-        <path d="M40 9l-5.6 10.6h11.2L40 9Z" fill={PAPER_CARVE} />
-        <path d="M0 58 25 28l11 12v18Z" fill={G1} />
-        <path d="M30 40l-3.2 15h6.4L30 40Z" fill={G2} />
-      </svg>
-    );
-  }
+  return (
+    <svg {...common}>
+      <circle cx="19" cy="17" r="7" fill={G3} />
+      <path d="M4 50L20 26L30 41L38 30L60 50Z" fill={G1} />
+      <path d="M38 30L46 40L38 44L30 41Z" fill={G2} />
+      <path d="M20 26L25 34L20 36L15 34Z" fill={PAPER_CARVE} />
+      <path d="M4 50H60" stroke={G2} strokeWidth="3" strokeLinecap="round" fill="none" />
+    </svg>
+  );
 }
+
 export default function AboutDoctor() {
   return (
     <section
@@ -183,7 +176,7 @@ export default function AboutDoctor() {
                     className="inline-flex items-center gap-2 rounded-full border border-line bg-cream px-4 py-2.5 text-[14px] font-bold text-ink transition hover:-translate-y-0.5 hover:border-leaf/60 hover:text-leafDark"
                   >
                     <svg viewBox="0 0 24 24" className="h-4 w-4 text-honey" fill="currentColor" aria-hidden="true">
-                      <path d="M21.4 7.4a2.6 2.6 0 0 0-1.8-1.9C17.9 5.2 12 5.2 12 5.2s-5.9 0-7.6.3A2.6 2.6 0 0 0 2.6 7.4 27 27 0 0 0 2.3 12c0 1.6.1 3.1.3 4.6a2.6 2.6 0 0 0 1.8 1.9c1.7.3 7.6.3 7.6.3s5.9 0 7.6-.3a2.6 2.6 0 0 0 1.8-1.9c.2-1.5.3-3 .3-4.6s-.1-3.1-.3-4.6ZM10.2 15.3V8.7l5.6 3.3-5.6 3.3Z" />
+                      <path fillRule="evenodd" clipRule="evenodd" d="M21.6 7.2C21.2 5.8 20.2 4.8 18.8 4.4C16.6 3.8 12 3.8 12 3.8C12 3.8 7.4 3.8 5.2 4.4C3.8 4.8 2.8 5.8 2.4 7.2C1.8 9.4 1.8 12 1.8 12C1.8 12 1.8 14.6 2.4 16.8C2.8 18.2 3.8 19.2 5.2 19.6C7.4 20.2 12 20.2 12 20.2C12 20.2 16.6 20.2 18.8 19.6C20.2 19.2 21.2 18.2 21.6 16.8C22.2 14.6 22.2 12 22.2 12C22.2 12 22.2 9.4 21.6 7.2ZM10 15L15.5 12L10 9Z" />
                     </svg>
                     YouTube · {SHOP_YT_SUBSCRIBERS} подписчиков
                   </a>
@@ -194,13 +187,7 @@ export default function AboutDoctor() {
                     className="inline-flex items-center gap-2 rounded-full border border-line bg-cream px-4 py-2.5 text-[14px] font-bold text-ink transition hover:-translate-y-0.5 hover:border-leaf/60 hover:text-leafDark"
                   >
                     <svg viewBox="0 0 24 24" className="h-4 w-4 text-leaf" fill="none" aria-hidden="true">
-                      <path
-                        d="M20.9 4.6 3.2 11.3c-.9.4-.8 1.7.1 2l4.6 1.5 1.7 5.2c.2.8 1.2 1 1.8.3l2.3-2.7 4.6 3.3c.6.4 1.5.1 1.7-.7l3-14.5c.2-.9-.8-1.6-1.7-1.3l-.4.1Z"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinejoin="round"
-                      />
-                      <path d="M9 14.8 20.9 4.6M10.4 18.5l2.5-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                      <path d="M21.5 3.5L2.8 10.9L9.6 13.4M21.5 3.5L14.9 20.8L9.6 13.4M21.5 3.5L9.6 13.4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     Telegram PHYTOTAB
                   </a>
@@ -224,8 +211,8 @@ export default function AboutDoctor() {
                     className="mt-auto inline-flex items-center gap-1.5 pt-1 font-mono text-[11px] font-bold uppercase tracking-wider text-leafDark transition hover:text-ink"
                   >
                     Подробнее о проекте
-                    <svg viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                      <path d="M3 8h9M8 4l4 4-4 4" />
+                    <svg viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                      <path d="M2.5 8h9.5M8.6 4.6l3.8 3.4-3.8 3.4" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </Link>
                 </article>

@@ -12,7 +12,7 @@ function Stars() {
     <span role="img" className="flex gap-0.5 text-honeyDark" aria-label="Оценка 5 из 5">
       {[1, 2, 3, 4, 5].map((n) => (
         <svg key={n} viewBox="0 0 20 20" className="h-4 w-4" fill="currentColor" aria-hidden="true">
-          <path d="M10 1.8l2.5 5 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6.9-5.6-4-3.9 5.6-.8 2.5-5Z" />
+          <path d="M10 2.6L12.3 7.3 17.5 8 13.8 11.6 14.8 16.8 10 14.2 5.2 16.8 6.2 11.6 2.5 8 7.7 7.3Z" />
         </svg>
       ))}
     </span>

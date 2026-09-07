@@ -24,17 +24,8 @@ const ICONS = {
   ),
   telegram: (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path
-        d="M2.5 19L22 4M22 4V6M22 4H20M2.5 19L4.5 17M2.5 19L6 15.5M2.5 19L10 14"
-        stroke={LEAF}
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <line x1="22" y1="4" x2="23.2" y2="2.8" stroke={HONEY} strokeWidth="1.8" strokeLinecap="round" />
-      <line x1="22" y1="4" x2="23.2" y2="5.2" stroke={HONEY} strokeWidth="1.8" strokeLinecap="round" />
-      <line x1="22" y1="4" x2="23.5" y2="4" stroke={HONEY} strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
+      <path d="M21.5 3.5L9.8 13.3M21.5 3.5L15 20.8L9.8 13.3M21.5 3.5L3.2 10.4L9.8 13.3" stroke={LEAF} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3.6 15.6L7.8 14.3M4.8 18.8L9.4 17.3" stroke={HONEY} strokeWidth="1.5" strokeLinecap="round" />    </svg>
   ),
 };
 
@@ -121,11 +112,11 @@ export default function SupportFab() {
                       className="ml-auto h-3.5 w-3.5 shrink-0 text-leafDark"
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
+                      strokeWidth="1.8"
                       aria-hidden="true"
                     >
-                      <path d="M4 4L12 8L4 12" />
-                    </svg>
+                      <path d="M4.8 3L11.4 8L4.8 13" />
+    </svg>
                   </a>
                 </li>
               ))}
@@ -145,10 +136,10 @@ export default function SupportFab() {
             <path d="M6 6l12 12M18 6L6 18" />
           ) : (
             <>
-              <path d="M12 3.4a8.7 8.7 0 0 1 8.7 8.7c0 2.7-1.2 5.1-3.1 6.7l-.5.5v2.8l-3.1-1.7a9 9 0 0 1-2 .3A8.7 8.7 0 0 1 12 3.4Z" />
-              <path d="M9.7 9.7a2.5 2.5 0 0 1 4.9.6c0 1.3-1.6 2-1.6 3.3v.3" stroke="#E8963A" strokeWidth="1.9" strokeLinecap="round" fill="none" />
-              <circle cx="13.1" cy="16.9" r="0.95" fill="#E8963A" stroke="none" />
-            </>
+              <path d="M12 3.5H18A3.5 3.5 0 0 1 21.5 7V11A3.5 3.5 0 0 1 18 14.5H10.5L6.5 18L7.4 14.5H6.5A3.5 3.5 0 0 1 3 11V7A3.5 3.5 0 0 1 6.5 3.5Z" strokeWidth="1.7" strokeLinejoin="round" />
+              <path d="M9.6 9.2A2.4 2.4 0 1 1 12.4 11.3C12.4 12.3 11.6 12.7 11.6 13.6" strokeWidth="1.6" strokeLinecap="round" />
+              <circle cx="11.7" cy="16" r="0.9" fill="currentColor" stroke="none" />
+              <circle cx="17.5" cy="7" r="1.5" fill="currentColor" stroke="none" />            </>
           )}
           </svg>
           <span className="text-[15px] font-extrabold">Помощь</span>

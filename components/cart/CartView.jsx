@@ -33,12 +33,12 @@ export default function CartView() {
         <div className="wrap py-16 text-center sm:py-24">
           <span className="mx-auto grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-cream to-sageSoft/70 ring-1 ring-leaf/15">
             <svg viewBox="0 0 64 64" className="h-14 w-14" aria-hidden="true">
-              <path d="M24 21.5v-3.2a8 8 0 0 1 16 0v3.2" stroke="#78AA36" strokeWidth="4.2" fill="none" />
-              <path d="M18.5 22h27l1.6 25.2a7 7 0 0 1-7 7.3H23.9a7 7 0 0 1-7-7.3l1.6-25.2Z" fill="#207D44" />
-              <path d="M32 27.2c2.9 1.4 4.6 4 4.6 7.1 0 3.1-1.7 5.7-4.6 7.1-2.9-1.4-4.6-4-4.6-7.1 0-3.1 1.7-5.7 4.6-7.1Z" fill="#E8963A" />
-              <path d="M32 28.6v11.6" stroke="#FBF8F1" strokeWidth="1.8" strokeLinecap="round" />
-              <circle cx="48.5" cy="12.5" r="1.7" fill="#E8963A" />
-              <path d="M49.8 9.6a4.4 4.4 0 0 1 5.6 4.6" stroke="#E8963A" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+              <path d="M22 22V19a10 10 0 0 1 20 0v3" stroke="#207D44" strokeWidth="4" strokeLinecap="round" />
+              <path d="M15 22h34l-3.5 26a5 5 0 0 1-5 4.3H23.4a5 5 0 0 1-4.9-4.3l-3.5-26Z" fill="#207D44" />
+              <path d="M32 30C34 33.5 36.5 35.8 36.5 39A4.5 4.5 0 1 1 27.5 39C27.5 35.8 30 33.5 32 30Z" fill="#E8963A" />
+              <path d="M30 41Q30 43.5 32.5 43.5" stroke="#F7F3EA" strokeWidth="2" strokeLinecap="round" />
+              <path d="M14 14l2.5 2.5M50 12l-2.5 2.5" stroke="#78AA36" strokeWidth="2.6" strokeLinecap="round" />
+              <circle cx="52" cy="22" r="2.2" fill="#78AA36" />
             </svg>
           </span>
           <h1 className="mt-6 font-display text-4xl font-semibold">Корзина пока пуста</h1>
@@ -150,7 +150,9 @@ export default function CartView() {
                         className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-secondary transition hover:text-honeyDark"
                       >
                         <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-                          <path d="M3 4h10M6 4V2.5h4V4M4.5 4l.6 9h5.8l.6-9" />
+                          <path d="M2.8 4.2h10.4M5.8 4.2V3.1a1 1 0 0 1 1-1h2.4a1 1 0 0 1 1 1v1.1" strokeWidth="1.4" strokeLinecap="round" />
+                          <path d="M4.3 4.2l.5 8.5a1.6 1.6 0 0 0 1.6 1.4h3.2a1.6 1.6 0 0 0 1.6-1.4l.5-8.5" strokeWidth="1.4" strokeLinecap="round" />
+                          <path d="M6.6 7v4.5M9.4 7v4.5" strokeWidth="1.2" strokeLinecap="round" />
                         </svg>
                         Удалить
                       </button>

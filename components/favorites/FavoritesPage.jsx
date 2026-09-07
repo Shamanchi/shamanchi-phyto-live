@@ -37,10 +37,11 @@ export default function FavoritesPage() {
           <div className="mt-10 rounded-3xl border border-line bg-cream p-10 text-center">
             <span className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-cream to-sageSoft/70 ring-1 ring-leaf/15">
               <svg viewBox="0 0 64 64" className="h-12 w-12" aria-hidden="true">
-                <path d="M32 51.5 14.7 34.9a12.2 12.2 0 0 1-3.6-8.7 12.2 12.2 0 0 1 20.9-8.6l.2.2.2-.2a12.2 12.2 0 0 1 20.9 8.6 12.2 12.2 0 0 1-3.6 8.7L32 51.5Z" fill="none" stroke="#207D44" strokeWidth="3" />
-                <path d="M32 24.8c3 1.4 4.8 4.1 4.8 7.3 0 3.2-1.8 5.9-4.8 7.3-3-1.4-4.8-4.1-4.8-7.3 0-3.2 1.8-5.9 4.8-7.3Z" fill="#E8963A" />
-                <path d="M32 26.4v11.9" stroke="#FBF8F1" strokeWidth="1.9" strokeLinecap="round" />
-                <path d="M50.5 12.8l1.3 2.7 3 .6-2.2 2 .5 3-2.6-1.4-2.6 1.4.5-3-2.2-2 3-.6 1.3-2.7Z" fill="#78AA36" />
+                <path d="M32 54C32 54 10 40.5 10 24.5C10 16.9 15.9 11.5 22.6 11.5C26.7 11.5 29.9 13.5 32 16.6C34.1 13.5 37.3 11.5 41.4 11.5C48.1 11.5 54 16.9 54 24.5C54 40.5 32 54 32 54Z" fill="#207D44" />
+                <path d="M32 28C34.2 31.2 36.4 33.4 36.4 36.4A4.4 4.4 0 1 1 27.6 36.4C27.6 33.4 29.8 31.2 32 28Z" fill="#E8963A" />
+                <path d="M20 22Q21 17 26 16" stroke="#F7F3EA" strokeWidth="2.6" strokeLinecap="round" />
+                <path d="M50 12l2.5 2.5M56 6l-1.5 2.5" stroke="#78AA36" strokeWidth="2.6" strokeLinecap="round" />
+                <circle cx="12" cy="42" r="2.2" fill="#78AA36" />
               </svg>
             </span>
             <p className="mt-5 font-display text-2xl font-semibold">Пока пусто</p>

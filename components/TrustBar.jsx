@@ -4,22 +4,22 @@ const ITEMS = [
   {
     title: "Врач за рецептурами",
     note: "Практикующий врач-фитотерапевт проверяет каждый товар",
-    icon: <path d="M12 21a9 9 0 1 0-9-9c0 2.6 1.2 5 3 6.5M9 21h6" />,
+    icon: <> <circle cx="11" cy="12" r="8.5" /> <path d="M11 8.2V15.8M7.6 12H14.4" strokeLinecap="round" /> <circle cx="18" cy="6" r="2.2" fill="#E8963A" stroke="none" /> </>,
   },
   {
     title: "Сырьё из чистых регионов",
     note: "Травы — Алтай, Крым, Башкортостан; грибы — собственная ферма",
-    icon: <path d="M12 20c-5-2.3-7.5-6.4-7.5-10.6C4.5 6 8 4 12 3c4 1 7.5 3 7.5 6.4 0 4.2-2.5 8.3-7.5 10.6Z" />,
+    icon: <> <path d="M19.5 4.5C11 4.5 5.5 9 5.5 14.5C5.5 17.5 7.5 19.5 10.5 19.5C16 19.5 19.5 13 19.5 4.5Z" strokeLinejoin="round" /> <path d="M6.5 18C9.5 12.5 13 9.5 17.5 7.5" strokeWidth="1.4" strokeLinecap="round" /> <circle cx="17.5" cy="17.5" r="1.9" fill="#E8963A" stroke="none" /> </>,
   },
   {
     title: "Понятный состав",
     note: "Состав и способ применения указаны на странице каждого товара",
-    icon: <path d="M4 6h16M4 12h16M4 18h10M18 15v6M15 18h6" />,
+    icon: <> <path d="M4.5 6.5H14.5M4.5 12H14.5M4.5 17.5H10.5" strokeWidth="1.7" strokeLinecap="round" /> <path d="M18 14.5V20M15 17.2H21" stroke="#E8963A" strokeWidth="1.8" strokeLinecap="round" /> </>,
   },
   {
     title: "Доставка и поддержка",
     note: "СДЭК по России, самовывоз в Москве, поддержка ежедневно 10:00–20:00",
-    icon: <path d="M4 8h12v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Zm4-4h6v4H8V4Z" />,
+    icon: <> <path d="M12 3.2L20 7.2V16.8L12 20.8L4 16.8V7.2Z" strokeLinejoin="round" /> <path d="M4 7.2L12 11.2L20 7.2M12 11.2V20.8" strokeLinejoin="round" /> <path d="M12 3.2V11.2" stroke="#E8963A" strokeWidth="1.7" strokeLinecap="round" /> </>,
   },
 ];
 

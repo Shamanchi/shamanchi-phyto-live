@@ -52,7 +52,8 @@ function plural(items) {
 }
 
 function Illustration({ slug }) {
-  // Насыщенная двухцветная графика в фирменном зелёном (правка 3, п. 3): заливка, не линии.
+  // Арт дизайнера, блоки 10–11 (ICON-28..32): заливка фирменным зелёным,
+  // светло-зелёный акцент и янтарная деталь; «вырезы» кремовым.
   const G1 = "#207D44";
   const G2 = "#78AA36";
   const G3 = "#E8963A";
@@ -61,64 +62,73 @@ function Illustration({ slug }) {
   if (slug === "dlya-kozhi-volos-i-nogtej") {
     return (
       <svg {...common}>
-        <path d="M32 7c9.6 0 15.8 5.6 15.8 13.7 0 8.9-6.4 15.4-15.8 22.6-9.4-7.2-15.8-13.7-15.8-22.6C16.2 12.6 22.4 7 32 7Z" fill={G1} />
-        <path d="M32 13c0 8-2.4 14.6-8.2 20.4M32 13c0 8 2.4 14.6 8.2 20.4" stroke={G2} strokeWidth="3" strokeLinecap="round" fill="none" />
-        <path d="M44.6 37.4c3.6 4.1 5.4 7.4 5.4 10a5.4 5.4 0 1 1-10.8 0c0-2.6 1.8-5.9 5.4-10Z" fill={G3} />
-        <path d="M47.8 40.2v3.6" stroke={CARVE} strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
+        <path d="M32 8C44 13 51 25 47.5 37C44 48 27 53 19 44C10.5 34.5 18 14 32 8Z" fill={G1} />
+        <path d="M31 14C32 26 29.5 37 24 45" stroke={CARVE} strokeWidth="2.6" strokeLinecap="round" fill="none" />
+        <path d="M30 25Q36 24 40 20M28 34Q33.5 33.5 37 30" stroke={G2} strokeWidth="2.2" strokeLinecap="round" fill="none" />
+        <path d="M44 44C45.8 46.8 47.5 48.6 47.5 51A3.5 3.5 0 1 1 40.5 51C40.5 48.6 42.2 46.8 44 44Z" fill={G3} />
+        <path d="M42.8 52Q42.8 53.8 44.6 53.8" stroke={CARVE} strokeWidth="1.8" strokeLinecap="round" fill="none" />
       </svg>
     );
   }
   if (slug === "immunity") {
     return (
       <svg {...common}>
-        <path d="M32 8 47 13v11.6c0 11.2-6.6 19.6-15 24.4-8.4-4.8-15-13.2-15-24.4V13l15-5Z" fill={G1} />
-        <path d="M26.6 30.8h10.8M32 25.4v10.8" stroke={CARVE} strokeWidth="4" strokeLinecap="round" />
-        <path d="M48 43.5l2 4.2 4.6.8-3.3 3.2.8 4.6-4.1-2.2-4.1 2.2.8-4.6-3.3-3.2 4.6-.8 2-4.2Z" fill={G2} />
-        <circle cx="50" cy="20" r="2.8" fill={G3} />
-        <circle cx="48.8" cy="18.8" r="1" fill={CARVE} />
+        <path d="M32 6L53 14V31C53 45 45 54 32 58C19 54 11 45 11 31V14Z" fill={G1} />
+        <rect x="29" y="20" width="6" height="22" rx="2.4" fill={CARVE} />
+        <rect x="21" y="28" width="22" height="6" rx="2.4" fill={CARVE} />
+        <path d="M49 8L50.8 12.2L55 14L50.8 15.8L49 20L47.2 15.8L43 14L47.2 12.2Z" fill={G2} />
+        <circle cx="17" cy="19" r="3.2" fill={G3} />
       </svg>
     );
   }
   if (slug === "gastrointestinal") {
     return (
       <svg {...common}>
-        <path d="M17 27h30v7.5c0 8.4-6.7 15-15 15s-15-6.6-15-15V27Z" fill={G1} />
-        <path d="M46.5 29.5a8.5 8.5 0 0 1 0 13" stroke={G1} strokeWidth="5" strokeLinecap="round" fill="none" />
-        <path d="M13 52h38" stroke={G2} strokeWidth="5" strokeLinecap="round" />
-        <path d="M21 19.5c-2.2-3.8 2-6.4-.3-10M32 19.5c-2.2-3.8 2-6.4-.3-10M43 19.5c-2.2-3.8 2-6.4-.3-10" stroke={G3} strokeWidth="3.4" strokeLinecap="round" fill="none" />
+        <path d="M13 22H51C51 41 44 53 32 53C20 53 13 41 13 22Z" fill={G1} />
+        <path d="M17 22H47C47 25 45 27 42 27H22C19 27 17 25 17 22Z" fill={CARVE} />
+        <path d="M19 35Q25 30 32 35T45 35" stroke={G2} strokeWidth="3.2" strokeLinecap="round" fill="none" />
+        <circle cx="25.5" cy="31.5" r="2.6" fill={G3} />
+        <circle cx="38.5" cy="31.5" r="2.6" fill={G3} />
+        <circle cx="32" cy="44" r="2.6" fill={G3} />
       </svg>
     );
   }
   if (slug === "antistress") {
     return (
       <svg {...common}>
-        <path fillRule="evenodd" d="M32 6a26 26 0 1 1 0 52 26 26 0 0 1 0-52Zm5.4 10.6a15.8 15.8 0 1 0 0 30.8 12.4 12.4 0 0 1 0-30.8Z" fill={G1} />
-        <path d="M16 16.5l1.9 4.6 4.6 1.9-4.6 1.9-1.9 4.6-1.9-4.6-4.6-1.9 4.6-1.9 1.9-4.6Z" fill={G2} />
-        <circle cx="47" cy="14" r="2.6" fill={G3} />
-        <path d="M24.5 42.5c2 2.6 4.6 3.9 7.5 3.9s5.5-1.3 7.5-3.9" stroke={G2} strokeWidth="3" strokeLinecap="round" fill="none" />
+        <circle cx="32" cy="34" r="22" fill={G1} />
+        <circle cx="32" cy="34" r="15" stroke={G2} strokeWidth="2.6" fill="none" />
+        <path d="M24 36Q32 44 40 36" stroke={CARVE} strokeWidth="3" strokeLinecap="round" fill="none" />
+        <circle cx="26" cy="29" r="2" fill={CARVE} />
+        <circle cx="38" cy="29" r="2" fill={CARVE} />
+        <path d="M50 6L52 11L57 13L52 15L50 20L48 15L43 13L48 11Z" fill={G3} />
+        <circle cx="13" cy="15" r="2.4" fill={G2} />
       </svg>
     );
   }
   if (slug === "antiparasitic") {
     return (
       <svg {...common}>
-        <path d="M32 8c9 6.4 14 13 14 21.6 0 10.6-6.3 17.9-14 22.4-7.7-4.5-14-11.8-14-22.4C18 21 23 14.4 32 8Z" fill={G1} />
-        <path d="M32 15v29" stroke={G2} strokeWidth="3" strokeLinecap="round" />
-        <circle cx="24.2" cy="24.6" r="2.2" fill={G3} />
-        <circle cx="39.8" cy="24.6" r="2.2" fill={G3} />
-        <circle cx="32" cy="32.5" r="2.2" fill={G3} />
+        <path d="M32 7C47 12 55 27 50 41C45 53 26 58 17 48C7 37 15 14 32 7Z" fill={G1} />
+        <path d="M32 13C33 26 30 38 24 47" stroke={CARVE} strokeWidth="2.8" strokeLinecap="round" fill="none" />
+        <path d="M31 24Q37 23 41 19M29 33Q35 33 40 29" stroke={G2} strokeWidth="2.4" strokeLinecap="round" fill="none" />
+        <circle cx="42" cy="40" r="3" fill={G3} />
+        <circle cx="35" cy="47" r="2.4" fill={G3} />
+        <circle cx="46" cy="31" r="2.2" fill={G2} />
       </svg>
     );
   }
   return (
     <svg {...common}>
-      <circle cx="32" cy="23" r="13.5" fill={G1} />
-      <path d="M26 38.5h12l2.2 9.5H23.8L26 38.5Z" fill={G2} />
-      <path d="M32 16.5c2.4 2 3.6 4.1 3.6 6.3a3.6 3.6 0 1 1-7.2 0c0-2.2 1.2-4.3 3.6-6.3Z" fill={G3} />
-      <path d="M32 4v3.4M14.5 13.6l-3-3M49.5 13.6l3-3M7.5 27.5H11M53 27.5h3.5" stroke={G2} strokeWidth="3.2" strokeLinecap="round" />
+      <path d="M17 53C17 36 20 19 31 19C41 19 47 29 47 39C47 48 41 53 33 53Z" fill={G1} />
+      <path d="M25 33C23 27 29 23 33 25C37 22 43 26 41 31C44 34 41 39 37 38C36 42 30 43 28 39C23 40 21 34 25 33Z" fill={G2} />
+      <path d="M28 31Q32 28 36 31M29 36Q33 34 37 36" stroke={CARVE} strokeWidth="2" strokeLinecap="round" fill="none" />
+      <path d="M31 13C31.8 10.5 33.2 10.5 34 13C36 13.5 36 15.5 34 16C33.2 18.5 31.8 18.5 31 16C29 15.5 29 13.5 31 13Z" fill={G3} />
+      <path d="M40 8L40 12M46 11L43 14M48 17L44 17" stroke={G3} strokeWidth="2.2" strokeLinecap="round" fill="none" />
     </svg>
   );
 }
+
 export default function CategoryTiles() {
   return (
     <section
@@ -168,8 +178,8 @@ export default function CategoryTiles() {
                     <span className="mt-1 block text-[14px] leading-snug text-secondary">{category.note}</span>
                     <span className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-sageSoft/50 px-2.5 py-1 font-mono text-[12px] font-bold uppercase tracking-wider text-leafDark">
                       {count} {plural(count)}
-                      <svg viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                        <path d="M3 8h9M8 4l4 4-4 4" />
+                      <svg viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                        <path d="M2.5 8h9.5M8.6 4.6l3.8 3.4-3.8 3.4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                   </span>

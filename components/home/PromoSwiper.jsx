@@ -71,7 +71,13 @@ function SlideVisual({ slide }) {
           <span className={`grid h-44 w-44 place-items-center rounded-full ${slide.accent} text-paper shadow-lift`}>
             <svg viewBox="0 0 24 24" className="h-16 w-16" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true">
               {slide.id === "delivery" ? (
-                <path d="M4 8h11v8H4zM15 10h3.5L21 13v3h-6zM7.5 18.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4ZM17.5 18.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4Z" />
+                <> 
+                  <rect x="2" y="6" width="11" height="9" rx="1.5" strokeWidth="1.6" />
+                  <path d="M13 9H17.5L21 12.5V15H13Z" strokeWidth="1.6" strokeLinejoin="round" />
+                  <circle cx="7" cy="17" r="1.8" fill="currentColor" stroke="none" />
+                  <circle cx="16.5" cy="17" r="1.8" fill="currentColor" stroke="none" />
+                  <path d="M5 9L7 10.5L5 12" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </>
               ) : (
                 <path d="M6 21 8 6l3 3 2.5-5 1.6 2.2L17 3l2.6 3.6M9 21l.7-8.6M13.6 20l1.3-6.2M17.6 18.4l1-4.2" />
               )}
@@ -168,8 +174,8 @@ export default function PromoSwiper() {
                         className="inline-flex items-center gap-2 rounded-full bg-honey px-6 py-3 text-[15px] font-bold text-ink shadow-card transition hover:-translate-y-0.5 hover:bg-honeyDark"
                       >
                         {slide.cta.label}
-                        <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                          <path d="M4 10h12m0 0-5-5m5 5-5 5" />
+                        <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                          <path d="M3 10h13M11 5l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </Link>
                       {slide.cta2 && (
@@ -198,8 +204,8 @@ export default function PromoSwiper() {
             aria-label="Предыдущий слайд"
             className="absolute left-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-line bg-paper/90 text-ink/90 shadow-card transition hover:text-leaf"
           >
-            <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="M13 4L7 10L13 16" />
+            <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+              <path d="M12.5 4 6.5 10 12.5 16" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
           <button
@@ -208,8 +214,8 @@ export default function PromoSwiper() {
             aria-label="Следующий слайд"
             className="absolute right-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-line bg-paper/90 text-ink/90 shadow-card transition hover:text-leaf"
           >
-            <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="M7 4L13 10L7 16" />
+            <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+              <path d="M7.5 4 13.5 10 7.5 16" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
 

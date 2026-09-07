@@ -53,9 +53,11 @@ export default function OrderSuccessView({ id }) {
       <div className="wrap py-8 sm:py-12">
         <div className="mx-auto max-w-3xl">
           <div className="rounded-[2rem] border border-line bg-cream p-6 text-center shadow-lift sm:p-10">
-            <span className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-leaf text-paper">
-              <svg viewBox="0 0 24 24" className="h-10 w-10" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
-                <path d="M4 12.5 9.5 18 20 6.5" />
+            <span className="mx-auto grid h-24 w-24 place-items-center">
+              <svg viewBox="0 0 24 24" className="h-20 w-20" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" fill="#207D44" />
+                <path d="M7.4 12.4 10.7 15.7 16.6 9.4" stroke="#FBF8F1" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="19.8" cy="5.4" r="2.1" fill="#E8963A" />
               </svg>
             </span>
             <h1 className="mt-6 font-display text-4xl font-semibold sm:text-5xl">

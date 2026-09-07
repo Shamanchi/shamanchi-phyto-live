@@ -87,7 +87,7 @@ export default function DoctorCard() {
           className="inline-flex min-w-0 items-center gap-2 rounded-full border border-line bg-paper/95 px-3.5 py-2 text-[13px] font-bold leading-tight text-ink shadow-card transition hover:-translate-y-0.5 hover:border-leaf/60 hover:text-leafDark"
         >
           <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-honey" fill="currentColor" aria-hidden="true">
-            <path d="M21.4 7.4a2.6 2.6 0 0 0-1.8-1.9C17.9 5.2 12 5.2 12 5.2s-5.9 0-7.6.3A2.6 2.6 0 0 0 2.6 7.4 27 27 0 0 0 2.3 12c0 1.6.1 3.1.3 4.6a2.6 2.6 0 0 0 1.8 1.9c1.7.3 7.6.3 7.6.3s5.9 0 7.6-.3a2.6 2.6 0 0 0 1.8-1.9c.2-1.5.3-3 .3-4.6s-.1-3.1-.3-4.6ZM10.2 15.3V8.7l5.6 3.3-5.6 3.3Z" />
+            <path fillRule="evenodd" clipRule="evenodd" d="M21.6 7.2C21.2 5.8 20.2 4.8 18.8 4.4C16.6 3.8 12 3.8 12 3.8C12 3.8 7.4 3.8 5.2 4.4C3.8 4.8 2.8 5.8 2.4 7.2C1.8 9.4 1.8 12 1.8 12C1.8 12 1.8 14.6 2.4 16.8C2.8 18.2 3.8 19.2 5.2 19.6C7.4 20.2 12 20.2 12 20.2C12 20.2 16.6 20.2 18.8 19.6C20.2 19.2 21.2 18.2 21.6 16.8C22.2 14.6 22.2 12 22.2 12C22.2 12 22.2 9.4 21.6 7.2ZM10 15L15.5 12L10 9Z" />
           </svg>
           <span className="truncate">
             Канал «{SHOP_YT_CHANNEL}» — {SHOP_YT_SUBSCRIBERS} подписчиков
@@ -101,13 +101,7 @@ export default function DoctorCard() {
           className="inline-flex items-center gap-2 rounded-full border border-line bg-paper/95 px-3.5 py-2 text-[13px] font-bold leading-tight text-ink shadow-card transition hover:-translate-y-0.5 hover:border-leaf/60 hover:text-leafDark"
         >
           <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-leaf" fill="none" aria-hidden="true">
-            <path
-              d="M20.9 4.6 3.2 11.3c-.9.4-.8 1.7.1 2l4.6 1.5 1.7 5.2c.2.8 1.2 1 1.8.3l2.3-2.7 4.6 3.3c.6.4 1.5.1 1.7-.7l3-14.5c.2-.9-.8-1.6-1.7-1.3l-.4.1Z"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinejoin="round"
-            />
-            <path d="M9 14.8 20.9 4.6M10.4 18.5l2.5-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M21.5 3.5L2.8 10.9L9.6 13.4M21.5 3.5L14.9 20.8L9.6 13.4M21.5 3.5L9.6 13.4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           Telegram PHYTOTAB
         </a>

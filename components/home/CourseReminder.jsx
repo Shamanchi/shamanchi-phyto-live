@@ -62,8 +62,8 @@ export default function CourseReminder({ productName }) {
           </form>
         ) : (
           <p className="rise-in flex items-start gap-2.5 rounded-2xl border border-sage/50 bg-sageSoft/40 px-4 py-3 text-[14px] font-semibold text-leafDark sm:max-w-xs">
-            <svg viewBox="0 0 16 16" className="mt-0.5 h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
-              <path d="M3 8.5 6.5 12 13 4.5" />
+            <svg viewBox="0 0 16 16" className="mt-0.5 h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M3 8.4 6.4 11.8 13 4.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             Заявка принята: напомним о следующем курсе и уточним перерыв.
           </p>

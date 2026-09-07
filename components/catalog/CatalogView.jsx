@@ -127,8 +127,8 @@ export default function CatalogView() {
           <label className="relative flex-1">
             <span className="sr-only">Поиск по каталогу</span>
             <svg viewBox="0 0 20 20" className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/40" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              <circle cx="9" cy="9" r="6" />
-              <path d="m14 14 3.5 3.5" />
+              <circle cx="8.8" cy="8.8" r="5.6" />
+              <path d="M13 13l4 4" strokeLinecap="round" />
             </svg>
             <input
               type="search"
@@ -235,11 +235,12 @@ export default function CatalogView() {
           <div className="mt-10 rounded-3xl border border-line glass-cream p-10 text-center">
             <span className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-cream to-sageSoft/70 ring-1 ring-leaf/15">
               <svg viewBox="0 0 64 64" className="h-12 w-12" aria-hidden="true">
-                <circle cx="29" cy="29" r="15.5" fill="#207D44" />
-                <path d="M41.5 41.5l9.5 9.5" stroke="#78AA36" strokeWidth="5" strokeLinecap="round" />
-                <path d="M29 20.4c2.9 1.4 4.6 4 4.6 7.1 0 3.1-1.7 5.7-4.6 7.1-2.9-1.4-4.6-4-4.6-7.1 0-3.1 1.7-5.7 4.6-7.1Z" fill="#E8963A" />
-                <path d="M29 21.8v11.8" stroke="#FBF8F1" strokeWidth="2" strokeLinecap="round" />
-                <path d="M51.5 14.5l1.2 2.5 2.8.6-2 1.9.5 2.7-2.5-1.3-2.5 1.3.5-2.7-2-1.9 2.8-.6 1.2-2.5Z" fill="#78AA36" />
+                <circle cx="27" cy="27" r="17" fill="#207D44" />
+                <circle cx="27" cy="27" r="10.5" fill="#F7F3EA" />
+                <path d="M26 24.5C27.4 26.6 28.8 28.2 28.8 30A2.8 2.8 0 1 1 23.2 30C23.2 28.2 24.6 26.6 26 24.5Z" fill="#E8963A" />
+                <rect x="38" y="36" width="20" height="7" rx="3.5" transform="rotate(45 38 36)" fill="#207D44" />
+                <path d="M49 12l2.5 2.5M57 20l-2.5 2.5" stroke="#78AA36" strokeWidth="2.6" strokeLinecap="round" />
+                <circle cx="10" cy="12" r="2.2" fill="#78AA36" />
               </svg>
             </span>
             <p className="mt-5 font-display text-2xl font-semibold">По вашему запросу ничего нет</p>
