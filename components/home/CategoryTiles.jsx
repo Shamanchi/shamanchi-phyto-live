@@ -64,6 +64,7 @@ function Illustration({ slug }) {
         <path d="M32 7c9.6 0 15.8 5.6 15.8 13.7 0 8.9-6.4 15.4-15.8 22.6-9.4-7.2-15.8-13.7-15.8-22.6C16.2 12.6 22.4 7 32 7Z" fill={G1} />
         <path d="M32 13c0 8-2.4 14.6-8.2 20.4M32 13c0 8 2.4 14.6 8.2 20.4" stroke={G2} strokeWidth="3" strokeLinecap="round" fill="none" />
         <path d="M44.6 37.4c3.6 4.1 5.4 7.4 5.4 10a5.4 5.4 0 1 1-10.8 0c0-2.6 1.8-5.9 5.4-10Z" fill={G3} />
+        <path d="M47.8 40.2v3.6" stroke={CARVE} strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
       </svg>
     );
   }
@@ -73,6 +74,8 @@ function Illustration({ slug }) {
         <path d="M32 8 47 13v11.6c0 11.2-6.6 19.6-15 24.4-8.4-4.8-15-13.2-15-24.4V13l15-5Z" fill={G1} />
         <path d="M26.6 30.8h10.8M32 25.4v10.8" stroke={CARVE} strokeWidth="4" strokeLinecap="round" />
         <path d="M48 43.5l2 4.2 4.6.8-3.3 3.2.8 4.6-4.1-2.2-4.1 2.2.8-4.6-3.3-3.2 4.6-.8 2-4.2Z" fill={G2} />
+        <circle cx="50" cy="20" r="2.8" fill={G3} />
+        <circle cx="48.8" cy="18.8" r="1" fill={CARVE} />
       </svg>
     );
   }
@@ -155,7 +158,7 @@ export default function CategoryTiles() {
                   href={`/catalog/?category=${encodeURIComponent(category.slug)}`}
                   className="group flex h-full items-start gap-4 rounded-3xl border border-line glass-card p-5 shadow-card transition hover:-translate-y-0.5 hover:border-leaf/60 hover:shadow-lift"
                 >
-                  <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-cream ring-1 ring-line/70 transition group-hover:bg-sageSoft/40">
+                  <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-cream to-sageSoft/60 ring-1 ring-leaf/20 transition group-hover:ring-leaf/40">
                     <Illustration slug={category.slug} />
                   </span>
                   <span className="min-w-0 pt-0.5">
