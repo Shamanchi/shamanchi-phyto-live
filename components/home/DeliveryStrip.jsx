@@ -43,9 +43,9 @@ function ReturnIcon() {
     <svg {...ICON}>
       <path d="M53 22A22 22 0 1 0 56 34" stroke={G1} strokeWidth="4" strokeLinecap="round" fill="none" />
       <path d="M53 12V24L44 18" stroke={G1} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <rect x="23" y="27" width="18" height="15" rx="2.5" fill={G2} />
+      <rect x="23" y="27" width="18" height="15" rx="2.5" fill={G2} stroke={G1} strokeWidth="2.2" />
       <rect x="30" y="27" width="4" height="15" fill={PAPER} />
-      <path d="M23 31H41" stroke={G1} strokeWidth="1.6" opacity="0.35" />
+      <path d="M23 31H41" stroke={G1} strokeWidth="1.8" opacity="0.85" />
     </svg>
   );
 }

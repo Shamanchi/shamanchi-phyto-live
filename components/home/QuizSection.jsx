@@ -39,10 +39,11 @@ const TASK_ICONS = {
   ),
   skin: (
     <svg {...QICON}>
-      <path d="M20 5C25.5 12.5 28.5 16.5 28.5 21.5A8.5 8.5 0 1 1 11.5 21.5C11.5 16.5 14.5 12.5 20 5Z" fill={QG1} />
-      <path d="M15.5 23Q15.5 27 19.5 27.5" stroke={QPAPER} strokeWidth="2.2" strokeLinecap="round" fill="none" />
-      <rect x="26" y="26" width="9" height="3" rx="1.5" fill={QG3} />
-      <rect x="29" y="23" width="3" height="9" rx="1.5" fill={QG3} />
+      <path d="M20 5 C27 5 32 11 32 19.5 C32 28.5 27 34.5 20 34.5 C13 34.5 8 28.5 8 19.5 C8 11 13 5 20 5 Z" fill={QG1} />
+      <path d="M12.5 20 C12.5 14 15.2 10.8 20 10.8 C24.8 10.8 27.5 14 27.5 20 C27.5 27 24.8 30.5 20 30.5 C15.2 30.5 12.5 27 12.5 20 Z" fill={QPAPER} />
+      <path d="M16.4 19.5 Q17.4 18.4 18.4 19.5 M21.6 19.5 Q22.6 18.4 23.6 19.5" stroke={QG1} strokeWidth="1.9" strokeLinecap="round" fill="none" />
+      <path d="M17.5 24 Q20 26.2 22.5 24" stroke={QG1} strokeWidth="1.9" strokeLinecap="round" fill="none" />
+      <path d="M32.5 7 L33.4 9.1 L35.5 10 L33.4 10.9 L32.5 13 L31.6 10.9 L29.5 10 L31.6 9.1 Z" fill={QG3} />
     </svg>
   ),
 }

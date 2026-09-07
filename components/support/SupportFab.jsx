@@ -17,9 +17,9 @@ const ICONS = {
   ),
     max: (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path d="M12 3.5 H19 A3.5 3.5 0 0 1 22.5 7 V11 A3.5 3.5 0 0 1 19 14.5 H10 L5.8 18.2 L6.9 14.5 H6.5 A3.5 3.5 0 0 1 3 11 V7 A3.5 3.5 0 0 1 6.5 3.5 Z" stroke={LEAF} strokeWidth="1.7" strokeLinejoin="round" />
-      <path d="M8.2 11.5 V6.8 L10.6 10 L13 6.8 V11.5" stroke={LEAF} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="16.8" cy="9" r="1.5" fill={HONEY} />
+      <path d="M7.2 16.8 A3.9 3.9 0 0 1 7.6 8.6 A4.7 4.7 0 0 1 16.7 8.9 A3.9 3.9 0 0 1 19.9 15.6 A3.2 3.2 0 0 1 17 18.4 H8.6 A3.4 3.4 0 0 1 7.2 16.8 Z" stroke={LEAF} strokeWidth="1.7" strokeLinejoin="round" />
+      <path d="M9.4 13.6 V9.4 L11.8 12.4 L14.2 9.4 V13.6" stroke={LEAF} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="16.6" cy="12.2" r="1.4" fill={HONEY} />
     </svg>
   ),
   telegram: (
@@ -133,14 +133,15 @@ export default function SupportFab() {
         >
           <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
             {open ? (
-            <path d="M6 6l12 12M18 6L6 18" />
-          ) : (
-            <>
-              <path d="M12 3.5H18A3.5 3.5 0 0 1 21.5 7V11A3.5 3.5 0 0 1 18 14.5H10.5L6.5 18L7.4 14.5H6.5A3.5 3.5 0 0 1 3 11V7A3.5 3.5 0 0 1 6.5 3.5Z" strokeWidth="1.7" strokeLinejoin="round" />
-              <path d="M9.6 9.2A2.4 2.4 0 1 1 12.4 11.3C12.4 12.3 11.6 12.7 11.6 13.6" strokeWidth="1.6" strokeLinecap="round" />
-              <circle cx="11.7" cy="16" r="0.9" fill="currentColor" stroke="none" />
-              <circle cx="17.5" cy="7" r="1.5" fill="currentColor" stroke="none" />            </>
-          )}
+              <path d="M6.4 6.4 L17.6 17.6 M17.6 6.4 L6.4 17.6" strokeWidth="1.8" strokeLinecap="round" />
+            ) : (
+              <>
+                <circle cx="12" cy="12" r="9.2" strokeWidth="1.7" />
+                <path d="M9.4 9.4 A2.7 2.7 0 1 1 13 11.5 C13 12.7 12.1 13.1 12.1 14.3" strokeWidth="1.7" strokeLinecap="round" />
+                <circle cx="12.1" cy="16.6" r="1.1" fill="currentColor" stroke="none" />
+                <circle cx="17.6" cy="7" r="1.7" fill="#E8963A" stroke="none" />
+              </>
+            )}
           </svg>
           <span className="text-[15px] font-extrabold">Помощь</span>
         </button>

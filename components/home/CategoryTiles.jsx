@@ -62,11 +62,15 @@ function Illustration({ slug }) {
   if (slug === "dlya-kozhi-volos-i-nogtej") {
     return (
       <svg {...common}>
-        <path d="M32 8C44 13 51 25 47.5 37C44 48 27 53 19 44C10.5 34.5 18 14 32 8Z" fill={G1} />
-        <path d="M31 14C32 26 29.5 37 24 45" stroke={CARVE} strokeWidth="2.6" strokeLinecap="round" fill="none" />
-        <path d="M30 25Q36 24 40 20M28 34Q33.5 33.5 37 30" stroke={G2} strokeWidth="2.2" strokeLinecap="round" fill="none" />
-        <path d="M44 44C45.8 46.8 47.5 48.6 47.5 51A3.5 3.5 0 1 1 40.5 51C40.5 48.6 42.2 46.8 44 44Z" fill={G3} />
-        <path d="M42.8 52Q42.8 53.8 44.6 53.8" stroke={CARVE} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+        <path d="M17 36 C14 20 22 8 32 8 C42 8 50 20 47 36 C49 30 47 22 32 21.5 C17 22 15 30 17 36 Z" fill={G1} />
+        <path d="M18.5 33 C18.5 24 24 18.5 32 18.5 C40 18.5 45.5 24 45.5 33 C45.5 42 40 48.5 32 48.5 C24 48.5 18.5 42 18.5 33 Z" fill={CARVE} />
+        <path d="M22 20 Q26 15.5 32 15.5 Q38 15.5 42 20" stroke={G2} strokeWidth="2" strokeLinecap="round" fill="none" />
+        <path d="M26 32 Q28 30.2 30 32 M34 32 Q36 30.2 38 32" stroke={G1} strokeWidth="2.2" strokeLinecap="round" fill="none" />
+        <path d="M28.5 39.5 Q32 42.5 35.5 39.5" stroke={G1} strokeWidth="2.2" strokeLinecap="round" fill="none" />
+        <circle cx="24.5" cy="36.5" r="1.8" fill={G2} opacity="0.55" />
+        <path d="M45 36 C49 34 53 36 53 41 C53 46.5 48 50 42.5 49 C39.5 48.4 38.5 45.5 40 43.5 L44 40.5 Z" fill={G3} />
+        <path d="M42.5 39.5 L46.5 44.5 M45 38 L49 43 M47.5 37 L51 41.5" stroke={CARVE} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+        <circle cx="14" cy="14" r="2" fill={G2} />
       </svg>
     );
   }
@@ -84,12 +88,11 @@ function Illustration({ slug }) {
   if (slug === "gastrointestinal") {
     return (
       <svg {...common}>
-        <path d="M13 22H51C51 41 44 53 32 53C20 53 13 41 13 22Z" fill={G1} />
-        <path d="M17 22H47C47 25 45 27 42 27H22C19 27 17 25 17 22Z" fill={CARVE} />
-        <path d="M19 35Q25 30 32 35T45 35" stroke={G2} strokeWidth="3.2" strokeLinecap="round" fill="none" />
-        <circle cx="25.5" cy="31.5" r="2.6" fill={G3} />
-        <circle cx="38.5" cy="31.5" r="2.6" fill={G3} />
-        <circle cx="32" cy="44" r="2.6" fill={G3} />
+        <path d="M29 10 C38 10 46 17 46 27 C46 33.5 43 37 40.5 41 C38.8 44 39.5 47.5 35.5 50.5 C30 54.5 21.5 51.5 21.5 43.5 C21.5 38.5 24.5 36 25.5 31 C26.5 25.5 24.5 21 25.5 16 C26.2 12.5 26.8 10 29 10 Z" fill={G1} />
+        <path d="M40 20 C42.5 26 41.5 32 37.5 37" stroke={G2} strokeWidth="2.6" strokeLinecap="round" fill="none" />
+        <circle cx="31" cy="24" r="2.5" fill={G3} />
+        <circle cx="33" cy="44" r="2.5" fill={G3} />
+        <path d="M28.5 15 Q31 14 33.5 15.5" stroke={CARVE} strokeWidth="2" strokeLinecap="round" fill="none" />
       </svg>
     );
   }
@@ -109,22 +112,29 @@ function Illustration({ slug }) {
   if (slug === "antiparasitic") {
     return (
       <svg {...common}>
-        <path d="M32 7C47 12 55 27 50 41C45 53 26 58 17 48C7 37 15 14 32 7Z" fill={G1} />
-        <path d="M32 13C33 26 30 38 24 47" stroke={CARVE} strokeWidth="2.8" strokeLinecap="round" fill="none" />
-        <path d="M31 24Q37 23 41 19M29 33Q35 33 40 29" stroke={G2} strokeWidth="2.4" strokeLinecap="round" fill="none" />
-        <circle cx="42" cy="40" r="3" fill={G3} />
-        <circle cx="35" cy="47" r="2.4" fill={G3} />
-        <circle cx="46" cy="31" r="2.2" fill={G2} />
+        <rect x="15" y="13" width="21" height="11" rx="5.5" fill={G1} />
+        <path d="M19 12.5 V9.5 M24.5 12 V8.5 M30 12 V8.5 M34 12.5 V9.5 M19 24.5 V27.5 M24.5 25 V28.5 M30 25 V28.5 M34 24.5 V27.5" stroke={G1} strokeWidth="2.2" strokeLinecap="round" fill="none" />
+        <circle cx="26" cy="18.5" r="2.2" fill={CARVE} />
+        <circle cx="31" cy="16.5" r="1.4" fill={G3} />
+        <circle cx="47" cy="16" r="5.5" fill={G2} />
+        <path d="M43 11.5 L41.5 9 M47 10.2 V7.5 M51 11.5 L52.5 9 M41.5 20 L40 22.5 M47 21.8 V24.5 M52.5 20 L54 22.5" stroke={G2} strokeWidth="2" strokeLinecap="round" fill="none" />
+        <circle cx="45.5" cy="15" r="1.3" fill={G3} />
+        <circle cx="49" cy="17.5" r="1.1" fill={G3} />
+        <path d="M12 45 Q19 36 26 45 T40 45 T54 45" stroke={G1} strokeWidth="4" strokeLinecap="round" fill="none" />
+        <circle cx="12" cy="45" r="3.4" fill={G1} />
+        <circle cx="11" cy="44" r="1" fill={G3} />
+        <circle cx="33" cy="53" r="2" fill={G2} />
       </svg>
     );
   }
   return (
     <svg {...common}>
-      <path d="M17 53C17 36 20 19 31 19C41 19 47 29 47 39C47 48 41 53 33 53Z" fill={G1} />
-      <path d="M25 33C23 27 29 23 33 25C37 22 43 26 41 31C44 34 41 39 37 38C36 42 30 43 28 39C23 40 21 34 25 33Z" fill={G2} />
-      <path d="M28 31Q32 28 36 31M29 36Q33 34 37 36" stroke={CARVE} strokeWidth="2" strokeLinecap="round" fill="none" />
-      <path d="M31 13C31.8 10.5 33.2 10.5 34 13C36 13.5 36 15.5 34 16C33.2 18.5 31.8 18.5 31 16C29 15.5 29 13.5 31 13Z" fill={G3} />
-      <path d="M40 8L40 12M46 11L43 14M48 17L44 17" stroke={G3} strokeWidth="2.2" strokeLinecap="round" fill="none" />
+      <path d="M33 9 C23 9 15.5 17 15.5 27 C15.5 30.2 16.3 32.8 17.6 34.8 L16.6 36.4 C16 37.4 16.6 38.4 17.6 38.6 L18.2 39.8 C17.8 40.8 18.6 41.6 19.8 41.6 C19.6 43 20.8 44 22.4 44 L22.6 53 H39 V43.5 C45.5 40.5 50 34 50 26 C50 16 43 9 33 9 Z" fill={G1} />
+      <path d="M23 31 C21 22 27 15.5 33.5 15.5 C40.5 15.5 45.5 20.5 45.5 27.5 C45.5 31.5 43 34 39.5 34 H27.5 C25.3 34 23.7 32.8 23 31 Z" fill={G2} />
+      <path d="M33.8 16 C32.3 21.5 34.8 28 33.2 33.8" stroke={G1} strokeWidth="2.2" strokeLinecap="round" fill="none" />
+      <path d="M26.5 23.5 Q29.5 21.3 32.3 23.3 M25.8 28.5 Q29 26.8 32 28.3 M37 20.5 Q40.5 21.3 41.8 24.3 M36.2 26.5 Q39.5 25.8 41.5 27.8" stroke={CARVE} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+      <path d="M47 4.5 L48.4 7.6 L51.5 9 L48.4 10.4 L47 13.5 L45.6 10.4 L42.5 9 L45.6 7.6 Z" fill={G3} />
+      <circle cx="54.5" cy="14.5" r="1.8" fill={G2} />
     </svg>
   );
 }
