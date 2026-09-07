@@ -26,63 +26,66 @@ const MOBILE_EXTRA = [
 ];
 
 
-function PhoneGlyph({ className }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" aria-hidden="true">
-      <path d="M7.2 4.2l2.3.9c.6.2.9.8.8 1.4l-.5 2.2a1.1 1.1 0 0 1-.5.7L8.1 10.5a12.6 12.6 0 0 0 5.4 5.4l1.1-1.2a1.1 1.1 0 0 1 .7-.5l2.2-.5c.6-.1 1.2.2 1.4.8l.9 2.3c.2.6 0 1.3-.6 1.6l-1.7 1.1c-.5.3-1.1.4-1.6.2a16.3 16.3 0 0 1-11-11c-.2-.5-.1-1.1.2-1.6l1.1-1.7c.3-.6 1-.8 1.6-.6Z" />
-      <path d="M14.9 4.3a3.8 3.8 0 0 1 4.9 4.3" stroke="#E8963A" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="18.2" cy="5.3" r="1.1" fill="#E8963A" stroke="none" />
-    </svg>
-  );
-}
-function PinGlyph({ className }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" aria-hidden="true">
-      <path d="M12 21.4S5.2 15.9 5.2 10.2a6.8 6.8 0 1 1 13.6 0c0 5.7-6.8 11.2-6.8 11.2Z" />
-      <circle cx="12" cy="10.2" r="2.3" fill="#E8963A" stroke="none" />
-    </svg>
-  );
-}
-function SearchGlyph({ className }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-      <circle cx="10.9" cy="10.9" r="6.4" />
-      <path d="m15.7 15.7 5 5" />
-      <path d="M12.4 7c1.5.5 2.6 1.6 3 3.1" stroke="#78AA36" strokeWidth="1.5" />
-      <path d="M6.9 13.4c.3-1.8 1.7-3.3 3.7-3.8" stroke="#E8963A" strokeWidth="1.5" />
-    </svg>
-  );
-}
-function UserGlyph({ className }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="12" cy="8" r="3.9" />
-      <path d="M4.6 20.2a7.4 7.4 0 0 1 14.8 0" />
-      <path d="M13.3 8.6c.5-.4.8-.9.9-1.5-.7 0-1.3.2-1.9.6l1 1.2-.8.9-.5-.6" stroke="#E8963A" strokeWidth="1.3" fill="#E8963A" />
-    </svg>
-  );
-}
-function HeartGlyph({ className }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" aria-hidden="true">
-      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z" />
-      <path d="M12 10.6c1.2.6 2 1.6 2 2.8 0 1.2-.8 2.2-2 2.9-1.2-.7-2-1.7-2-2.9 0-1.2.8-2.2 2-2.8Z" fill="#E8963A" stroke="none" />
-      <path d="M12 11.3v4.5" stroke="#FBF8F1" strokeWidth="1.15" strokeLinecap="round" />
-    </svg>
-  );
-}
-function BagGlyph({ className }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" aria-hidden="true">
-      <path d="M6 7h12l1.2 12.2a1.8 1.8 0 0 1-1.8 1.8H6.6a1.8 1.8 0 0 1-1.8-1.8L6 7Z" />
-      <path d="M9 10V6a3 3 0 0 1 6 0v4" />
-      <path d="M12 11.4c1.2.6 2 1.6 2 2.8s-.8 2.2-2 2.8-2-1.6-2-2.8.8-2.2 2-2.8Z" fill="#E8963A" stroke="none" />
-      <path d="M12 12.1v4.4" stroke="#FBF8F1" strokeWidth="1.15" strokeLinecap="round" />
-    </svg>
-  );
-}
+  function PhoneGlyph({ className, accent = "#E8963A" }) {
+    return (
+      <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
+        <path d="M6.6 3.6 C8 3.6 9.4 4.3 10.2 5.6 L11.4 7.8 C11.9 8.8 11.6 10 10.8 10.7 L9.7 11.7 C10.9 13.9 12.7 15.7 14.9 16.9 L15.9 15.8 C16.7 15 17.9 14.7 18.9 15.2 L21.2 16.4 C22.5 17.1 23.2 18.5 23.2 20 C23.2 21.2 22.2 22.2 21 22.2 C11.9 22.2 4.6 14.9 4.6 5.8 C4.6 4.6 5.4 3.6 6.6 3.6 Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+        <path d="M17 3.2 A4.5 4.5 0 0 1 20.8 7" stroke={accent} strokeWidth="1.7" strokeLinecap="round" />
+        <circle cx="21.6" cy="3.6" r="1.4" fill={accent} />
+      </svg>
+    );
+  }
 
-export default function Nav() {
+  function PinGlyph({ className, accent = "#E8963A" }) {
+    return (
+      <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
+        <path d="M12 21.2 C12 21.2 5.2 14.9 5.2 9.7 A6.8 6.8 0 1 1 18.8 9.7 C18.8 14.9 12 21.2 12 21.2 Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+        <circle cx="12" cy="9.7" r="2.6" fill={accent} />
+      </svg>
+    );
+  }
+
+  function SearchGlyph({ className }) {
+    return (
+      <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
+        <circle cx="10.8" cy="10.8" r="6.6" stroke="currentColor" strokeWidth="1.7" />
+        <path d="M15.6 15.6 L20.5 20.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+        <path d="M8.6 9.4 Q9.4 7.4 11.6 7.3" stroke="#78AA36" strokeWidth="1.6" strokeLinecap="round" />
+        <path d="M13.4 11.2 C14.1 12.2 14.7 13 14.7 13.9 A1.6 1.6 0 1 1 11.5 13.9 C11.5 13 12.1 12.2 13.4 11.2 Z" fill="#E8963A" />
+      </svg>
+    );
+  }
+
+  function UserGlyph({ className }) {
+    return (
+      <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
+        <circle cx="12" cy="8.3" r="3.6" stroke="currentColor" strokeWidth="1.7" />
+        <path d="M5.4 20 C5.4 16.2 8.4 14.2 12 14.2 C15.6 14.2 18.6 16.2 18.6 20" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+        <circle cx="16.6" cy="5.4" r="1.4" fill="#E8963A" />
+      </svg>
+    );
+  }
+
+  function HeartGlyph({ className }) {
+    return (
+      <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
+        <path d="M12 19.8 C12 19.8 4.6 15.2 4.6 9.6 C4.6 6.7 6.9 4.7 9.3 4.7 C10.6 4.7 11.5 5.3 12 6.1 C12.5 5.3 13.4 4.7 14.7 4.7 C17.1 4.7 19.4 6.7 19.4 9.6 C19.4 15.2 12 19.8 12 19.8 Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+        <path d="M12 10.6 C12.9 11.9 13.6 12.8 13.6 13.9 A1.7 1.7 0 1 1 10.4 13.9 C10.4 12.8 11.1 11.9 12 10.6 Z" fill="#E8963A" />
+      </svg>
+    );
+  }
+
+  function BagGlyph({ className }) {
+    return (
+      <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
+        <path d="M8.6 8 V6.8 A3.4 3.4 0 0 1 15.4 6.8 V8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+        <path d="M5.8 8 H18.2 L19.3 18.6 A2 2 0 0 1 17.3 20.8 H6.7 A2 2 0 0 1 4.7 18.6 Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+        <circle cx="12" cy="13.8" r="1.9" fill="#E8963A" />
+      </svg>
+    );
+  }
+
+  export default function Nav() {
   const { count, favoriteCount, setCartOpen } = useShop();
   const router = useRouter();
   const pathname = usePathname() || "/";
@@ -135,46 +138,46 @@ export default function Nav() {
       >
         <div className="wrap flex h-[38px] items-center justify-between gap-4 text-[13px]">
           <a href={SHOP_PHONE_HREF} className="flex items-center gap-2 font-semibold transition hover:text-white">
-            <PhoneGlyph className="h-3.5 w-3.5" />
+            <PhoneGlyph className="h-3.5 w-3.5" accent="#EDF3E4" />
             Служба поддержки {SUPPORT_PHONE_RAW}, с 10 до 20 (МСК)
           </a>
           <div className="flex items-center gap-6">
             <Link href="/info/contacts/" className="flex items-center gap-1.5 font-semibold transition hover:text-white">
-              <PinGlyph className="h-3.5 w-3.5" />
+              <PinGlyph className="h-3.5 w-3.5" accent="#EDF3E4" />
               Пункт самовывоза
             </Link>
           </div>
         </div>
       </div>
 
-      <div className="wrap flex h-16 items-center justify-between gap-2 sm:h-[72px] sm:gap-4">
+      <div className="wrap flex h-16 items-center justify-between gap-2 sm:h-[72px] sm:gap-3">
         <Link
           href="/"
           aria-label={`${BRAND.wordmarkA} ${BRAND.wordmarkB} — на главную`}
-          className="flex min-w-0 items-center rounded-full bg-paper/85 py-1 pl-1.5 pr-3 ring-1 ring-line/80 transition hover:bg-paper sm:pr-3.5"
+          className="flex shrink-0 items-center rounded-full bg-paper/85 py-1 pl-1.5 pr-3 ring-1 ring-line/80 transition hover:bg-paper sm:pr-3.5"
         >
           <Logo height={22} wordClassName="hidden sm:block" />
         </Link>
 
-        <nav aria-label="Основная навигация" className="hidden items-center gap-0.5 xl:flex">
+        <nav aria-label="Основная навигация" className="hidden items-center gap-0 xl:flex">
           {MENU_LINKS.map((link) => (
             <Link
               key={link.href + link.label}
               href={link.href}
-              className="whitespace-nowrap rounded-full px-3 py-2 text-[14px] font-semibold text-ink/90 transition hover:bg-sageSoft/60 hover:text-ink"
+              className="whitespace-nowrap rounded-full px-2 py-2 text-[13.5px] font-semibold text-ink/90 transition hover:bg-sageSoft/60 hover:text-ink"
             >
               {link.label}
             </Link>
           ))}
           <Link
             href="/#podbor"
-            className="ml-1 whitespace-nowrap rounded-full bg-leaf px-3.5 py-2 text-[13px] font-bold text-paper transition hover:bg-leafDark"
+            className="ml-1 whitespace-nowrap rounded-full bg-leaf px-3 py-2 text-[13px] font-bold text-paper transition hover:bg-leafDark"
           >
             Подбор по задаче
           </Link>
         </nav>
 
-        <div className="flex items-center gap-1 sm:gap-1.5">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
           {/* Поиск */}
           <button
             type="button"
@@ -237,7 +240,7 @@ export default function Nav() {
             className="group grid h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink xl:hidden sm:h-11 sm:w-11"
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h10" />}
+              {menuOpen ? <path d="M6 6 L18 18 M18 6 L6 18" /> : <path d="M4 7 H20 M4 12 H20 M4 17 H20" />}
             </svg>
           </button>
         </div>

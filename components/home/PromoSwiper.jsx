@@ -199,7 +199,7 @@ export default function PromoSwiper() {
             className="absolute left-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-line bg-paper/90 text-ink/90 shadow-card transition hover:text-leaf"
           >
             <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="M12 4l-6 6 6 6" />
+              <path d="M13 4L7 10L13 16" />
             </svg>
           </button>
           <button
@@ -209,7 +209,7 @@ export default function PromoSwiper() {
             className="absolute right-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-line bg-paper/90 text-ink/90 shadow-card transition hover:text-leaf"
           >
             <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="M8 4l6 6-6 6" />
+              <path d="M7 4L13 10L7 16" />
             </svg>
           </button>
 

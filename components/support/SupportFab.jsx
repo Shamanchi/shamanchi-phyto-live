@@ -9,43 +9,31 @@ const LEAF = "#207D44";
 const HONEY = "#E8963A";
 
 const ICONS = {
-  phone: (
+    phone: (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path
-        d="M7.2 4.2l2.3.9c.6.2.9.8.8 1.4l-.5 2.2a1.1 1.1 0 0 1-.5.7L8.1 10.5a12.6 12.6 0 0 0 5.4 5.4l1.1-1.2a1.1 1.1 0 0 1 .7-.5l2.2-.5c.6-.1 1.2.2 1.4.8l.9 2.3c.2.6 0 1.3-.6 1.6l-1.7 1.1c-.5.3-1.1.4-1.6.2a16.3 16.3 0 0 1-11-11c-.2-.5-.1-1.1.2-1.6l1.1-1.7c.3-.6 1-.8 1.6-.6Z"
-        stroke={LEAF}
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <circle cx="17.8" cy="5.6" r="1.3" stroke={HONEY} strokeWidth="1.4" />
-      <path d="M14.8 4.6a3.6 3.6 0 0 1 4.4 3.9" stroke={HONEY} strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M6.6 3.6 C8 3.6 9.4 4.3 10.2 5.6 L11.4 7.8 C11.9 8.8 11.6 10 10.8 10.7 L9.7 11.7 C10.9 13.9 12.7 15.7 14.9 16.9 L15.9 15.8 C16.7 15 17.9 14.7 18.9 15.2 L21.2 16.4 C22.5 17.1 23.2 18.5 23.2 20 C23.2 21.2 22.2 22.2 21 22.2 C11.9 22.2 4.6 14.9 4.6 5.8 C4.6 4.6 5.4 3.6 6.6 3.6 Z" stroke={LEAF} strokeWidth="1.7" strokeLinejoin="round" />
+      <circle cx="17.8" cy="6.2" r="1.7" fill={HONEY} />
     </svg>
   ),
-  max: (
+    max: (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path
-        d="M12 3.8a8.2 8.2 0 0 1 7.4 12.2L21 20l-4.2-1.4A8.2 8.2 0 1 1 12 3.8Z"
-        stroke={LEAF}
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M13.2 7.6 9.4 12h2.5l-1.5 4.4 4.2-4.9h-2.5l1.1-3.9Z"
-        stroke={HONEY}
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
+      <path d="M12 3.5 H19 A3.5 3.5 0 0 1 22.5 7 V11 A3.5 3.5 0 0 1 19 14.5 H10 L5.8 18.2 L6.9 14.5 H6.5 A3.5 3.5 0 0 1 3 11 V7 A3.5 3.5 0 0 1 6.5 3.5 Z" stroke={LEAF} strokeWidth="1.7" strokeLinejoin="round" />
+      <path d="M8.2 11.5 V6.8 L10.6 10 L13 6.8 V11.5" stroke={LEAF} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="16.8" cy="9" r="1.5" fill={HONEY} />
     </svg>
   ),
   telegram: (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
       <path
-        d="M20.9 4.6 3.2 11.3c-.9.4-.8 1.7.1 2l4.6 1.5 1.7 5.2c.2.8 1.2 1 1.8.3l2.3-2.7 4.6 3.3c.6.4 1.5.1 1.7-.7l3-14.5c.2-.9-.8-1.6-1.7-1.3l-.4.1Z"
+        d="M2.5 19L22 4M22 4V6M22 4H20M2.5 19L4.5 17M2.5 19L6 15.5M2.5 19L10 14"
         stroke={LEAF}
-        strokeWidth="1.5"
+        strokeWidth="1.8"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M9 14.8 20.9 4.6M10.4 18.5l2.5-3" stroke={HONEY} strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="22" y1="4" x2="23.2" y2="2.8" stroke={HONEY} strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="22" y1="4" x2="23.2" y2="5.2" stroke={HONEY} strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="22" y1="4" x2="23.5" y2="4" stroke={HONEY} strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   ),
 };
@@ -76,7 +64,8 @@ const CHANNELS = [
 
 export default function SupportFab() {
   const [open, setOpen] = useState(false);
-  const cardRef = useRef(null);
+  const rootRef = useRef(null);
+  const toggleRef = useRef(null);
 
   useEffect(() => {
     if (!open) return;
@@ -84,7 +73,10 @@ export default function SupportFab() {
       if (event.key === "Escape") setOpen(false);
     };
     const onPointer = (event) => {
-      if (cardRef.current && !cardRef.current.contains(event.target)) setOpen(false);
+      // Клик по самой кнопке-триггеру обрабатывает onClick (свернуть/развернуть),
+      // а не закрытие карточки как «клик вне её».
+      if (toggleRef.current && toggleRef.current.contains(event.target)) return;
+      if (rootRef.current && !rootRef.current.contains(event.target)) setOpen(false);
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("pointerdown", onPointer);
@@ -95,11 +87,10 @@ export default function SupportFab() {
   }, [open]);
 
   return (
-    <div className="fixed bottom-4 left-4 z-[70] sm:bottom-5 sm:left-5" data-testid="support-fab">
+    <div ref={rootRef} className="fixed bottom-4 left-4 z-[70] sm:bottom-5 sm:left-5" data-testid="support-fab">
       <div className="relative">
         {open && (
           <div
-            ref={cardRef}
             role="dialog"
             aria-label="Помощь и поддержка PHYTOTAB"
             className="rise-in absolute bottom-16 left-0 w-[300px] rounded-3xl border border-line bg-cream p-5 shadow-lift"
@@ -133,7 +124,7 @@ export default function SupportFab() {
                       strokeWidth="2"
                       aria-hidden="true"
                     >
-                      <path d="M6 3l5 5-5 5" />
+                      <path d="M4 4L12 8L4 12" />
                     </svg>
                   </a>
                 </li>
@@ -142,6 +133,7 @@ export default function SupportFab() {
           </div>
         )}
         <button
+          ref={toggleRef}
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}

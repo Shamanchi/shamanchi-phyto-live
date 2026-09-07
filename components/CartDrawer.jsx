@@ -58,8 +58,8 @@ export default function CartDrawer() {
             aria-label="Закрыть"
             className="grid h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink/90 transition hover:border-honey hover:text-honeyDark"
           >
-            <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              <path d="M5 5l10 10M15 5 5 15" />
+            <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" aria-hidden="true">
+              <path d="M4 4l12 12m0-12L4 16" />
             </svg>
           </button>
         </div>
