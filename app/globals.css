@@ -273,3 +273,54 @@ a, button, input, textarea, select, [tabindex] {
 .no-scrollbar {
   scrollbar-width: none;
 }
+
+/* --- Правка 5: глобальный живой фон «за стеклом» (на всех страницах) --- */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.site-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Карточки-«стекло»: сквозь поверхность просвечивает живой фон (матовое стекло) */
+.glass-card, .glass-cream {
+  backdrop-filter: blur(9px) saturate(1.12);
+  -webkit-backdrop-filter: blur(9px) saturate(1.12);
+}
+.glass-card { background: rgba(247, 243, 234, 0.8); }
+.glass-cream { background: rgba(251, 248, 241, 0.78); }
+
+/* Падающие листья (правка 5, п. 2): рисованные SVG-листья, не овалы */
+@keyframes leafFall {
+  0% { transform: translate3d(0, -14vh, 0) rotate(var(--r0, 0deg)); }
+  100% { transform: translate3d(var(--drift, 6vw), 116vh, 0) rotate(var(--r1, 300deg)); }
+}
+@keyframes leafSway {
+  from { transform: rotate(-14deg); }
+  to { transform: rotate(14deg); }
+}
+.leaf {
+  position: absolute;
+  top: 0;
+  left: var(--left, 0%);
+  width: var(--leaf-w, 32px);
+  height: var(--leaf-w, 32px);
+  will-change: transform;
+  animation: leafFall var(--dur, 22s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+.leaf-in {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 50%;
+  animation: leafSway var(--sway, 6s) ease-in-out infinite alternate;
+}
+@media (prefers-reduced-motion: reduce) {
+  .leaf { display: none; }
+}

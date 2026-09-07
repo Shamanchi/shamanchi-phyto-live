@@ -5,7 +5,7 @@
 // адаптив без горизонтального скролла, ошибки консоли.
 // Запуск: npm run test:acceptance (после npm run build).
 import { chromium } from "playwright-core";
-import { existsSync, mkdirSync, readdirSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { startServer } from "../scripts/serve-static.mjs";
@@ -349,6 +349,12 @@ try {
   check(revText.includes("яндекс.карты"), "отзывы: источник Яндекс.Карты");
   const yandexCount = await rev.locator('a[href*="yandex"]').count();
   check(yandexCount > 0, "отзывы: ссылки на Яндекс");
+  const reviewsFile = JSON.parse(readFileSync(join(projectRoot, "data", "reviews.json"), "utf8"));
+  const reviewsAll = reviewsFile.reviews || [];
+  check(reviewsAll.length === 22, `отзывы: в data/reviews.json все 22 отзыва (найдено ${reviewsAll.length})`);
+  const chipTexts = await rev.locator('[data-testid="reviews-tabs"] [role="tab"]').allInnerTexts();
+  const chipsNorm = chipTexts.map((t) => t.replace(/\s+/g, " ").trim()).join(" | ");
+  check(/О результатах · 10/.test(chipsNorm) && /О продукции · 6/.test(chipsNorm) && /О магазине · 6/.test(chipsNorm), "отзывы: счётчики вкладок 10/6/6 — все 22 на месте", chipsNorm);
 
   // ===== Итерация 2: фавикон-лист, шапка с плашкой, фото врача ===== 
   const { ctx: i2Ctx, pg: i2 } = await newPage();

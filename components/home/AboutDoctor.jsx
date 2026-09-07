@@ -48,84 +48,106 @@ const CARDS = [
 ];
 
 function AdvantageIcon({ name }) {
-  const common = { viewBox: "0 0 64 64", className: "h-12 w-12", "aria-hidden": true };
+  const common = { viewBox: "0 0 64 64", className: "h-12 w-12 sm:h-14 sm:w-14", "aria-hidden": true };
   if (name === "leaf") {
     return (
       <svg {...common}>
-        <path d="M15 49c-1-9.6 3.2-18.6 13.2-23.4 4.8 9.6 1.4 19.6-7.2 24.8Z" fill={G2} />
-        <path d="M33 6.5c9.6 1.4 16.4 7.8 16.4 17 0 9.8-6.8 17.6-16.4 21.6-9.4-4-16.4-11.8-16.4-21.6 0-9.2 6.8-15.6 16.4-17Z" fill={G1} />
-        <path d="M33 13v24" stroke={G2} strokeWidth="2.6" strokeLinecap="round" />
-        <path d="M33 24.5c-3.9-1-7.2-2.9-9.5-6M33 24.5c3.9-1 7.2-2.9 9.5-6M33 32.5c-3 .6-5.8 2-8.2 4.4M33 32.5c3 .6 5.8 2 8.2 4.4" stroke={G2} strokeWidth="2" strokeLinecap="round" fill="none" />
-        <circle cx="47" cy="42" r="5.4" fill={G3} />
-        <circle cx="45.6" cy="40.4" r="1.5" fill={PAPER_CARVE} />
+        <path d="M36.5 4c11.8 1.8 19.2 9.8 19.2 21.2 0 12.2-8.4 21.8-19.2 26.7-10.8-4.9-19.2-14.5-19.2-26.7C17.3 13.8 24.7 5.8 36.5 4Z" fill={G1} />
+        <path d="M36.5 13v27" stroke={G2} strokeWidth="2.6" strokeLinecap="round" />
+        <path d="M36.5 25.2c-4.3-1-7.9-3-10.7-6.3M36.5 25.2c4.3-1 7.9-3 10.7-6.3M36.5 33.8c-3.1.6-5.9 2.1-8.4 4.5M36.5 33.8c3.1.6 5.9 2.1 8.4 4.5" stroke={G2} strokeWidth="2.1" strokeLinecap="round" fill="none" />
+        <path d="M11.5 43.5c.4-6.6 3.8-11.4 9.2-13.4.6 6.4-2.2 11.2-9.2 13.4Z" fill={G2} />
+        <path d="M18.5 57.5c-.8-4.8 1.5-8.9 5.6-10.6.8 4.4-1.1 8-5.6 10.6Z" fill={G2} />
+        <circle cx="54.5" cy="46.5" r="5.8" fill={G3} />
+        <circle cx="52.9" cy="44.6" r="1.7" fill={PAPER_CARVE} />
       </svg>
     );
   }
   if (name === "farm") {
     return (
       <svg {...common}>
-        <rect x="29" y="26" width="6" height="20" rx="3" fill={PAPER_CARVE} />
-        <ellipse cx="32" cy="27" rx="11.5" ry="7.5" fill={G2} />
-        <circle cx="26.5" cy="25" r="1.8" fill={G1} />
-        <circle cx="33.5" cy="23.6" r="1.6" fill={G1} />
-        <circle cx="38" cy="28" r="1.6" fill={G1} />
-        <rect x="16" y="34" width="5" height="12" rx="2.5" fill={PAPER_CARVE} />
-        <ellipse cx="18.5" cy="34.5" rx="7.4" ry="4.9" fill={G1} />
-        <circle cx="15.5" cy="33" r="1.2" fill={PAPER_CARVE} />
-        <rect x="43" y="34" width="5" height="12" rx="2.5" fill={PAPER_CARVE} />
-        <ellipse cx="45.5" cy="34.5" rx="7.4" ry="4.9" fill={G1} />
-        <circle cx="48.5" cy="33" r="1.2" fill={PAPER_CARVE} />
-        <rect x="12" y="46" width="40" height="10" rx="5" fill={G1} />
-        <rect x="12" y="46" width="40" height="3.5" rx="1.75" fill={G2} />
-        <circle cx="32" cy="51" r="2.2" fill={G3} />
+        <rect x="6" y="46" width="52" height="10" rx="5" fill={G1} />
+        <rect x="6" y="46" width="52" height="3.6" rx="1.8" fill={G2} />
+        <path d="M11.5 37.5a10.5 10.5 0 0 1 21 0Z" fill={G2} />
+        <path d="M15.5 33.4c.7.5 1.1 1.2 1.3 2M20.5 31.8c.5.7.7 1.5.8 2.3M18 35.6c-.8-.2-1.4-.1-2 .1" stroke={PAPER_CARVE} strokeWidth="1.4" strokeLinecap="round" fill="none" />
+        <rect x="18" y="37.5" width="8" height="8.5" rx="3" fill={PAPER_CARVE} />
+        <path d="M46 37.5a9.5 9.5 0 0 1 19 0Z" fill={G1} />
+        <path d="M50 33.3c.6.5 1 1.1 1.2 1.9M54.5 31.9c.4.6.6 1.3.7 2" stroke={PAPER_CARVE} strokeWidth="1.4" strokeLinecap="round" fill="none" />
+        <rect x="52.5" y="37.5" width="7.5" height="8.5" rx="3" fill={PAPER_CARVE} />
+        <path d="M31 42.5 34.5 39c3.2 3 5.5 6 7 9.4H31v-5.9Z" fill={G3} />
+        <circle cx="51" cy="13" r="3" fill={G3} />
+        <circle cx="49.9" cy="11.9" r="0.9" fill={PAPER_CARVE} />
+        <path d="M6 56.5h52" stroke={G2} strokeWidth="3" strokeLinecap="round" />
       </svg>
     );
   }
   if (name === "dose") {
     return (
       <svg {...common}>
-        <rect x="13" y="25" width="22" height="17" rx="8.5" fill={G2} />
-        <path d="M35 25h8a8.5 8.5 0 0 1 0 17h-8V25Z" fill={G1} />
-        <path d="M18.5 29.6a8 8 0 0 1 5-2" stroke={PAPER_CARVE} strokeWidth="2.4" strokeLinecap="round" fill="none" />
-        <path d="M50 17h5M52.5 14.5v5" stroke={G2} strokeWidth="2.4" strokeLinecap="round" />
-        <path d="M33 52c2.5 2.9 4.7 5.1 4.7 7 0 2.6-2.1 4.7-4.7 4.7s-4.7-2.1-4.7-4.7c0-1.9 2.2-4.1 4.7-7Z" fill={G3} />
+        <rect x="25" y="8" width="15" height="38" rx="7.5" fill={G2} />
+        <path d="M25 23h15v-7.5a7.5 7.5 0 0 0-15 0V23Z" fill={G1} />
+        <path d="M25 22.2h15" stroke={PAPER_CARVE} strokeWidth="1.5" />
+        <path d="M28.5 15.6h4.2" stroke={PAPER_CARVE} strokeWidth="1.5" strokeLinecap="round" opacity="0.85" />
+        <path d="M32.5 27.5c2.6 1.3 4.1 3.6 4.1 6.5 0 2.9-1.5 5.2-4.1 6.5-2.6-1.3-4.1-3.6-4.1-6.5 0-2.9 1.5-5.2 4.1-6.5Z" fill={G3} />
+        <path d="M32.5 28.8v9.8" stroke={PAPER_CARVE} strokeWidth="1.4" strokeLinecap="round" />
+        <path d="M13.5 43.5c1-5 3.8-8.4 8-9.8 1.4 5.2-.8 9.4-8 9.8Z" fill={G2} />
+        <path d="M56 13.5v6M53 16.5h6" stroke={G3} strokeWidth="2.6" strokeLinecap="round" />
+        <path d="M50 47c-.6-4.2 1.4-7.8 5.6-9.4 1.2 4.6-.8 8.4-5.6 9.4Z" fill={G2} />
       </svg>
     );
   }
   if (name === "cert") {
     return (
       <svg {...common}>
-        <path d="M32 5.5 47 10.6v11.2c0 10.6-6.3 19-15 23.9-8.7-4.9-15-13.3-15-23.9V10.6L32 5.5Z" fill={G1} />
-        <path d="M32 11.6 42.6 15.3v6.6c0 7.9-4.6 14.6-10.6 18.6-6-4-10.6-10.7-10.6-18.6v-6.6L32 11.6Z" fill="none" stroke={G2} strokeWidth="2.2" />
-        <path d="m25.6 30.6 4.7 4.7 8.9-9.8" stroke={PAPER_CARVE} strokeWidth="5.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <circle cx="45.5" cy="14" r="7.2" fill={G3} />
-        <circle cx="45.5" cy="14" r="2.6" fill={PAPER_CARVE} />
+        <path d="M32 4.5 48.5 10v11.4c0 11-6.6 19.9-16.5 25-9.9-5.1-16.5-14-16.5-25V10L32 4.5Z" fill={G1} />
+        <path d="M32 10.5 44.8 14.6v6.9c0 8.3-5.3 15.2-12.8 19.3-7.5-4.1-12.8-11-12.8-19.3v-6.9L32 10.5Z" fill="none" stroke={G2} strokeWidth="2" />
+        <path d="m25.2 31.4 5 5 9.4-10.2" stroke={PAPER_CARVE} strokeWidth="5.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <circle cx="49" cy="14.5" r="7.4" fill={G3} />
+        <circle cx="49" cy="14.5" r="2.7" fill={PAPER_CARVE} />
+        <path d="M20.5 52c-1.8-3.4-1.6-6.4.8-9.2 2.2 2.9 2.6 5.9 1 9.2h-1.8Z" fill={G2} />
+        <path d="M43.5 52c1.8-3.4 1.6-6.4-.8-9.2-2.2 2.9-2.6 5.9-1 9.2h1.8Z" fill={G2} />
+        <path d="M32 56.5v3.4" stroke={G3} strokeWidth="2.4" strokeLinecap="round" />
       </svg>
     );
   }
   if (name === "dev") {
     return (
       <svg {...common}>
-        <path d="M23.5 9.5h17v7.2L50.2 32c2.9 4.7-.8 11.2-6.7 11.2H20.5c-5.9 0-9.6-6.5-6.7-11.2l9.7-15.3v-7.2Z" fill={G1} />
-        <path d="M22 38.8c.9-2.6 5.2-4.8 10-4.8s9.1 2.2 10 4.8c.6 1.7-.5 3.3-2.3 3.6l-15.4 0c-1.8-.3-2.9-1.9-2.3-3.6Z" fill={G2} />
-        <circle cx="26" cy="38.5" r="1.5" fill={PAPER_CARVE} />
-        <circle cx="32" cy="36.2" r="1.8" fill={PAPER_CARVE} />
-        <circle cx="38" cy="38.8" r="1.4" fill={PAPER_CARVE} />
-        <path d="M32 11.8v3" stroke={G3} strokeWidth="2.4" strokeLinecap="round" />
-        <circle cx="49.5" cy="49.5" r="3.2" fill={G3} />
+        <circle cx="33" cy="48" r="15.5" fill={G1} />
+        <rect x="27" y="8" width="12" height="34" rx="2" fill={G1} />
+        <rect x="25" y="5.5" width="16" height="5" rx="2.5" fill={G2} />
+        <circle cx="33" cy="51.5" r="9.2" fill={G2} />
+        <path d="M24.6 48.4c2.4-1.7 4.6-1.7 6.6 0 1.8 1.6 4 1.6 6.3 0 1.5-1.1 2.9-1.4 4.3-1" stroke={PAPER_CARVE} strokeWidth="1.7" strokeLinecap="round" fill="none" />
+        <circle cx="29.6" cy="55.6" r="2.1" fill={PAPER_CARVE} />
+        <circle cx="35.6" cy="52.4" r="1.6" fill={PAPER_CARVE} />
+        <circle cx="32" cy="57.4" r="1.2" fill={PAPER_CARVE} />
+        <path d="M23.5 34.5c1.6-4.6 3.6-7.6 6-9.4 1.2 5-1 8.8-6 9.4Z" fill={G2} />
+        <path d="M46.5 30v6M43.5 33h6" stroke={G3} strokeWidth="2.6" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  if (name === "eco") {
+    return (
+      <svg {...common}>
+        <path d="M0 52 16.5 12l17.5 40H0Z" fill={G1} />
+        <path d="M17 52 35.5 26 63 52H17Z" fill={G2} />
+        <path d="M11.6 24.8 16.5 12l4.9 12.8-9.8 0Z" fill={PAPER_CARVE} />
+        <path d="M46 11.5c2.5 3.2 4 5.8 4 8.4a4 4 0 1 1-8 0c0-2.6 1.5-5.2 4-8.4Z" fill={G3} />
+        <path d="M45.1 15.2c.8 1 .8 1.9 0 2.9" stroke={PAPER_CARVE} strokeWidth="1.5" strokeLinecap="round" fill="none" />
+        <path d="M51 32.5 60 52H42l9-19.5Z" fill={G1} />
+        <path d="M51 41 57.6 52H44.4L51 41Z" fill={G2} />
+        <path d="M49.5 52c0-5.6 1.8-9.6 5-12-1.8 5.6-.6 9.4 3.4 12h-8.4Z" fill={G3} />
+        <path d="M7 40c2.2 3 3.4 5.2 3.4 7.6a3.4 3.4 0 1 1-6.8 0C3.6 45.2 4.8 43 7 40Z" fill={G3} />
+        <path d="M6.2 44.2c.7.9.7 1.8 0 2.7" stroke={PAPER_CARVE} strokeWidth="1.4" strokeLinecap="round" fill="none" />
       </svg>
     );
   }
   return (
     <svg {...common}>
-      <path d="M32 9.5 14.5 25H18v19h28V25h3.5L32 9.5Z" fill={G1} />
-      <path d="M18 25 32 12.4 46 25" fill="none" stroke={G2} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-      <rect x="27.5" y="30" width="9" height="14" rx="2.5" fill={PAPER_CARVE} />
-      <circle cx="13" cy="11.5" r="4.6" fill={G3} />
-      <path d="M13 2.8v3.6M13 16.6v3.6M3.4 11.5h3.6M19.4 11.5h3.6" stroke={G3} strokeWidth="2.2" strokeLinecap="round" />
-      <path d="M19 48c-.7-4.4 1.3-8 4.7-9.8 1.4 5-.1 8.6-4.7 9.8Z" fill={G2} />
-      <path d="M45 48c.7-4.4-1.3-8-4.7-9.8-1.4 5 .1 8.6 4.7 9.8Z" fill={G2} />
-      <path d="M12 50.5h40" stroke={G1} strokeWidth="5" strokeLinecap="round" />
+      <circle cx="32" cy="32" r="25.5" fill={G2} />
+      <circle cx="32" cy="32" r="25.5" fill="none" stroke={G1} strokeWidth="3" />
+      <path d="M32 15c6.4 2.6 10 6.9 10 12.4 0 6.8-4.4 12.4-10 15.6-5.6-3.2-10-8.8-10-15.6 0-5.5 3.6-9.8 10-12.4Z" fill={PAPER_CARVE} />
+      <path d="M32 18.5v22M32 29c-2.8-.6-5.1-1.9-6.9-4M32 29c2.8-.6 5.1-1.9 6.9-4" stroke={G2} strokeWidth="2" strokeLinecap="round" fill="none" />
+      <circle cx="49.5" cy="15.5" r="3.6" fill={G3} />
     </svg>
   );
 }

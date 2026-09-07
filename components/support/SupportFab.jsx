@@ -149,7 +149,15 @@ export default function SupportFab() {
           className="flex items-center gap-2 rounded-full bg-leaf py-3 pl-4 pr-5 text-paper shadow-lift transition hover:-translate-y-0.5 hover:bg-leafDark"
         >
           <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M12 4a7.5 7.5 0 0 1 7.5 7.5c0 2.4-1 4.6-2.7 6L14 19v1.6a.4.4 0 0 1-.4.4H9.6a.4.4 0 0 1-.4-.4V19l-1-1.2a7.4 7.4 0 0 1-1.7-2.2l-.8.4a1 1 0 0 1-1.4-1l.5-1.7A7.5 7.5 0 0 1 12 4Z" />}
+            {open ? (
+            <path d="M6 6l12 12M18 6L6 18" />
+          ) : (
+            <>
+              <path d="M12 3.4a8.7 8.7 0 0 1 8.7 8.7c0 2.7-1.2 5.1-3.1 6.7l-.5.5v2.8l-3.1-1.7a9 9 0 0 1-2 .3A8.7 8.7 0 0 1 12 3.4Z" />
+              <path d="M9.7 9.7a2.5 2.5 0 0 1 4.9.6c0 1.3-1.6 2-1.6 3.3v.3" stroke="#E8963A" strokeWidth="1.9" strokeLinecap="round" fill="none" />
+              <circle cx="13.1" cy="16.9" r="0.95" fill="#E8963A" stroke="none" />
+            </>
+          )}
           </svg>
           <span className="text-[15px] font-extrabold">Помощь</span>
         </button>

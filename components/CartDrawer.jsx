@@ -67,10 +67,13 @@ export default function CartDrawer() {
         <div className="flex-1 overflow-y-auto px-5 py-4">
           {rows.length === 0 ? (
             <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
-              <span className="grid h-16 w-16 place-items-center rounded-full bg-sageSoft text-leaf">
-                <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-                  <path d="M6 7h12l1.2 12.2a1.8 1.8 0 0 1-1.8 1.8H6.6a1.8 1.8 0 0 1-1.8-1.8L6 7Z" />
-                  <path d="M9 10V6a3 3 0 0 1 6 0v4" />
+              <span className="grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-cream to-sageSoft/70 ring-1 ring-leaf/15">
+                <svg viewBox="0 0 64 64" className="h-12 w-12" aria-hidden="true">
+                  <path d="M23.5 22v-3.6a8.5 8.5 0 0 1 17 0V22" stroke="#78AA36" strokeWidth="4.4" fill="none" />
+                  <path d="M19 22.5h26l1.6 24.4a6.8 6.8 0 0 1-6.8 7.1H24.2a6.8 6.8 0 0 1-6.8-7.1l1.6-24.4Z" fill="#207D44" />
+                  <path d="M32 27.6c2.7 1.3 4.3 3.7 4.3 6.6 0 2.9-1.6 5.3-4.3 6.6-2.7-1.3-4.3-3.7-4.3-6.6 0-2.9 1.6-5.3 4.3-6.6Z" fill="#E8963A" />
+                  <path d="M32 29v9.8" stroke="#FBF8F1" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M45.5 13.2l1.6 3.2 3.6.8-2.6 2.4.6 3.6-3.2-1.7-3.2 1.7.6-3.6-2.6-2.4 3.6-.8 1.6-3.2Z" fill="#78AA36" />
                 </svg>
               </span>
               <div>

@@ -35,9 +35,12 @@ export default function FavoritesPage() {
 
         {favoriteProducts.length === 0 ? (
           <div className="mt-10 rounded-3xl border border-line bg-cream p-10 text-center">
-            <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-sageSoft text-leaf">
-              <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z" />
+            <span className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-cream to-sageSoft/70 ring-1 ring-leaf/15">
+              <svg viewBox="0 0 64 64" className="h-12 w-12" aria-hidden="true">
+                <path d="M32 51.5 14.7 34.9a12.2 12.2 0 0 1-3.6-8.7 12.2 12.2 0 0 1 20.9-8.6l.2.2.2-.2a12.2 12.2 0 0 1 20.9 8.6 12.2 12.2 0 0 1-3.6 8.7L32 51.5Z" fill="none" stroke="#207D44" strokeWidth="3" />
+                <path d="M32 24.8c3 1.4 4.8 4.1 4.8 7.3 0 3.2-1.8 5.9-4.8 7.3-3-1.4-4.8-4.1-4.8-7.3 0-3.2 1.8-5.9 4.8-7.3Z" fill="#E8963A" />
+                <path d="M32 26.4v11.9" stroke="#FBF8F1" strokeWidth="1.9" strokeLinecap="round" />
+                <path d="M50.5 12.8l1.3 2.7 3 .6-2.2 2 .5 3-2.6-1.4-2.6 1.4.5-3-2.2-2 3-.6 1.3-2.7Z" fill="#78AA36" />
               </svg>
             </span>
             <p className="mt-5 font-display text-2xl font-semibold">Пока пусто</p>

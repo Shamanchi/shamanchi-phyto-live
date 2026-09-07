@@ -115,7 +115,7 @@ export default function LivePollen() {
   const options = useMemo(() => makeOptions(small ? 38 : 84), [small]);
 
   if (!idleReady) {
-    return <div data-live-pollen="preload" aria-hidden="true" className="fixed inset-0 z-0" />;
+    return <div data-live-pollen="preload" aria-hidden="true" className="pointer-events-none absolute inset-0 z-0" />;
   }
 
   if (idleReady && reduced) {
@@ -123,7 +123,7 @@ export default function LivePollen() {
       <div
         data-live-pollen="static"
         aria-hidden="true"
-        className="bg-pollen-static pointer-events-none fixed inset-0 z-[-1]"
+        className="bg-pollen-static pointer-events-none absolute inset-0 z-0"
       />
     );
   }
@@ -132,7 +132,7 @@ export default function LivePollen() {
     <div
       data-live-pollen="canvas"
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-[-1] h-screen w-screen"
+      className="pointer-events-none absolute inset-0 z-0 h-full w-full"
     >
       <ParticlesProvider init={loadSlim}>
         <Particles id="live-pollen" options={options} className="h-full w-full" />

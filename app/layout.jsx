@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import CartDrawer from "../components/CartDrawer";
 import SupportFab from "../components/support/SupportFab";
 import LivePollen from "../components/live/LivePollenMount";
+import LeafField from "../components/live/LeafField";
 
 
 export const metadata = {
@@ -75,12 +76,17 @@ export default function RootLayout({ children }) {
           Перейти к содержанию
         </a>
         <ShopProvider>
-          <LivePollen />
-          <Nav />
-          {children}
-          <Footer />
-          <CartDrawer />
-          <SupportFab />
+          <div className="site-bg" aria-hidden="true">
+            <LivePollen />
+            <LeafField />
+          </div>
+          <div className="site-content">
+            <Nav />
+            {children}
+            <Footer />
+            <CartDrawer />
+            <SupportFab />
+          </div>
         </ShopProvider>
         <noscript>
           <style>{`.rv{opacity:1 !important;transform:none !important;}`}</style>

@@ -153,7 +153,7 @@ export default function CategoryTiles() {
               <Reveal key={category.slug} delay={i * 60} className="h-full">
                 <Link
                   href={`/catalog/?category=${encodeURIComponent(category.slug)}`}
-                  className="group flex h-full items-start gap-4 rounded-3xl border border-line bg-paper p-5 shadow-card transition hover:-translate-y-0.5 hover:border-leaf/60 hover:shadow-lift"
+                  className="group flex h-full items-start gap-4 rounded-3xl border border-line glass-card p-5 shadow-card transition hover:-translate-y-0.5 hover:border-leaf/60 hover:shadow-lift"
                 >
                   <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-cream ring-1 ring-line/70 transition group-hover:bg-sageSoft/40">
                     <Illustration slug={category.slug} />

@@ -7,9 +7,92 @@ import { asset, formatPrice } from "../../lib/site";
 import { FORMAT_OPTIONS, FORMAT_LABELS, TASKS, TASK_LABELS, recommendProduct } from "../../lib/quiz";
 import Reveal from "../Reveal";
 
+
+const QG1 = "#207D44";
+const QG2 = "#78AA36";
+const QG3 = "#E8963A";
+const QPAPER = "#FBF8F1";
+const QINK = "#22301F";
+const QICON = { viewBox: "0 0 40 40", className: "h-8 w-8", "aria-hidden": true };
+const TASK_ICONS = {
+  immunity: (
+    <svg {...QICON}>
+      <path d="M20 5.5 32.5 10v9.2c0 8.8-5.2 15.6-12.5 19.3-7.3-3.7-12.5-10.5-12.5-19.3V10L20 5.5Z" fill={QG1} />
+      <path d="M20 12v15" stroke={QPAPER} strokeWidth="2.6" strokeLinecap="round" />
+      <path d="M20 20c-3.2-.8-5.6-2.4-7.3-4.9M20 20c3.2-.8 5.6-2.4 7.3-4.9" stroke={QPAPER} strokeWidth="2.1" strokeLinecap="round" />
+      <circle cx="30.5" cy="7.5" r="2" fill={QG3} />
+    </svg>
+  ),
+  gut: (
+    <svg {...QICON}>
+      <path d="M9.5 22.5C9.5 13.6 14.6 8.5 20.5 8.5s11 5.1 11 14c0 5-1.7 8.9-4.8 11.3a1.7 1.7 0 0 1-2.3-.3c-1.1-1.2-1.4-2.8-1-4.3h-5.8c.4 1.5.1 3.1-1 4.3a1.7 1.7 0 0 1-2.3.3C11.2 31.4 9.5 27.5 9.5 22.5Z" fill={QG1} />
+      <path d="M14.3 22.6c1.8-2.9 3.8-4.4 6.2-4.4s4.4 1.5 6.2 4.4" stroke={QPAPER} strokeWidth="2.3" strokeLinecap="round" />
+      <path d="M29.5 5.9l1 2.1 2.3.5-1.7 1.6.4 2.3-2-1.1-2 1.1.4-2.3-1.7-1.6 2.3-.5 1-2.1Z" fill={QG3} />
+    </svg>
+  ),
+  sleep: (
+    <svg {...QICON}>
+      <path d="M21 6.5a11.6 11.6 0 1 0 12.6 14.6 9.2 9.2 0 0 1-12.6-14.6Z" fill={QG1} />
+      <path d="M26.5 30.5l1 2 2.2.5-1.6 1.5.4 2.2-2-1.1-2 1.1.4-2.2-1.6-1.5 2.2-.5 1-2Z" fill={QG3} />
+      <path d="M12.5 15.2c.5 1 1.3 1.6 2.4 1.8" stroke={QPAPER} strokeWidth="2.1" strokeLinecap="round" fill="none" />
+    </svg>
+  ),
+  skin: (
+    <svg {...QICON}>
+      <path d="M20 6c3.3 4.5 5.4 8 5.4 11.3a5.4 5.4 0 1 1-10.8 0C14.6 14 16.7 10.5 20 6Z" fill={QG1} />
+      <path d="M16.9 17.6c.4-.8 1.1-1.3 1.9-1.4" stroke={QPAPER} strokeWidth="2" strokeLinecap="round" />
+      <path d="M29.5 21.5v3M28 23h3" stroke={QG3} strokeWidth="1.7" strokeLinecap="round" />
+      <path d="M10.5 24.5v2.4M9.3 25.7h2.4" stroke={QG3} strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  ),
+};
+const FORMAT_ICONS = {
+  "сбор": (
+    <svg {...QICON}>
+      <path d="M11 12h17v7.4c0 6.2-4.8 10.1-8.5 10.1s-8.5-3.9-8.5-10.1V12Z" fill={QG2} />
+      <path d="M11 12h17v2.7c0 1.8-1.1 2.9-3.7 2.9H14.7c-2.6 0-3.7-1.1-3.7-2.9V12Z" fill={QG3} />
+      <path d="M20 17.6c1.9.9 3 2.6 3 4.5 0 2-1.1 3.6-3 4.5-1.9-.9-3-2.5-3-4.5 0-1.9 1.1-3.6 3-4.5Z" fill={QPAPER} />
+      <path d="M20 18.5v7.7" stroke={QG2} strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M28.5 15.5h1.4a3.1 3.1 0 0 1 0 6.2H28.5" stroke={QG2} strokeWidth="2.4" fill="none" />
+      <path d="M14.5 8.5c-1.3-1.3-1.3-2.6 0-4M20 8.5c-1.3-1.3-1.3-2.6 0-4" stroke={QG3} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+    </svg>
+  ),
+  "капсулы": (
+    <svg {...QICON}>
+      <rect x="7" y="15.5" width="17" height="9" rx="4.5" fill={QG2} />
+      <rect x="16.6" y="15.5" width="7.4" height="9" rx="3.7" fill={QG1} />
+      <path d="M24 15.5v9" stroke={QPAPER} strokeWidth="1.4" opacity="0.7" />
+      <g transform="rotate(26 27 30.5)">
+        <rect x="18.5" y="26" width="17" height="9" rx="4.5" fill={QG1} />
+        <rect x="28.2" y="26" width="7.3" height="9" rx="3.65" fill={QG3} />
+        <path d="M28.2 26v9" stroke={QPAPER} strokeWidth="1.4" opacity="0.7" />
+      </g>
+      <path d="M12.5 17.5h2" stroke={QPAPER} strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
+    </svg>
+  ),
+  "порошок": (
+    <svg {...QICON}>
+      <rect x="9.5" y="19.5" width="21" height="14" rx="7" fill={QG2} />
+      <rect x="9.5" y="19.5" width="21" height="5.6" rx="2.8" fill={QG1} />
+      <path d="M20 22c1.6.8 2.5 2.2 2.5 3.8 0 1.7-.9 3.1-2.5 3.9-1.6-.8-2.5-2.2-2.5-3.9 0-1.6.9-3 2.5-3.8Z" fill={QPAPER} />
+      <path d="M9 10.5l1.6 3.2 3.5.7-2.5 2.4.6 3.5-3.2-1.7-3.2 1.7.6-3.5-2.5-2.4 3.5-.7L9 10.5Z" fill={QG3} />
+      <path d="M31.5 8v2.6M30.2 9.3h2.6" stroke={QG3} strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  ),
+  "набор": (
+    <svg {...QICON}>
+      <rect x="9.5" y="20" width="21" height="16" rx="3" fill={QG2} />
+      <rect x="6.5" y="13.5" width="27" height="8" rx="2.8" fill={QG1} />
+      <path d="M20 13.5v22.5" stroke={QPAPER} strokeWidth="2.7" />
+      <path d="M6.5 17.4h27" stroke={QPAPER} strokeWidth="2.7" />
+      <path d="M27 6.5l1.2 2.4 2.7.6-1.9 1.8.5 2.6-2.5-1.3-2.5 1.3.5-2.6-1.9-1.8 2.7-.6 1.2-2.4Z" fill={QG3} />
+    </svg>
+  ),
+};
+
 const QUIZ_KEY = "pt-quiz-v1";
 
-function OptionButton({ active, onClick, children, hint, name }) {
+function OptionButton({ active, onClick, children, hint, name, icon }) {
   return (
     <button
       type="button"
@@ -22,7 +105,17 @@ function OptionButton({ active, onClick, children, hint, name }) {
       }`}
     >
       <span className="flex items-center justify-between gap-3">
-        <span className="text-[16px] font-extrabold">{name}</span>
+        <span className="flex min-w-0 items-center gap-3">
+          {icon && (
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-cream to-sageSoft/50 ring-1 ring-line/70 transition group-hover:ring-leaf/40">
+              {icon}
+            </span>
+          )}
+          <span className="min-w-0">
+            <span className="block text-[16px] font-extrabold">{name}</span>
+            {hint && <span className="mt-0.5 block text-[13px] text-secondary">{hint}</span>}
+          </span>
+        </span>
         <span
           className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 transition ${
             active ? "border-leaf bg-leaf text-paper" : "border-ink/25 bg-transparent"
@@ -36,7 +129,6 @@ function OptionButton({ active, onClick, children, hint, name }) {
           )}
         </span>
       </span>
-      {hint && <span className="mt-1 block text-[13px] text-secondary">{hint}</span>}
     </button>
   );
 }
@@ -135,7 +227,7 @@ export default function QuizSection() {
           </Reveal>
 
           <Reveal delay={80} className="mt-8">
-            <div className="rounded-[2rem] border border-line bg-paper p-6 shadow-card sm:p-8">
+            <div className="rounded-[2rem] border border-line glass-card p-6 shadow-card sm:p-8">
               {/* Прогресс */}
               <div className="flex items-center justify-between gap-4">
                 <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-khaki">
@@ -157,7 +249,7 @@ export default function QuizSection() {
                   <legend className="font-display text-2xl font-semibold">Что хотите поддержать?</legend>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
                     {TASKS.map((t) => (
-                      <OptionButton key={t.key} name={t.label} hint={t.hint} active={taskKey === t.key} onClick={() => pickTask(t.key)} />
+                      <OptionButton key={t.key} icon={TASK_ICONS[t.key]} name={t.label} hint={t.hint} active={taskKey === t.key} onClick={() => pickTask(t.key)} />
                     ))}
                   </div>
                 </fieldset>
@@ -168,7 +260,7 @@ export default function QuizSection() {
                   <legend className="font-display text-2xl font-semibold">Как удобнее принимать?</legend>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
                     {FORMAT_OPTIONS.map((f) => (
-                      <OptionButton key={f.key} name={f.label} hint={f.hint} active={formatKey === f.key} onClick={() => pickFormat(f.key)} />
+                      <OptionButton key={f.key} icon={FORMAT_ICONS[f.key]} name={f.label} hint={f.hint} active={formatKey === f.key} onClick={() => pickFormat(f.key)} />
                     ))}
                   </div>
                 </fieldset>
@@ -232,7 +324,7 @@ export default function QuizSection() {
                   <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-leaf">
                     {taskLabel} · формат «{chosenFormatLabel || recommended.format}»
                   </p>
-                  <div className="mt-4 grid gap-5 rounded-3xl border border-line bg-cream p-5 sm:grid-cols-[180px_1fr]">
+                  <div className="mt-4 grid gap-5 rounded-3xl border border-line glass-cream p-5 sm:grid-cols-[180px_1fr]">
                     <Link href={`/product/${recommended.id}/`} className="overflow-hidden rounded-2xl">
                       <img
                         src={asset(recommended.img)}

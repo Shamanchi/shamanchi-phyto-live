@@ -25,6 +25,63 @@ const MOBILE_EXTRA = [
   { href: "/account/", label: "Мои заказы" },
 ];
 
+
+function PhoneGlyph({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" aria-hidden="true">
+      <path d="M7.2 4.2l2.3.9c.6.2.9.8.8 1.4l-.5 2.2a1.1 1.1 0 0 1-.5.7L8.1 10.5a12.6 12.6 0 0 0 5.4 5.4l1.1-1.2a1.1 1.1 0 0 1 .7-.5l2.2-.5c.6-.1 1.2.2 1.4.8l.9 2.3c.2.6 0 1.3-.6 1.6l-1.7 1.1c-.5.3-1.1.4-1.6.2a16.3 16.3 0 0 1-11-11c-.2-.5-.1-1.1.2-1.6l1.1-1.7c.3-.6 1-.8 1.6-.6Z" />
+      <path d="M14.9 4.3a3.8 3.8 0 0 1 4.9 4.3" stroke="#E8963A" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="18.2" cy="5.3" r="1.1" fill="#E8963A" stroke="none" />
+    </svg>
+  );
+}
+function PinGlyph({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 21.4S5.2 15.9 5.2 10.2a6.8 6.8 0 1 1 13.6 0c0 5.7-6.8 11.2-6.8 11.2Z" />
+      <circle cx="12" cy="10.2" r="2.3" fill="#E8963A" stroke="none" />
+    </svg>
+  );
+}
+function SearchGlyph({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+      <circle cx="10.9" cy="10.9" r="6.4" />
+      <path d="m15.7 15.7 5 5" />
+      <path d="M12.4 7c1.5.5 2.6 1.6 3 3.1" stroke="#78AA36" strokeWidth="1.5" />
+      <path d="M6.9 13.4c.3-1.8 1.7-3.3 3.7-3.8" stroke="#E8963A" strokeWidth="1.5" />
+    </svg>
+  );
+}
+function UserGlyph({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="8" r="3.9" />
+      <path d="M4.6 20.2a7.4 7.4 0 0 1 14.8 0" />
+      <path d="M13.3 8.6c.5-.4.8-.9.9-1.5-.7 0-1.3.2-1.9.6l1 1.2-.8.9-.5-.6" stroke="#E8963A" strokeWidth="1.3" fill="#E8963A" />
+    </svg>
+  );
+}
+function HeartGlyph({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z" />
+      <path d="M12 10.6c1.2.6 2 1.6 2 2.8 0 1.2-.8 2.2-2 2.9-1.2-.7-2-1.7-2-2.9 0-1.2.8-2.2 2-2.8Z" fill="#E8963A" stroke="none" />
+      <path d="M12 11.3v4.5" stroke="#FBF8F1" strokeWidth="1.15" strokeLinecap="round" />
+    </svg>
+  );
+}
+function BagGlyph({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" aria-hidden="true">
+      <path d="M6 7h12l1.2 12.2a1.8 1.8 0 0 1-1.8 1.8H6.6a1.8 1.8 0 0 1-1.8-1.8L6 7Z" />
+      <path d="M9 10V6a3 3 0 0 1 6 0v4" />
+      <path d="M12 11.4c1.2.6 2 1.6 2 2.8s-.8 2.2-2 2.8-2-1.6-2-2.8.8-2.2 2-2.8Z" fill="#E8963A" stroke="none" />
+      <path d="M12 12.1v4.4" stroke="#FBF8F1" strokeWidth="1.15" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export default function Nav() {
   const { count, favoriteCount, setCartOpen } = useShop();
   const router = useRouter();
@@ -78,24 +135,13 @@ export default function Nav() {
       >
         <div className="wrap flex h-[38px] items-center justify-between gap-4 text-[13px]">
           <a href={SHOP_PHONE_HREF} className="flex items-center gap-2 font-semibold transition hover:text-white">
-            <svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-              <path d="M6.6 3.5l2.4.9c.5.2.8.7.7 1.2l-.6 2.4a1 1 0 0 1-.4.6l-1.5 1.2a13 13 0 0 0 5.4 5.4l1.2-1.5a1 1 0 0 1 .6-.4l2.4-.6c.5-.1 1 .2 1.2.7l.9 2.4c.2.5 0 1.1-.5 1.4l-1.9 1.2c-.5.3-1.1.4-1.6.2a16.5 16.5 0 0 1-11-11c-.2-.6-.1-1.2.2-1.7l1.2-1.9c.3-.5.9-.7 1.4-.5Z" />
-            </svg>
+            <PhoneGlyph className="h-3.5 w-3.5" />
             Служба поддержки {SUPPORT_PHONE_RAW}, с 10 до 20 (МСК)
           </a>
           <div className="flex items-center gap-6">
             <Link href="/info/contacts/" className="flex items-center gap-1.5 font-semibold transition hover:text-white">
-              <svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-                <path d="M10 18s6-5.3 6-10a6 6 0 1 0-12 0c0 4.7 6 10 6 10Zm0-7.4a2.6 2.6 0 1 0 0-5.2 2.6 2.6 0 0 0 0 5.2Z" />
-              </svg>
+              <PinGlyph className="h-3.5 w-3.5" />
               Пункт самовывоза
-            </Link>
-            <Link href="/#podbor" className="flex items-center gap-1.5 font-semibold transition hover:text-white">
-              <svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-                <path d="M10 2.2a5 5 0 0 1 5 5c0 2.5-1.3 4-2.6 5.2-.9.9-1.9 1.8-1.9 3.1h-1c0-1.9 1.3-3.1 2.3-4.1 1.1-1.1 2.2-2.3 2.2-4.2a4 4 0 1 0-7.3 2.3l.9.8-1.4 1.4-.9-.8a6 6 0 0 1 4.7-9.7Z" />
-                <circle cx="10" cy="17.6" r="1" fill="currentColor" />
-              </svg>
-              Подбор по задаче
             </Link>
           </div>
         </div>
@@ -135,12 +181,9 @@ export default function Nav() {
             onClick={() => setSearchOpen((v) => !v)}
             aria-expanded={searchOpen}
             aria-label={searchOpen ? "Закрыть поиск" : "Открыть поиск"}
-            className="grid h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink transition hover:border-leaf/50 hover:bg-sageSoft/50 sm:h-11 sm:w-11"
+            className="group grid h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink transition hover:border-leaf/50 hover:bg-sageSoft/50 sm:h-11 sm:w-11"
           >
-            <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              <circle cx="11" cy="11" r="6.5" />
-              <path d="m16 16 4.5 4.5" />
-            </svg>
+            <SearchGlyph className="h-[18px] w-[18px] text-leaf group-hover:text-leafDark" />
           </button>
           {/* Телефон — на мобильных плашка сворачивается в иконку */}
           <a
@@ -148,30 +191,23 @@ export default function Nav() {
             aria-label="Позвонить в поддержку"
             className="grid h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink transition hover:border-leaf/50 hover:bg-sageSoft/50 xl:hidden sm:h-11 sm:w-11"
           >
-            <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              <path d="M6.6 3.5l2.4.9c.5.2.8.7.7 1.2l-.6 2.4a1 1 0 0 1-.4.6l-1.5 1.2a13 13 0 0 0 5.4 5.4l1.2-1.5a1 1 0 0 1 .6-.4l2.4-.6c.5-.1 1 .2 1.2.7l.9 2.4c.2.5 0 1.1-.5 1.4l-1.9 1.2c-.5.3-1.1.4-1.6.2a16.5 16.5 0 0 1-11-11c-.2-.6-.1-1.2.2-1.7l1.2-1.9c.3-.5.9-.7 1.4-.5Z" />
-            </svg>
+            <PhoneGlyph className="h-[18px] w-[18px] text-leaf group-hover:text-leafDark" />
           </a>
           {/* Кабинет */}
           <Link
             href="/account/"
             aria-label="Личный кабинет — мои заказы"
-            className="hidden h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink transition hover:border-leaf/50 hover:bg-sageSoft/50 md:grid sm:h-11 sm:w-11"
+            className="group hidden h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink transition hover:border-leaf/50 hover:bg-sageSoft/50 md:grid sm:h-11 sm:w-11"
           >
-            <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              <circle cx="12" cy="8" r="4" />
-              <path d="M4.5 20.5a7.5 7.5 0 0 1 15 0" />
-            </svg>
+            <UserGlyph className="h-[18px] w-[18px] text-leaf group-hover:text-leafDark" />
           </Link>
           {/* Избранное */}
           <Link
             href="/favorites/"
             aria-label={`Избранное, товаров: ${favoriteCount}`}
-            className="relative hidden h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink transition hover:border-leaf/50 hover:bg-sageSoft/50 md:grid sm:h-11 sm:w-11"
+            className="group relative hidden h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink transition hover:border-leaf/50 hover:bg-sageSoft/50 md:grid sm:h-11 sm:w-11"
           >
-            <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z" />
-            </svg>
+            <HeartGlyph className="h-[18px] w-[18px] text-leaf group-hover:text-leafDark" />
             {favoriteCount > 0 && (
               <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-leaf px-1 text-[11px] font-extrabold text-paper">
                 {favoriteCount}
@@ -183,12 +219,9 @@ export default function Nav() {
             type="button"
             onClick={() => setCartOpen(true)}
             aria-label={`Корзина, товаров: ${count}`}
-            className="relative grid h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink transition hover:border-leaf/50 hover:bg-sageSoft/50 sm:h-11 sm:w-11"
+            className="group relative grid h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink transition hover:border-leaf/50 hover:bg-sageSoft/50 sm:h-11 sm:w-11"
           >
-            <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              <path d="M6 7h12l1.2 12.2a1.8 1.8 0 0 1-1.8 1.8H6.6a1.8 1.8 0 0 1-1.8-1.8L6 7Z" />
-              <path d="M9 10V6a3 3 0 0 1 6 0v4" />
-            </svg>
+            <BagGlyph className="h-[18px] w-[18px] text-leaf group-hover:text-leafDark" />
             {count > 0 && (
               <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-honey px-1 text-[11px] font-extrabold text-ink">
                 {count}
@@ -201,7 +234,7 @@ export default function Nav() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-expanded={menuOpen}
             aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
-            className="grid h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink xl:hidden sm:h-11 sm:w-11"
+            className="group grid h-10 w-10 place-items-center rounded-full border border-line bg-cream text-ink xl:hidden sm:h-11 sm:w-11"
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
               {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h10" />}
@@ -214,10 +247,7 @@ export default function Nav() {
       {searchOpen && (
         <div className="border-t border-line/60 bg-paper/95 px-5 py-4 backdrop-blur-md">
           <form onSubmit={submitSearch} className="wrap flex items-center gap-3" role="search" aria-label="Поиск по каталогу">
-            <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0 text-khaki" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              <circle cx="11" cy="11" r="6.5" />
-              <path d="m16 16 4.5 4.5" />
-            </svg>
+            <SearchGlyph className="h-5 w-5 shrink-0 text-leaf" />
             <input
               ref={searchInputRef}
               type="search"

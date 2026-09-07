@@ -1,13 +1,10 @@
 import Link from "next/link";
 import products from "../data/products.json";
-import HeroLeavesMount from "./live/HeroLeavesMount";
 import DoctorCard from "./home/DoctorCard";
 
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pb-10 pt-28 sm:pt-32 lg:pb-14">
-      {/* слой 2 «листья»: tsParticles, только первый экран и десктоп */}
-      <HeroLeavesMount />
 
       <div className="wrap relative grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8">
         <div className="relative z-10 max-w-2xl">

@@ -31,10 +31,14 @@ export default function CartView() {
     return (
       <div className="pt-16 sm:pt-[72px]">
         <div className="wrap py-16 text-center sm:py-24">
-          <span className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-sageSoft text-leaf">
-            <svg viewBox="0 0 24 24" className="h-9 w-9" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-              <path d="M6 7h12l1.2 12.2a1.8 1.8 0 0 1-1.8 1.8H6.6a1.8 1.8 0 0 1-1.8-1.8L6 7Z" />
-              <path d="M9 10V6a3 3 0 0 1 6 0v4" />
+          <span className="mx-auto grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-cream to-sageSoft/70 ring-1 ring-leaf/15">
+            <svg viewBox="0 0 64 64" className="h-14 w-14" aria-hidden="true">
+              <path d="M24 21.5v-3.2a8 8 0 0 1 16 0v3.2" stroke="#78AA36" strokeWidth="4.2" fill="none" />
+              <path d="M18.5 22h27l1.6 25.2a7 7 0 0 1-7 7.3H23.9a7 7 0 0 1-7-7.3l1.6-25.2Z" fill="#207D44" />
+              <path d="M32 27.2c2.9 1.4 4.6 4 4.6 7.1 0 3.1-1.7 5.7-4.6 7.1-2.9-1.4-4.6-4-4.6-7.1 0-3.1 1.7-5.7 4.6-7.1Z" fill="#E8963A" />
+              <path d="M32 28.6v11.6" stroke="#FBF8F1" strokeWidth="1.8" strokeLinecap="round" />
+              <circle cx="48.5" cy="12.5" r="1.7" fill="#E8963A" />
+              <path d="M49.8 9.6a4.4 4.4 0 0 1 5.6 4.6" stroke="#E8963A" strokeWidth="1.8" strokeLinecap="round" fill="none" />
             </svg>
           </span>
           <h1 className="mt-6 font-display text-4xl font-semibold">Корзина пока пуста</h1>

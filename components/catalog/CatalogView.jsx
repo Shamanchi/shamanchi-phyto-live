@@ -232,8 +232,17 @@ export default function CatalogView() {
         </div>
 
         {visible.length === 0 ? (
-          <div className="mt-10 rounded-3xl border border-line bg-cream p-10 text-center">
-            <p className="font-display text-2xl font-semibold">По вашему запросу ничего нет</p>
+          <div className="mt-10 rounded-3xl border border-line glass-cream p-10 text-center">
+            <span className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-cream to-sageSoft/70 ring-1 ring-leaf/15">
+              <svg viewBox="0 0 64 64" className="h-12 w-12" aria-hidden="true">
+                <circle cx="29" cy="29" r="15.5" fill="#207D44" />
+                <path d="M41.5 41.5l9.5 9.5" stroke="#78AA36" strokeWidth="5" strokeLinecap="round" />
+                <path d="M29 20.4c2.9 1.4 4.6 4 4.6 7.1 0 3.1-1.7 5.7-4.6 7.1-2.9-1.4-4.6-4-4.6-7.1 0-3.1 1.7-5.7 4.6-7.1Z" fill="#E8963A" />
+                <path d="M29 21.8v11.8" stroke="#FBF8F1" strokeWidth="2" strokeLinecap="round" />
+                <path d="M51.5 14.5l1.2 2.5 2.8.6-2 1.9.5 2.7-2.5-1.3-2.5 1.3.5-2.7-2-1.9 2.8-.6 1.2-2.5Z" fill="#78AA36" />
+              </svg>
+            </span>
+            <p className="mt-5 font-display text-2xl font-semibold">По вашему запросу ничего нет</p>
             <p className="mt-2 text-[14px] text-secondary">Попробуйте сбросить фильтры или изменить запрос.</p>
             <button
               type="button"
