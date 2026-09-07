@@ -88,13 +88,9 @@ function Illustration({ slug }) {
   if (slug === "gastrointestinal") {
     return (
       <svg {...common}>
-        <path d="M31 7 V14" stroke={G1} strokeWidth="3.2" strokeLinecap="round" fill="none" />
-        <path d="M31 14 C37 13.5 43 17 43.5 23 C44 28.5 39.5 31.5 34.5 32.5 C30.5 33.3 28.5 35.5 29 39.5" stroke={G1} strokeWidth="3.2" strokeLinecap="round" fill="none" />
-        <path d="M29 39.5 C29.5 43 33.5 44 37 42.5" stroke={G1} strokeWidth="3.2" strokeLinecap="round" fill="none" />
-        <path d="M19 46 Q15 46 15 50 Q15 54 20 54 Q25 54 25 49 Q25 44 31 44 Q37 44 37 49 Q37 54 42 54 Q47 54 47 50 Q47 46 43 46" stroke={G1} strokeWidth="3.2" strokeLinecap="round" fill="none" />
-        <path d="M35 20 Q38 21 38.5 24" stroke={G2} strokeWidth="2.4" strokeLinecap="round" fill="none" />
-        <circle cx="33.5" cy="26.5" r="2.4" fill={G3} />
-        <path d="M21 49.5 Q22 48 24 48.3 M39 49.5 Q40 48 42 48.3" stroke={G2} strokeWidth="2" strokeLinecap="round" fill="none" />
+        <path d="M13 18 H43 C50 18 50 29 43 29 H22 C15 29 15 40 22 40 H41 C48 40 48 51 41 51 H16" stroke={G1} strokeWidth="4.5" strokeLinecap="round" fill="none" />
+        <circle cx="52" cy="15" r="3" fill={G3} />
+        <circle cx="54" cy="46" r="2.6" fill={G2} />
       </svg>
     );
   }
